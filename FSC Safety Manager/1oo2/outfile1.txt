@@ -1,0 +1,1345 @@
+FSC Safety Manager
+Configuration Forms
+for use with the Honeywell FSC System
+Releases 42x and 500
+FS88-500
+
+dfsfsdf
+.
+Implementation
+FSC Safety Manager
+FSC Safety Manager
+Configuration Forms
+for use with the Honeywell FSC System
+Releases 42x and 500
+FS88-500
+02/98
+Copyright, Notices, and Trademarks
+© Copyright 1998 by Honeywell Inc.
+Revision 07 – February 20, 1998
+While this information is presented in good faith and believed to be accurate,
+Honeywell disclaims the implied warranties of merchantability and fitness for a
+particular purpose and makes no express warranties except as may be stated in
+its written agreement with and for its customer.
+In no event is Honeywell liable to anyone for any indirect, special or consequential
+damages. The information and specifications in this document are subject to
+change without notice.
+TotalPlant, TDC 3000 and Universal Control Network are U.S. registered
+trademarks of Honeywell Inc.
+FSC is a trademark of Honeywell Safety Management Systems.
+Other brand or product names are trademarks of their respective owners.
+Honeywell
+Industrial Automation and Control
+Automation College
+2820 West Kelton Lane
+Phoenix, AZ 85023
+(602) 313-5669
+ii FSC Safety Manager Configuration Forms 02/98
+About This Publication
+This publication provides the configuration forms for the FSC Safety Manager in the TotalPlant
+Solution (TPS) network. It supports TPS Releases 530 and 531 and the Honeywell FSC system
+Releases 42x and 500. These forms should be used to assist you in configuring the FSC-SMM data
+points at the Universal Station.
+The user should be familiar with the FSC Safety Manager system control functions described in
+FSC Safety Manager Control Functions and the Implementation/Startup & Reconfiguration - 2
+binder (LCN) bookset before using this publication.
+All references in this manual to "FSC Safety Manager" or "FSC Safety
+Manager Module" pertain only for use with the Honeywell FSC system.
+02/98 FSC Safety Manager Configuration Forms iii
+iv FSC Safety Manager Configuration Forms 02/98
+Table of Contents
+FSC SAFETY MANAGER FORMS
+Form Name Form ID
+FSC-SM UCN Node Configuration.........................................................................................FS88-501A
+FSC-SM Node-Specific Configuration....................................................................................FS88-501B
+FSC-SM Analog Input Data Point ..........................................................................................FS88-502
+FSC-SM Analog Output Data Point........................................................................................FS88-503
+FSC-SM Digital Composite Data Point ..................................................................................FS88-504
+FSC-SM Digital Input Data Point............................................................................................FS88-505
+FSC-SM Digital Output Data Point.........................................................................................FS88-506
+FSC-SM Logic Point...............................................................................................................FS88-507
+FSC-SM Flag Point ................................................................................................................FS88-508
+FSC-SM Timer Point..............................................................................................................FS88-509
+FSC-SM Numeric Point..........................................................................................................FS88-510
+02/98 FSC Safety Manager Configuration Forms v
+vi FSC Safety Manager Configuration Forms 02/98
+FSC Safety Manager Form Instructions
+FILLING OUT PAPER FORMS
+Where To Find Parameter and Data Point Help Information
+Refer to the FSC Safety Manager Parameter Reference Dictionary and the FSC Safety Manager Control
+Functions publications in the FSC Implementation Safety Manager binder for further information on
+parameters and data points.
+Please note that the sample form below is an example only and does not represent any existing
+configuration form.
+FORMS
+FS88-502
+Page 1 of 4
+08/97
+FSC-SM Analog Input Data Point
+Universal Station's configuration
+display where values and
+parameter options which have been
+written on the form will be keyed in
+and/or selected.
+FSC-SM AnalgIn Data Point Engineer: Date:
+Point Assignment Display
+NAME
+range =
+Not applicable
+|________ _______ . . . . . . . . . . . . . . . _|
+Tag Name
+default =
+Blank
+PNTFORM
+Point Form
+Full
+Componnt
+Point is fully displayed and alarmed
+Point is partially displayed but not alarmed
+N/A if PNTFORM = Componnt.
+If parameters within a box do not
+apply when some other parameter
+option is selected, that box is
+indicated by N/A if or ONLY if.
+PTDESC
+Point Descriptor
+|
+_._._._._. _._. _._._._._._._. _._._._._._._._. _. _|
+range = Not applicable
+default =Blank
+EUDESC
+Engineering Units Descriptor
+|_._._._._. _. _. _|
+range =
+Not applicable
+default =
+Blank
+KEYWORD
+Point Keyword Descriptor
+|_._._._._. _. _. _|
+range =
+Not applicable
+default =
+Blank
+N/A if PNTFORM = Componnt.
+Text in bold indicates what
+parameter(s) or parameter option(s)
+apply when an option is selected for
+a previous parameter.
+PVSRCOPT
+PV Source Option
+PVSOURCE
+PV Source
+OnlyAuto
+All
+Auto
+Man
+Sub
+Parameter values in bold italics
+indicate the default value for that
+parameter.
+PV source selection is not available and
+field wiring or memory fetch supplies PV.
+Selection from PVSOURCE is available
+and Operator/CL program may supply PV.
+Applies when PVSRCOPT = All.
+Field wiring or memory fetch supplies PV.
+PV is supplied by Operator or program.
+A value is substituted by a CL program.
+Alarming display
+N/A if PNTFORM = Componnt.
+Some parameters will display only if
+a value has been specified for
+another parameter. For example,
+alarm priorities will not show until
+the corresponding alarm trip point
+has been specified. Thus, PVHIPR
+(PV High Alarm Priority) and
+PVLOPR (PV Low Alarm Priority)
+will not display until a value has
+been entered for the PVHITP (PV
+High Alarm Trip Point) and
+PVLOTP (PV Low Alarm Trip Point)
+parameters, respectively.
+PVHITP PV High Alarm Trip Point |_._._._._. _. _|
+range = PVLOTP to PVEUHI, & NaN
+default = NaN
+PVHIPR
+PV High Alarm Priority
+NoAction Journal Low High
+Emergncy Printer JNLPrint
+PVLOTP
+PV Low Alarm Trip Point | . . . . . . . |
+_______
+range = PVEULO to PVHITP, & NaN
+default = NaN
+PVLOPR
+PV Low Alarm Priority
+NoAction Journal Low High
+Emergncy Printer JNLPrint
+FSC Safety Manager Form Instructions, continued
+ENTERING DATA FROM THE FORMS INTO THE SYSTEM
+Select the NETWORK INTERFACE MODULE target from the Engineering Main Menu to get the NIM
+BUILD TYPE SELECT MENU.
+FSC-SM
+NODE
+CONFIGURATION
+Form FS88-501A
+FSC-SM
+NODE-SPECIFIC
+CONFIGURATION
+Form FS88-501B
+PROCESS
+POINT
+BUILDING
+Form FS88-502 to FS88-510
+Select a point type from this PROCESS POINT BUILDING menu.
+Analg In/Out Dig In/Out DigComp Logic Flag Timer Numeric
+FS88-501A
+Page 1 of 3
+02/98
+FSC-SM UCN Node Configuration
+FSC-SM UCN Node Configuration Engineer: Date:
+UCN Node Configuration Display
+NOTE
+This form is intended primarily for use in configuring each FSC-SM on your system by selecting SM for
+NODETYP below. This same form can be used to configure each NIM on your system by selecting
+NIM for NODETYP (some different targets will appear as shown). If your system has other UCN
+devices (PM, APM, HPM, LM), the NIMs can also be configured using the forms contained in the
+documentation for those devices.
+NTWKNUM NIM's UCN that SM is connected to (Process Network Number)
+NODENUM SMM's or NIM's Address on the UCN NODETYP Type of Node on the UCN |__.__| range = 1 to 20
+default = Not applicable
+|__.__| range = 1 to 64
+default = Not applicable
+NotConfg This NIM or SM not configured on UCN
+Nim Network Interface Module
+PM Process Manager Module
+APM Advanced Process Manager Module
+HPM High Performance Process Manager Module
+LM Logic Manager Module
+SM Safety Manager Module
+Applicable only if NODETYP = SM
+SMPLTFM FSC Safety Manager is using FSC Controller
+Type of Safety Control Platform TRICON Safety Manager is using TRICON Controller
+NODEASSN ThisNim NIM assigned to report alarms and perform
+checkpointing for network specified in
+NTWKNUM
+RemotNim Additional NIM on a network that already has
+"ThisNIM" defined
+Applicable only if NODETYP = Nim
+LOADSCOP NimOnly Configured data goes to the NIM only
+Load Scope NimAndPm Configured data goes to NIM and SM
+NMSGTXT Number of Message Text Items |__.__| range = 0 to 15
+default = 0
+DIGITAL COMPOSITE PV STATE TEXT
+MOVPVTXT Moving Individual point configuration specifies
+Moving Text which input state is associated with this
+moving text. If NODENUM is even, this
+parameter is hidden.
+FS88-501A
+Page 2 of 3
+02/98
+FSC-SM UCN Node Configuration
+UCN Node Configuration Display (Continued)
+BADPVTXT Bad Individual point configuration specifies
+Bad Text which input state is associated with the bad
+text. If NODENUM is even, this parameter is
+hidden.
+FS88-501A
+Page 3 of 3
+02/98
+FSC-SM UCN Node Configuration
+FSC-SM UCN Node Configuration Engineer: Date:
+Status Message Text Configuration Display
+N/A if NMSGTXT = 0
+MSGTXT(1) Status Message Text #1 MSGTXT(2) Status Message Text #2 MSGTXT(3) Status Message Text #3 MSGTXT(4) Status Message Text #4 MSGTXT(5) Status Message Text #5 MSGTXT(6) Status Message Text #6 MSGTXT(7) Status Message Text #7 MSGTXT(8) Status Message Text #8 MSGTXT(9) Status Message Text #9 MSGTXT(10) Status Message Text #10 MSGTXT(11) Status Message Text #11 MSGTXT(12) Status Message Text #12 MSGTXT(13) Status Message Text #13 MSGTXT(14) Status Message Text #14 MSGTXT(15) Status Message Text #15 |__.__.__.__.__.__.__.__| range = Eight-Character String
+default = Blank
+|__.__.__.__.__.__.__.__| range = Eight-Character String
+default = Blank
+|__.__.__.__.__.__.__.__| range = Eight-Character String
+default = Blank
+|__.__.__.__.__.__.__.__| range = Eight-Character String
+default = Blank
+|__.__.__.__.__.__.__.__| range = Eight-Character String
+default = Blank
+|__.__.__.__.__.__.__.__| range = Eight-Character String
+default = Blank
+|__.__.__.__.__.__.__.__| range = Eight-Character String
+default = Blank
+|__.__.__.__.__.__.__.__| range = Eight-Character String
+default = Blank
+|__.__.__.__.__.__.__.__| range = Eight-Character String
+default = Blank
+|__.__.__.__.__.__.__.__| range = Eight-Character String
+default = Blank
+|__.__.__.__.__.__.__.__| range = Eight-Character String
+default = Blank
+|__.__.__.__.__.__.__.__| range = Eight-Character String
+default = Blank
+|__.__.__.__.__.__.__.__| range = Eight-Character String
+default = Blank
+|__.__.__.__.__.__.__.__| range = Eight-Character String
+default = Blank
+|__.__.__.__.__.__.__.__| range = Eight-Character String
+default = Blank
+.
+FS88-501B
+Page 1 of 2
+02/98
+FSC-SM Node-Specific Configuration
+FSC-SM Configuration Engineer: Date:
+WARNING: If the point mix or the scan rate is changed, then the node's full database will be set to its
+default.
+SM Node Configuration Display
+NTWKNUM NIM's UCN that SMM is connected to |__.__| range = 1 to 20
+default = Not applicable
+NODENUM SMM's Address on the UCN |__.__| range = 1 to 64
+default = Not applicable
+NODETYP PM Process Manager Module
+Enumeration of the UCN Node Type APM Advanced Process Manager Module
+HPM High Performance Process Manager Module
+LM Logic Manager Module
+SM Safety Manager Module
+Applicable only if NODETYP = SM
+SMPLTFM FSC Safety Manager is using FSC Controller
+Type of Safety Control Platform TRICON Safety Manager is using TRICON Controller
+NAISLOT* # of Analog Input Slots NAOSLOT* # of Analog Output Slots NDISLOT* # of Digital Input Slots NDOSLOT* # of Digital Output Slots NLOGSLOT* # of Logic Slots NDCSLOT* # of Digital Composite Slots
+NONETXT Digital Composite None State |__.__.__.__| range = 0 to 1000
+default = 0
+|__.__.__| range = 0 to 1000
+default = 0
+|__.__.__.__| range = 0 to 2000
+default = 0
+|__.__.__.__| range = 0 to 2000
+default = 0
+|__.__| range = 0 to 30
+default = 0
+|__.__.__| range = 0 to 1000
+|__.__.__.__.__.__.__.__| range = Not applicable
+default = None
+NNUMERIC** # of Numerics |__.__.__.__| range = 0 to 1000
+default = 0
+** * The actual Range check will be calculated on the PU count for each Point type and the mix of configured
+Points desired. The FSC-SMM will perform Range checking. The 0.5 second scan rates will tend to lower
+these maximum range values.
+The actual Range check for this Parameter will depend on the NNLSBA. The FSC-SMM will perform Range
+checking.
+FS88-501B
+Page 2 of 2
+02/98
+FSC-SM Node-Specific Configuration
+SM Node Configuration Display (continued)
+NNLSBA*** FSC-SM Start Address of the Numeric Array |__.__.__.__.__| range = 0 to 65535
+default = 0 (Not Configured)
+NFLAG # of Flags |__.__.__.__| range = 0 to 2000
+default = 0
+The Range check for this Parameter will be dependent on the FLLSBA. SMM will perform Range checking.
+FLLSBA FSC-SM Start Address of the Flag Array |__.__.__.__.__| range = 0 to 65535
+default = 0 (Not Configured)
+The Range check for this Parameter will be dependent on the NFLAG value. SMM will perform Range
+checking.
+NTIMER |__.__.__.__| range = 0 to 1500
+# of Timers default = 0
+The actual Range check will be calculated on the PU count for each Point type and the mix of configured
+Points desired. The 0.5 second scan rates will tend to lower the maximum range value. SMM will perform
+Range checking.
+SCANRATE SMM's Scan Rate in Times per Second |__| range: 0 = Null
+1 = AR1DT2
+2 = AR2DT2
+3 = AR1DT1
+default = AR2DT2
+*** The Range check for this Parameter will be dependent on NNUMERIC value. The FSC-SMM will perform
+Range checking.
+FS88-502
+Page 1 of 4
+02/98
+FSC-SM Analog Input Data Point
+FSC-SM AnalgIn Data Point Engineer: Date:
+Point Assignment Display
+NAME range = Not applicable
+Tag Name |__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__| default = Blank
+NODETYP PM range = Not applicable
+Node Type APM default = PM
+HPM
+LM
+SM
+Applicable if NODETYP = SM
+SMPLTFM FSC Safety Manager is using FSC Controller
+Type of Safety Control Platform TRICON Safety Manager is using TRICON Controller
+PNTFORM Full Point is fully displayed and alarmed
+Point Form Componnt Point is partially displayed but not alarmed
+PTDESC range = Not applicable
+Point Descriptor default = Blank
+|__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__|
+EUDESC Engineering Unit Descriptor |__.__.__.__.__.__.__.__| range = Not applicable
+default = Blank
+KEYWORD Point Keyword Descriptor |__.__.__.__.__.__.__.__| range = Not applicable
+default = Blank
+ASSOCDSP |__.__.__.__.__.__.__.__| range = Alphanumeric
+Associated Display default = Blank
+UNIT |__.__| range = Alphanumeric
+Process Unit Point is Assigned to default = Not applicable
+NTWKNUM NIM's UCN that Contains This Point |__.__| range = 1 to 20
+default = Not applicable
+NODENUM SMM's Address on the UCN |__.__| range = 1 to 64
+default = Not applicable
+SLOTNUM Point Slot Number |__.__.__.__| range = 1 to 1000
+default = Not applicable
+FS88-502
+Page 2 of 4
+02/98
+FSC-SM Analog Input Data Point
+Point Assignment Display (continued)
+N/A if PNTFORM = Componnt
+PRIMMOD range = Not applicable
+Primary Module Point ID default = Null
+|__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__|
+PLCADDR FSC Source Address |__.__.__.__.__| range = 0 to 65535
+default = 0 (Not Configured)
+NIM/PV Configuration Display
+PVCHAR LINEAR
+PV Characterization SQROOT
+PVRAWHI PV Raw High Value |__.__.__.__.__.__.__.__| range = > PVRAWLO
+default = 4095
+PVRAWLO PV Raw Low Value |__.__.__.__.__.__.__.__| range = < PVRAWHI
+default = 0
+INPTDIR Direct Highest energy from sensor = 100PV
+Analog Input Direction Reverse Highest energy from sensor = 0PV
+PVEUHI PV High Range in EUs |__.__.__.__.__.__.__.__| range = PVEULO to PVEXEUHI
+default = 100.0
+PVEULO PV Low Range in EUs |__.__.__.__.__.__.__.__| range = PVEXEULO to PVEUHI
+default = 0.0
+PVFORMAT D0 D2 D0 = 9999o D2 = 99o99
+PV Decimal Point Format D1 D3 D1 = 999o9 D3 = 9o999
+PVEXEUHI PV Range Extension High in EUs |__.__.__.__.__.__.__.__| range = ≥ PVEUHI
+default = 102.9
+PVEXEULO |__.__.__.__.__.__.__.__| range = < PVEULO
+PV Range Extension Low in EUs default = -2.9
+PVCLAMP NoClamp No clamping of the PV value
+PV Clamping Option Clamp Clamp PV value at range extension limit
+LOCUTOFF |__.__.__.__.__.__.__.__| range = PVEULO to PVEUHI and NaN
+Low Signal Cutoff for Flow Inputs default = NaN
+FS88-502
+Page 3 of 4
+02/98
+FSC-SM Analog Input Data Point
+NIM/PV Configuration Display (continued)
+N/A if PNTFORM = Componnt
+PVSRCOPT PV Source Option OnlyAuto All PV source selection is not available and field wiring
+or memory fetch supplies PV.
+Selection from PVSOURCE is available and
+Operator/CL-program may supply PV.
+PVSOURCE PV Source Auto Man Sub Applies when PVSRCOPT = All.
+Field wiring or memory fetch supplies PV.
+PV is supplied by Operator or program.
+A value is substituted by a CL program.
+TF PV Filter Lag Time in Minutes |__.__.__.__| range = 0.0 to 60.0 (minutes)
+default = 0.0 (PV will not be delayed)
+N/A if PNTFORM = Componnt
+PVTV PV Target Value in EUs OVERVAL Overview Display Value |__.__.__.__.__.__.__.__| range = PVEXEULO to PVEXEUHI, and NaN
+default = NaN
+|__.__.__| range = 0 to 100
+default = 25
+Alarming Display
+N/A if PNTFORM = Componnt
+The following two example parameters represent the typical format of alarm trip points and priorities. Please refer to
+these as you are entering trip points and alarm priorities that follow this information. NOTE: If you do not enter a trip
+point value for a given pair of trip points and alarm priorities, do not circle an alarm priority option for that pair (i.e., no
+trip point, no alarm priority).
+PVLOTP PV Low Alarm Trip Point |__.__.__.__.__.__.__.__| range = PVEULO to PVHITP, and NaN
+default = NaN
+BADPVPR
+BAD PV Alarm Priority No Action Journal Low High Emergncy Alarm is not reported to the system
+Logged but not reported to Operator Stations
+Reported to Unit Alarm Summary display
+Reported to Area and Unit Alarm Summary
+Reported to all Alarm Summary displays
+N/A if PNTFORM = Componnt
+PVALDB Half (of 1) One Two Three
+PV Alarm Deadband in  0.000000our Five EU
+N/A if PNTFORM = Componnt, Only if PVALDB = EU
+PVALDBEU |__.__.__.__.__.__.__.__| range = 0
+PV Alarm Deadband in EU default = 1.0
+FS88-502
+Page 4 of 4
+02/98
+FSC-SM Analog Input Data Point
+NIM/PV Configuration Display (continued)
+N/A if PNTFORM = Componnt
+PVHITP PV High Alarm Trip Point |__.__.__.__.__.__.__.__| range = PVLOTP to PVEUHI, and NaN
+default = NaN
+PVHIPR Noaction Journal Low High
+PV High Alarm Priority Emergency Printer Jnlprint
+PVLOTP PV Low Alarm Trip Point |__.__.__.__.__.__.__.__| range = PVEULO to PVHITP, and NaN
+default = NaN
+PVLOPR Noaction Journal Low High
+PV Low Alarm Priority Emergency Printer Jnlprint
+BADPVPR Noaction Journal Low High
+Bad PV Alarm Priority Emergency Printer Jnlprint
+N/A if PNTFORM = Componnt
+ALENBST Displayed Logged Reported to EIP
+Point Alarm Enable Status Enable Yes Yes Yes
+Disable No Yes Yes
+Inhibit No No No
+PRIMMOD Primary Module ID |__.__.__.__.__.__.__.__| range = Not applicable
+default = Null
+CCSRC |__.__.__.__.__| range = 0 to 65535
+Target Address in FSC for the default = 0 (Not configured/UCN Access allowed for
+Contact Cutout Source CONTCUT)
+FS88-503
+Page 1 of 2
+02/98
+FSC-SM Analog Output Data Point
+FSC-SM AnalgOut Data Point Engineer: Date:
+Point Assignment Display
+NAME range = Not applicable
+Tag Name |__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__| default = Blank
+NODETYP PM range = Not applicable
+Node Type APM default = PM
+HPM
+LM
+SM
+Applicable if NODETYP = SM
+SMPLTFM FSC Safety Manager is using FSC Controller
+Type of Safety Control Platform TRICON Safety Manager is using TRICON Controller
+PNTFORM Full Point is fully displayed and alarmed
+Point Form Componnt Point is partially displayed but not alarmed
+PTDESC range = Not applicable
+Point Descriptor default = Blank
+|__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__|
+EUDESC Engineering Units Descriptor |__.__.__.__.__.__.__.__| range = Not applicable
+default = Blank
+KEYWORD |__.__.__.__.__.__.__.__| range = Not applicable
+Keyword Descriptor default = Blank
+ASSOCDSP |__.__.__.__.__.__.__.__| range = Alphanumeric
+Associated Display default = Blank
+UNIT |__.__| range = Alphanumeric
+Process Unit Point is Assigned to default = Not applicable
+NTWKNUM NIM's UCN that Contains This Point |__.__| range = 1 to 20
+default = Not applicable
+NODENUM SMM's Address on the UCN |__.__| range = 1 to 64
+default = Not applicable
+SLOTNUM |__.__.__.__| range = 1 to 1000
+Point Slot Number default = Not applicable
+The actual Range check will be calculated on the PU count for each Point type and the mix of configured Points
+desired.
+FS88-503
+Page 2 of 2
+02/98
+FSC-SM Analog Output Data Point
+Point Assignment Display (continued)
+N/A if PNTFORM = Componnt
+PRIMMOD range = Not applicable
+Primary Module Point ID default = Null
+|__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__|
+PLCADDR FSC Source Address |__.__.__.__.__| range = 0 to 65535
+default = 0 (Not Configured)
+OPFINHI OPFINLO |__.__.__.__.__.__.__.__| range = > OPFINLO
+default = 4095.0
+|__.__.__.__.__.__.__.__| range = < OPFINHI
+default = 0.0
+OPTDIR AO Direct/Reverse Action Operating Configuration Display
+Direct Reverse For final OP: 100= Highest energy to actuator
+For final OP: 100= Lowest energy to actuator
+Mode Configuration Display
+N/A if PNTFORM = Componnt
+RCASOPT Remote Cascade Option NMODE Analog Output Point's Normal Mode None Ddc No cascade mode of any type is allowed
+In Cas, AM point controls this point's OP
+None Man Cas None, Man applies when RCASOPT = None.
+None, Man, Cas applies when RCASOPT = Ddc.
+No configured "normal" operating mode.
+Manual is the configured "normal" mode.
+If RCASOPT equals Ddc, Cascade may be configured
+as the "normal" mode.
+N/A if NMODE = None, or if PNTFORM = Componnt
+NMODATTR None Parameter NMODE sets "normal" mode
+Normal Mode Attribute Operator Operator sets "normal" operating mode
+Program Program sets "normal" operating mode
+MODEPERM Permit Operator can change this point's mode
+Mode Permissive NotPerm Operator cannot change this point's mode
+FS88-504
+Page 1 of 8
+02/98
+FSC-SM Digital Composite Data Point
+FSC-SM DigComp Data Point Engineer: Date:
+Point Assignment Display
+NAME range = Not applicable
+Tag Name |__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__| default = Blank
+NODETYP PM range = Not applicable
+Node Type APM default = PM
+HPM
+LM
+SM
+Applicable if NODETYP = SM
+SMPLTFM FSC Safety Manager is using FSC Controller
+Type of Safety Control Platform TRICON Safety Manager is using TRICON Controller
+PNTFORM Full Point is fully displayed and alarmed
+Point Form Componnt Point is partially displayed but not alarmed
+PTDESC range = Not applicable
+Point Descriptor default = Blank
+|__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__|
+EUDESC Engineering Units Descriptor |__.__.__.__.__.__.__.__| range = Not applicable
+default = Blank
+KEYWORD |__.__.__.__.__.__.__.__| range = Not applicable
+Keyword Descriptor default = Blank
+ASSOCDSP |__.__.__.__.__.__.__.__| range = Alphanumeric
+Associated Display default = Blank
+UNIT |__.__| range = Alphanumeric
+Process Unit Point is Assigned to default = Not applicable
+NTWKNUM NIM's UCN that Contains This Point |__.__| range = 1 to 20
+default = Not applicable
+NODENUM SMM's Address on the UCN |__.__| range = 1 to 64
+default = Not applicable
+SLOTNUM |__.__.__.__| range = 1 to 1000
+Point Slot Number default = Not applicable
+The actual Range check will be calculated on the PU count for each Point type and the mix of configured Points
+desired.
+N/A if PNTFORM = Componnt
+PRIMMOD range = Not applicable
+Primary Module Point ID default = Null
+|__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__|
+FS88-504
+Page 2 of 8
+02/98
+FSC-SM Digital Composite Data Point
+Point Assignment Display (continued)
+NOSTATES 2 2 digital switch states can be configured
+Number of Digital States 3 3 digital switch states can be configured
+NODINPTS 0 0 digin connections can be configured
+Number of Digital Input Connections 1 1 digin connection can be configured
+2 2 digin connections can be configured
+NODOPTS 0 0 digout connections can be configured
+Number of Digital Output Connections 1 1 digout connection can be configured
+2 2 digout connections can be configured
+3 3 digout connections can be configured
+State Configuration Display
+N/A if PNTFORM = Componnt
+(1) = First active state
+(0) = Inactive state
+(2) = Second active state
+STATETXT (1)
+State 1 Descriptor (1) |__.__.__.__.__.__.__.__| range = Not applicable
+default = On
+STATETXT (0) range = Not applicable
+State 0 Descriptor (0) |__.__.__.__.__.__.__.__| default = Off
+STATETXT (2) range = Not applicable
+State 2 Descriptor (2) |__.__.__.__.__.__.__.__| default = "State2"
+BOXCLR (1) Red Green (Middle box default) White Black
+State 1 Box Color Cyan Yellow Blue Magenta
+BOXCLR (0) Red Green White Black
+State 0 Box Color Cyan Yellow (Middle box default) Blue Magenta
+BOXCLR (2) Red (Lower box default) Green White Black
+State 2 Box Color Cyan Yellow Blue Magenta
+FS88-504
+Page 3 of 8
+02/98
+FSC-SM Digital Composite Data Point
+State Configuration Display (continued)
+N/A if NODOPTS = 0
+MOMSTATE None No momentary output states
+Momentary Output States Mom_0 State 0 is valid if (NOSTATES = 2)
+Mom_1 State 1 is valid if (NOSTATES = 2 or 3)
+Mom_2 State 2 is valid if (NOSTATES = 3)
+Mom_1_2 State 1 or 2 is valid if (NOSTATES = 3)
+N/A if PNTFORM = Componnt
+LOGICSRC
+Logical Input Connection Source |__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__|
+DISRC(1-2)
+Source addresses in FSC for the DI Source
+Input Source Point.Parameter
+DISRC (1) |__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__•__.__.__.__.__.__.__.__|
+DISRC (2) |__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__•__.__.__.__.__.__.__.__|
+FS88-504
+Page 4 of 8
+02/98
+FSC-SM Digital Composite Data Point
+PV/Input Configuration Display
+Applies if NODINPTS = 1
+D1_1 D1_One PV State PVState1 Use and display contents of STATETXT1
+PVState0 Use and display contents of STATETXT0
+Applies if NODINPTS = 2
+D2D1_00 PVState1 Use and display contents of STATETXT1
+D2D1 Zero_Zero PV State PVState0 Use and display contents of STATETXT0
+PVState2 Use and display contents of STATETXT2
+BadPV Use and display contents of BADPVTXT
+MovPV Use and display contents of MOVPVTXT
+D2D1_01 PVState1 Use and display contents of STATETXT1
+D2D1 Zero_One PV State PVState0 Use and display contents of STATETXT0
+PVState2 Use and display contents of STATETXT2
+BadPV Use and display contents of BADPVTXT
+MovPV Use and display contents of MOVPVTXT
+D2D1_10 PVState1 Use and display contents of STATETXT1
+D2D1 One_Zero PV State PVState0 Use and display contents of STATETXT0
+PVState2 Use and display contents of STATETXT2
+BadPV Use and display contents of BADPVTXT
+MovPV Use and display contents of MOVPVTXT
+D2D1_11 PVState1 Use and display contents of STATETXT1
+D2D1 One_One PV State PVState0 Use and display contents of STATETXT0
+PVState2 Use and display contents of STATETXT2
+MovPV Use and display contents of MOVPVTXT
+BadPV Use and display contents of BADPVTXT
+N/A if PNTFORM = Componnt, or if NODINPTS = 0
+PVSRCOPT PV Source Option PVSOURCE PV Source OnlyAuto All PV source selection is not available and field wiring or
+memory fetch supplies PV.
+Selection from PVSOURCE is available and
+Operator/CL-program may supply PV.
+Applies when PVSRCOPT = All.
+Auto Man Sub Field wiring or memory fetch supplies PV.
+PV is supplied by Operator or program.
+A value is substituted by a CL-program.
+Track PV tracks the output.
+FS88-504
+Page 5 of 8
+02/98
+FSC-SM Digital Composite Data Point
+Output Configuration Display
+N/A if NODOPTS < 2
+NONECONF On
+None State Configuration Off
+N/A if NODOPTS = 0
+STATE 1 OUTPUT 1 OUTPUT 2 OUTPUT 3
+ST1_OP1 (NODOPTS = 1) Off Not applicable Not applicable
+State 1 – Output 1 ON
+ST1_OP2 (NODOPTS = 2) Off Off Not applicable
+State 1 – Output 2 On On
+ST1_OP3 (NODOPTS = 3) Off Off Off
+State 1 – Output 3 On On On
+STATE 0
+ST0_OP1 (NODOPTS = 1) Off Not applicable Not applicable
+State 0 – Output 1 On
+ST0_OP2 (NODOPTS = 2) Off Off Not applicable
+State 0 – Output 2 On On
+ST0_OP3 (NODOPTS = 3) Off Off Off
+State 0 – Output 3 On On On
+STATE 2
+ST2_OP1 (NODOPTS = 1) Off Not applicable Not applicable
+State 2 – Output 1 On
+ST2_OP2 (NODOPTS = 2) Off Off Not applicable
+State 2 – Output 2 On On
+ST2_OP3 (NODOPTS = 3) Off Off Off
+State 2 – Output 3 On On On
+N/A if NONECONF = OFF
+NONE STATE OUTPUT 1 OUTPUT 2 OUTPUT 3
+NONE_OP1 (NODOPTS = 1) Off Not applicable Not applicable
+None State – Output 1 On
+NONE_OP2 (NODOPTS = 2) Off Off Not applicable
+None State – Output 2 On On
+NONE_OP3 (NODOPTS = 3) Off Off Off
+None State – Output 3 On On On
+FS88-504
+Page 6 of 8
+02/98
+FSC-SM Digital Composite Data Point
+Output Configuration Display (continued)
+N/A if NODOPTS = 0
+DODSTN
+address in FSC.
+Specification if the Digital Composite Input point. The destination can be specified by TAG-PARAMETER, the destination
+Output Source Point.Parameter
+DODSTN (1) |__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__•__.__.__.__.__.__.__.__|
+DODSTN (2) |__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__•__.__.__.__.__.__.__.__|
+DODSTN (3) |__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__•__.__.__.__.__.__.__.__|
+PISRC
+PISRC (1) |__.__.__.__.__| range = 0 to 65535
+Target Addresses in FSC for Permissive Interlock Source 1 default = 0 (Not Configured)
+PISRC (2) |__.__.__.__.__| range = 0 to 65535
+Target Addresses in FSC for Permissive Interlock Source 2 default = 0 (Not Configured)
+PISRC (3) |__.__.__.__.__| range = 0 to 65535
+Target Addresses in FSC for Permissive Interlock Source 3 default = 0 (Not Configured)
+OISRC
+OISRC (1) Target Addresses in FSC for Override Interlock Source 1 |__.__.__.__.__| range = 0 to 65535
+default = 0 (Not Configured)
+OISRC (2) Target Addresses in FSC for Override Interlock Source 2 |__.__.__.__.__| range = 0 to 65535
+default = 0 (Not Configured)
+OISRC (3) Target Addresses in FSC for Override Interlock Source 3 |__.__.__.__.__| range = 0 to 65535
+default = 0 (Not Configured)
+LMSRC Target Addresses in FSC for Local/Manual Source |__.__.__.__.__| range = 0 to 65535
+default = 0 (Not Configured)
+FS88-504
+Page 7 of 8
+02/98
+FSC-SM Digital Composite Data Point
+Mode Configuration Display
+N/A if NODOPTS = 0
+NMODATTR None Parameter NMODE sets "normal" mode
+Normal Mode Attribute Operator Operator sets "normal" operating mode
+Program Program sets "normal" operating mode
+MODEPERM Permit Operator can change this point's mode attribute
+Mode Permissive NotPerm Operator cannot change this point's mode attribute
+OROPT Off
+Interlock Bypass Option On
+BYPASS Off Applies when OROPT = On.
+Interlock Bypass State On
+Alarming Display
+N/A if PNTFORM = Componnt, or if NODINPTS = 0
+ALMOPT None No alarms
+Alarming Option Cmddis Offnorml Alarm if field device did not respond within configured
+feedback time duration.
+Alarm if PV and PVNORMAL differs.
+FBTIME Feedback Time in Seconds Applies when ALMOPT = Cmddis.
+|__.__.__.__| range = 1 to 1000
+default = 1000
+CMDFALTM Applies when ALMOPT = Cmddis.
+Command Failure Timeout |__.__.__.__| range = < FBTIME
+default = 0
+PVNORMAL PV Value's Normal State Text Off Applies when ALMOPT = Offnorml.
+range = STATETXT(0) – STATETXT(2)
+ALENBST Point Alarm Enable Status
+Applies when ALMOT = Offnorml, Cmddis.
+Displayed Logged Reported to EIP
+Enable Yes Yes Yes
+Disable No Yes Yes
+Inhibit No No No
+FS88-504
+Page 8 of 8
+02/98
+FSC-SM Digital Composite Data Point
+Alarming Display (continued)
+N/A if NODOPTS = 0
+OVRDALOP None No alarms are generated.
+Override Alarm Option Auto_Rtn Alarms return when override clears.
+Cnfm_Rqd Alarms must be confirmed.
+BADPV PR BADCTL PR CMDDIS PR Applies when ALMOPT = Offnorml, Cmddis.
+NoAction Alarm is not reported to the system.
+Journal Logged but not reported to Op Stations.
+OFFNRM PR Low Reported to Unit Alarm Summary display
+High Reported to Area and Unit Alarm Summary
+Emergncy Reported to all Alarm Summary displays
+Printer Reported to US RTJ only
+Jnlprint Reported to US RTJ and logged
+EVTOPT Event Report Option None Eip Applies when ALMOPT = None, Offnorml, Cmddis.
+Neither Eip or Soe is allowed.
+Process special is triggered in AM/CG.
+EIPPCODE Event Init. Proc. Destination |__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__| default = Null
+Applies when EVTOPT = Eip.
+range = Not applicable
+CCSRC Target Address in FSC for the Contact Cutout Source
+Applies only if ALMOPT = Offnorml or CMDDIS and
+PNTFORM = Full
+|__.__.__.__.__| range = 0 to 65535
+default = 0 (Not Configured)
+FS88-505
+Page 1 of 4
+02/98
+FSC-SM Digital Input Data Point
+FSC-SM DigIn Data Point Engineer: Date:
+Point Assignment Display
+NAME range = Not applicable
+Tag Name |__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__| default = Blank
+NODETYP PM range = Not applicable
+Node Type APM default = PM
+HPM
+LM
+SM
+Applicable if NODETYP = SM
+SMPLTFM FSC Safety Manager is using FSC Controller
+Type of Safety Control Platform TRICON Safety Manager is using TRICON Controller
+PNTFORM Full Point is fully displayed and alarmed
+Point Form Componnt Point is partially displayed but not alarmed
+PTDESC range = Not applicable
+Point Descriptor default = Blank
+|__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__|
+EUDESC Engineering Units Descriptor |__.__.__.__.__.__.__.__| range = Not applicable
+default = Blank
+KEYWORD |__.__.__.__.__.__.__.__| range = Not applicable
+Keyword Descriptor default = Blank
+ASSOCDSP |__.__.__.__.__.__.__.__| range = Alphanumeric
+Associated Display default = Blank
+UNIT |__.__| range = Alphanumeric
+Process Unit Point is Assigned to default = Not applicable
+NTWKNUM NIM's UCN that This Point Is In |__.__| range = 1 to 20
+default = Not applicable
+|__.__| range = 1 to 64
+default = Not applicable
+NODENUM SMM's Address on the UCN SLOTNUM Point Slot Number |__.__.__.__| range = 1 to 2000
+default = Not applicable
+N/A if PNTFORM = Componnt
+PRIMMOD range = Not applicable
+Primary Module Point ID default = Null
+|__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__|
+FS88-505
+Page 2 of 4
+02/98
+FSC-SM Digital Input Data Point
+Point Assignment Display (continued)
+DITYPE Status Status input (open/closed contacts)
+Digital Input Type
+PLCADDR Source Address in FSC for the PVRAW input. |__.__.__.__.__| range = 0 to 65535
+default = 0 (Not Configured)
+Operating Configuration Display
+N/A if PNTFORM = Componnt
+STATETXT (1) |__.__.__.__.__.__.__.__| range = Not applicable
+State 1 Description Text default = "On"
+STATETXT (0) |__.__.__.__.__.__.__.__| range = Not applicable
+State 0 Description Text default = "Off"
+BOXCLR (1) Red Green (Upper box default) White Black
+State 1 Box Color Cyan Yellow Blue Magenta
+BOXCLR (0) Red Green White Black
+State 0 Box Color Cyan Yellow (Lower box default) Blue Magenta
+INPTDIR Digital Input Direction Direct Reverse Open = > pvraw = off; Closed = > pvraw = on
+Closed = > pvraw = off; Open = > pvraw = on
+PVSRCOPT PV Source Option OnlyAuto All PV source selection is not available and field wiring
+or memory fetch supplies PV.
+Selection from PVSOURCE is available and
+Operator/CL-program may supply PV.
+PVSOURCE PV Source Auto Man Sub Applies when PVSRCOPT = All.
+Field wiring or memory fetch supplies PV.
+PV is supplied by Operator or program.
+A value is substituted by a CL program.
+FS88-505
+Page 3 of 4
+02/98
+FSC-SM Digital Input Data Point
+Alarming Display
+N/A if PNTFORM = Componnt
+ALMOPT |__| 0 = None
+Alarming Option 1 = Offnorml
+3 = Chngofst
+PVNORMAL Applies when ALMOPT = Offnorml.
+PV Value's Normal State Text |__.__.__.__.__.__.__.__| range = STATETXT(0) – STATETXT(1)
+default = Text equal to "Off"
+DLYTIME Alarm Delay in Seconds Applies when ALMOPT = Offnorml.
+|__.__| range = 0 to 60
+default = 5 (seconds)
+OFFNRMPR Alarm Priority NoAction Journal Low High Emergncy Printer Jnlprint Applies when ALMOPT = Offnorml.
+Alarm is not reported to the system.
+Logged but not reported to Op Stations.
+Reported to Unit Alarm Summary display.
+Reported to Area and Unit Alarm Summary.
+Reported to all Alarm Summary displays.
+Reported to US RTJ only
+Reported to US RTJ and logged
+ALENBST Point Alarm Enable Status Applies when ALMOPT = Offnorml.
+Displayed Logged Reported to EIP
+Enable Yes Yes Yes
+Disable No Yes Yes
+Inhibit No No No
+EVTOPT Event Reporting Option Applies only if ALMOPT = Offnorml or Chngofst.
+|__| 0 = None
+1 = Eip - Event Initiated Processing
+2 = EipSoe - Event Initiated Proc. and Sequence of
+Events
+3 = Soe - Sequence of Events
+Applies when EVTOPT = Soe or EipSoe.
+PVCHGDLY |__.__| range = 0 to 60
+Preset in seconds for the PV Change Delay function which default = 0
+throttles timestamped event collection. Refer to PVCHTMR.
+EIPPCODE Event Init. Proc. Destination |__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__| default = Null
+Applies when EVTOPT = Eip or EipSoe.
+range = Not applicable
+N/A if ALMOPT = None.
+FS88-505
+Page 4 of 4
+02/98
+FSC-SM Digital Input Data Point
+Alarming Display (continued)
+N/A if PNTFORM = Componnt
+CCSRC Target Address in FSC for the Contact Cutout Source Applies only if ALMOPT = Offnorml or Chngofst.
+|__.__.__.__.__| range = 0 to 65535
+default = 0 (Not Configured/UCN Access allowed for
+CONTCUT)
+FS88-506
+Page 1 of 2
+02/98
+FSC-SM Digital Output Data Point
+FSC-SM DigOut Data Point Engineer: Date:
+Point Assignment Display
+NAME range = Not applicable
+Tag Name |__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__| default = Blank
+NODETYP PM range = Not applicable
+Node Type APM default = PM
+HPM
+LM
+SM
+Applicable if NODETYP = SM
+SMPLTFM FSC Safety Manager is using FSC Controller
+Type of Safety Control Platform TRICON Safety Manager is using TRICON Controller
+PNTFORM Full Point is fully displayed and alarmed
+Point Form Componnt Point is partially displayed but not alarmed
+PTDESC range = Not applicable
+Point Descriptor default = Blank
+|__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__|
+EUDESC Engineering Units Descriptor |__.__.__.__.__.__.__.__| range = Not applicable
+default = Blank
+KEYWORD Point Keyword Descriptor |__.__.__.__.__.__.__.__| range = Not applicable
+default = Blank
+ASSOCDSP |__.__.__.__.__.__.__.__| range = Alphanumeric
+Associated Display default = Blank
+UNIT |__.__| range = Alphanumeric
+Process Unit Point is Assigned to default = Not applicable
+NTWKNUM NIM's UCN that Contains This Point NODENUM SMM's Address on the UCN SLOTNUM Point Slot Number |__.__| range = 1 to 20
+default = Not applicable
+|__.__| range = 1 to 64
+default = Not applicable
+|__.__.__.__| range = 1 to 2000
+default = Not applicable
+N/A if PNTFORM = Componnt
+PRIMMOD range = Not applicable
+Primary Module Point ID default = Null
+|__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__|
+FS88-506
+Page 2 of 2
+02/98
+FSC-SM Digital Output Data Point
+PLCADDR FSC Destination Address Point Assignment Display (continued)
+|__.__.__.__.__| range = 0 to 65535
+default = 0 (Not Configured)
+DOTYPE Status Status input output
+Digital Output Type Pulse Width Modulated type output
+Operating Configuration Display
+N/A if PNTFORM = Componnt
+STATETXT (1) |__.__.__.__.__.__.__.__| range = Not applicable
+State 1 Description Text default = "On"
+STATETXT (0) |__.__.__.__.__.__.__.__| range = Not applicable
+State 0 Description Text default = "Off"
+BOXCLR (1) Red Green (Upper box default) White Black
+State 1 Box Color Cyan Yellow Blue Magenta
+BOXCLR (0) Red Green White Black
+State 0 Box Color Cyan Yellow (Lower box default) Blue Magenta
+NMODATTR None Parameter NMODE sets "normal" mode
+Normal Mode Attribute Operator Operator sets "normal" operating mode
+Program Program sets "normal" operating mode
+MODEPERM Permit Operator can change this point's mode attribute
+Mode Permissive NotPerm Operator cannot change this point's mode attribute
+FS88-507
+Page 1 of 4
+02/98
+FSC-SM Logic Point
+FSC-SM Logic Data Point Engineer: Date:
+Point Assignment Display
+NAME range = Not applicable
+Tag Name |__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__| default = Blank
+NODETYP PM range = Not applicable
+Node Type APM default = PM
+HPM
+LM
+SM
+Applicable if NODETYP = SM
+SMPLTFM FSC Safety Manager is using FSC Controller
+Type of Safety Control Platform TRICON Safety Manager is using TRICON Controller
+PNTFORM Full Point is fully displayed and alarmed
+Point Form Componnt Point is partially displayed but not alarmed
+PTDESC range = Not applicable
+Point Descriptor default = Blank
+|__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__|
+ASSOCDSP |__.__.__.__.__.__.__.__| range = Alphanumeric
+Associated Display default = Blank
+UNIT |__.__| range = Alphanumeric
+Process Unit Point is Assigned to default = Not applicable
+NTWKNUM NIM's UCN that This Point Is In |__.__| range = 1 to 20
+default = Not applicable
+NODENUM SMM's Address on the UCN |__.__| range = 1 to 64
+default = Not applicable
+SLOTNUM |__.__| range = 1 to 30
+Point Slot Number default = Not applicable
+Actual Range check will be calculated on the PU count for each Point type and the mix of configured Points
+desired.
+N/A if PNTFORM = Componnt
+PRIMMOD range = Not applicable
+Primary Module Point ID default = Null
+|__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__|
+LOGMIX 12_0_12 12 inputs 0 logic blocks 12 outputs
+Logic Mix
+FS88-507
+Page 2 of 4
+02/98
+FSC-SM Logic Point
+NIM Input Connections Display
+LISRC
+Source Addresses in FSC for the Logic Input
+Input Source Point.Parameter
+LISRC (1) |__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__•__.__.__.__.__.__.__.__|
+LISRC (2) |__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__•__.__.__.__.__.__.__.__|
+LISRC (3) |__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__•__.__.__.__.__.__.__.__|
+LISRC (4) |__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__•__.__.__.__.__.__.__.__|
+LISRC (5) |__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__•__.__.__.__.__.__.__.__|
+LISRC (6) |__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__•__.__.__.__.__.__.__.__|
+LISRC (7) |__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__•__.__.__.__.__.__.__.__|
+LISRC (8) |__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__•__.__.__.__.__.__.__.__|
+LISRC (8) |__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__•__.__.__.__.__.__.__.__|
+LISRC (10) |__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__•__.__.__.__.__.__.__.__|
+LISRC (11) |__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__•__.__.__.__.__.__.__.__|
+LISRC (12) |__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__•__.__.__.__.__.__.__.__|
+LIBADOPT Off "Off" state is substituted for bad input.
+Logic Input Failure Handling Option On Hold "On" state is substituted for bad input.
+Last good value is substituted for bad input.
+LODSTN
+Destination Addresses in FSC for the Logic output
+Output Destination Point.Parameter
+LODSTN (1) |__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__•__.__.__.__.__.__.__.__|
+LODSTN (2) |__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__•__.__.__.__.__.__.__.__|
+LODSTN (3) |__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__•__.__.__.__.__.__.__.__|
+LODSTN (4) |__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__•__.__.__.__.__.__.__.__|
+LODSTN (5) |__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__•__.__.__.__.__.__.__.__|
+LODSTN (6) |__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__•__.__.__.__.__.__.__.__|
+LODSTN (7) |__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__•__.__.__.__.__.__.__.__|
+LODSTN (8) |__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__•__.__.__.__.__.__.__.__|
+LODSTN (9) |__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__•__.__.__.__.__.__.__.__|
+LODSTN (10) |__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__•__.__.__.__.__.__.__.__|
+LODSTN (11) |__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__•__.__.__.__.__.__.__.__|
+LODSTN (12) |__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__•__.__.__.__.__.__.__.__|
+FS88-507
+Page 3 of 4
+02/98
+FSC-SM Logic Point
+NIM Input Connections Display (continued)
+LOENBL
+Source Address in FSC for enable
+Enable PLC Address
+LOENBL (1) LOENBL (2) LOENBL (3) LOENBL (4) LOENBL (5) LOENBL (6) LOENBL (7) LOENBL (8) LOENBL (9) LOENBL (10) LOENBL (11) LOENBL (12) |__.__.__.__.__| range = 0 to 65535
+default = 0
+|__.__.__.__.__| range = 0 to 65535
+default = 0
+|__.__.__.__.__| range = 0 to 65535
+default = 0
+|__.__.__.__.__| range = 0 to 65535
+default = 0
+|__.__.__.__.__| range = 0 to 65535
+default = 0
+|__.__.__.__.__| range = 0 to 65535
+default = 0
+|__.__.__.__.__| range = 0 to 65535
+default = 0
+|__.__.__.__.__| range = 0 to 65535
+default = 0
+|__.__.__.__.__| range = 0 to 65535
+default = 0
+|__.__.__.__.__| range = 0 to 65535
+default = 0
+|__.__.__.__.__| range = 0 to 65535
+default = 0
+|__.__.__.__.__| range = 0 to 65535
+default = 0
+FS88-507
+Page 4 of 4
+02/98
+FSC-SM Logic Point
+NIM Logic Descriptors Display
+N/A if PNTFORM = Componnt
+NODESC range = 0 to 12
+Number of Generic Descriptors |__.__| default = 0
+GENDESC
+Generic Descriptors (defaults = blanks)
+GENDESC(1) |__.__.__.__.__.__.__.__|
+GENDESC(2) |__.__.__.__.__.__.__.__|
+GENDESC(3) |__.__.__.__.__.__.__.__|
+GENDESC(4) |__.__.__.__.__.__.__.__|
+GENDESC(5) |__.__.__.__.__.__.__.__|
+GENDESC(6) |__.__.__.__.__.__.__.__|
+GENDESC(7) |__.__.__.__.__.__.__.__|
+GENDESC(8) |__.__.__.__.__.__.__.__|
+GENDESC(9) |__.__.__.__.__.__.__.__|
+GENDESC(10) |__.__.__.__.__.__.__.__|
+GENDESC(11) |__.__.__.__.__.__.__.__|
+GENDESC(12) |__.__.__.__.__.__.__.__|
+FS88-508
+Page 1 of 2
+02/98
+FSC-SM Flag Point
+FSC-SM Flag Data Point Engineer: Date:
+Point Assignment Display
+NAME range = Not applicable
+Tag Name |__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__| default = Blank
+NODETYP PM range = Not applicable
+Node Type APM default = PM
+HPM
+LM
+SM
+Applicable if NODETYP = SM
+SMPLTFM FSC Safety Manager is using FSC Controller
+Type of Safety Control Platform TRICON Safety Manager is using TRICON Controller
+PNTFORM Full Point is fully displayed and alarmed
+Point Form Componnt Point is partially displayed but not alarmed
+PTDESC range = Not applicable
+Point Descriptor default = Blank
+|__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__|
+EUDESC Engineering Units Descriptor |__.__.__.__.__.__.__.__| range = Not applicable
+default = Blank
+KEYWORD |__.__.__.__.__.__.__.__| range = Not applicable
+Point Keyword default = Blank
+ASSOCDSP |__.__.__.__.__.__.__.__| range = Alphanumeric
+Associated Display default = Blank
+UNIT |__.__| range = Alphanumeric
+Process Unit Point is Assigned to default = Not applicable
+NTWKNUM NIM's UCN that This Point Is In |__.__| range = 1 to 20
+default = Not applicable
+NODENUM SMM's Address on the UCN |__.__| range = 1 to 64
+default = Not applicable
+SLOTNUM |__.__.__.__| range = 1 to 2000
+Point Slot Number default = Not applicable
+The actual Range check will be calculated on the mix of configured Points desired.
+N/A if PNTFORM = Componnt
+PRIMMOD range = Not applicable
+Primary Module Point ID default = Null
+|__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__|
+FS88-508
+Page 2 of 2
+02/98
+FSC-SM Flag Point
+Operating Configuration Display
+N/A if PNTFORM = Componnt
+STATETXT (1) |__.__.__.__.__.__.__.__| range = Not applicable
+State 1 Descriptor default = ON
+STATETXT (0) |__.__.__.__.__.__.__.__| range = Not applicable
+State 0 Descriptor default = OFF
+BOXCLR (1) Red Green White Black
+State 1 Box Color Cyan Yellow Blue Magenta
+BOXCLR (0) Red Green White Black
+State 0 Box Color Cyan Yellow Blue Magenta
+Alarming Display
+N/A if PNTFORM = Componnt or SLOTNUM > 512
+OFFNRMPR NoAction Alarm is not reported to the system.
+Off Normal Alarm Priority Journal Logged but not reported to Operator Stations.
+Low Reported to Unit Alarm Summary display.
+High Reported to Area and Unit Alarm Summary.
+Emergncy Reported to all Alarm Summary displays.
+Printer Reported to US RTJ only.
+Jnlprint Reported to US RTJ and logged.
+ALENBST Enable default = Enable
+Alarm Enable State Disable
+Inhibit
+EIPPCODE range = Not applicable
+EIP Point ID default = Blank
+|__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__|
+CCSRC Target Address in FSC for the Contact Cutout Source
+|__.__.__.__.__| range = 0 to 65535
+default = 0
+FS88-509
+Page 1 of 2
+02/98
+FSC-SM Timer Point
+FSC-SM Timer Data Point Engineer: Date:
+Point Assignment Display
+NAME range = Not applicable
+Tag Name |__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__| default = Blank
+NODETYP PM range = Not applicable
+Node Type APM default = PM
+HPM
+LM
+SM
+Applicable if NODETYP = SM
+SMPLTFM FSC Safety Manager is using FSC Controller
+Type of Safety Control Platform TRICON Safety Manager is using TRICON Controller
+PNTFORM Full Point is fully displayed and alarmed
+Point Form Componnt Point is partially displayed but not alarmed
+PTDESC range = Not applicable
+Point Descriptor default = Blank
+|__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__|
+EUDESC Engineering Units Descriptor |__.__.__.__.__.__.__.__| range = Not applicable
+default = Blank
+KEYWORD |__.__.__.__.__.__.__.__| range = Not applicable
+Keyword Descriptor default = Blank
+ASSOCDSP |__.__.__.__.__.__.__.__| range = Alphanumeric
+Associated Display default = Blank
+UNIT |__.__| range = Alphanumeric
+Process Unit Point is Assigned to default = Not applicable
+NTWKNUM NIM's UCN that Contains This Point |__.__| range = 1 to 20
+default = Not applicable
+NODENUM SMM's Address on the UCN |__.__| range = 1 to 64
+default = Not applicable
+SLOTNUM |__.__.__.__| range = 1 to 1500
+Point Slot Number default = Not applicable
+The actual Range check will be calculated on the PU count for each Point type and the mix of configured Points
+desired.
+N/A if PNTFORM = Componnt
+PRIMMOD range = Not applicable
+Primary Module Point ID default = Null
+|__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__|
+FS88-509
+Page 2 of 2
+02/98
+FSC-SM Timer Point
+Point Assignment Display (Continued)
+PLCADDR |__.__.__.__.__| range = 0 to 65535
+Target Address in FSC for the Set/Reset Contact default = 0 (Not Configured)
+The PLCADDR for the reset contact in FSC must be equal to the PLCADDR for the set contact incremented
+by 1.
+PVSLTSRC Target Address in FSC for the Accumulator Value |__.__.__.__.__| range = 0 to 65535
+default = 0 (Not Configured)
+SPSLTSRC Target Address in FSC for the Preset Value |__.__.__.__.__| range = 0 to 65535
+default = 0 (Not Configured)
+NIM Operating Configuration Display
+PVFORMAT D0 D1 D2
+PV Decimal Format
+FS88-510
+Page 1 of 2
+02/98
+FSC-SM Numeric Point
+FSC-SM Numeric Data Point Engineer: Date:
+Point Assignment Display
+NAME range = Not applicable
+Tag Name |__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__| default = Blank
+NODETYP PM range = Not applicable
+Node Type APM default = PM
+HPM
+LM
+SM
+Applicable if NODETYP = SM
+SMPLTFM FSC Safety Manager is using FSC Controller
+Type of Safety Control Platform TRICON Safety Manager is using TRICON Controller
+PNTFORM Full Point is fully displayed and alarmed
+Point Form Componnt Point is partially displayed but not alarmed
+PTDESC range = Not applicable
+Point Descriptor default = Blank
+|__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__|
+EUDESC Engineering Units Descriptor |__.__.__.__.__.__.__.__| range = Not applicable
+default = Blank
+KEYWORD |__.__.__.__.__.__.__.__| range = Not applicable
+Keyword Descriptor default = Blank
+ASSOCDSP |__.__.__.__.__.__.__.__| range = Alphanumeric
+Associated Display default = Blank
+UNIT |__.__| range = Alphanumeric
+Process Unit Point is Assigned to default = Not applicable
+NTWKNUM NIM's UCN that Contains This Point |__.__| range = 1 to 20
+default = Not applicable
+NODENUM SMM's Address on the UCN |__.__| range = 1 to 64
+default = Not applicable
+SLOTNUM |__.__.__.__| range = 1 to 1000
+Point Slot Number default = Not applicable
+The actual Range check will be calculated on the mix of configured Points desired.
+FS88-510
+Page 2 of 2
+02/98
+FSC-SM Numeric Point
+Point Assignment Display (Continued)
+N/A if PNTFORM = Componnt
+PRIMMOD range = Not applicable
+Primary Module Point ID default = Null
+|__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__|
+PVFORMAT |__.__| range: D0 (XXXX.)
+D1 (XXX.X)
+D2 (XX.XX)
+D3 (X.XXX)
+default: D1
+READER COMMENTS
+Honeywell IAC's Automation College welcomes your comments and suggestions to improve future editions of this and
+other documents.
+You can communicate your thoughts to us by fax or mail using this form, or by placing a toll-free telephone call. We
+would like to acknowledge your comments—please include your complete name, address, and telephone number.
+BY FAX: Use this form and fax to us at 1-602-313-4108.
+BY TELEPHONE: except Arizona; in Arizona dial 1-602-313-5558).
+In the USA, use our toll-free number 1-800-822-7673 (available in the 48 contiguous states
+BY MAIL: Use this form and mail to us at:
+Honeywell Inc.
+Industrial Automation and Control
+Automation College
+2820 West Kelton Lane
+Phoenix, AZ 85023-3028
+Title of Document: FSC Safety Manager Issue Date: 02/98
+Configuration Forms
+Document Number: FS88-500 Writer: HSMS Product Marketing
+COMMENTS:
+RECOMMENDATIONS:
+Name: Date:
+Title:
+Company:
+Address:
+City: State: ZIP:
+Telephone: Fax:
+.
+.
+Industrial Automation and Control Honeywell Inc.
+16404 North Black Canyon Highway
+Phoenix, Arizona 85023-3033
+Helping You Control Your World
