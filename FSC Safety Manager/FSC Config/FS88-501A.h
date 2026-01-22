@@ -10,4 +10,6 @@
 
 #include <stdio.h>
 
+int FS88_501A(const char* filename, const char* search_word);
+
 #endif /* FS88_501A_h */

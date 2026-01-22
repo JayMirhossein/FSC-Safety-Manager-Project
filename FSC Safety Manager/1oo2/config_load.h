@@ -12,8 +12,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <stdint.h>
 
 #define BUFFER_SIZE 1024
 
 int search_word_in_file(const char* filename, const char* search_word);
+int extract_range_for_keyword_in_line(const char *keyword, const char *line, int *outMin, int *outMax);
+
 #endif /* config_load_h */
+

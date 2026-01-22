@@ -51,7 +51,6 @@ int compareFiles(char *path1, char *path2) {
         return 1;
     }
     
-
     // Close the files
     fclose(fp1);
     fclose(fp2);
