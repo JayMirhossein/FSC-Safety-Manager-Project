@@ -24,7 +24,6 @@ int FS88_501A(const char* filename, const char* search_word) {
     config_sheet = "FS88-501A";
     printf("configuration form '%s' in file '%s'...\n", config_sheet, filename);
     int result = search_word_in_file(filename, config_sheet);
-    search_word_in_file(filename, "NTWKNUM");
     if (result == -1) {
         printf("An error occurred while trying to open the file.\n");
     } else if (result == 0) {
@@ -33,7 +32,10 @@ int FS88_501A(const char* filename, const char* search_word) {
         printf("Search completed.\n");}
     
     // Demo: extract range for NTWKNUM from a given line of text
- 
+    
+    search_word_in_file(filename, "NTWKNUM");
+    
+    
 
     return 0;
 }
