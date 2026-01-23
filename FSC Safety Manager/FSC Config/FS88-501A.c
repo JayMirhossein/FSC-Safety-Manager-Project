@@ -33,7 +33,11 @@ int FS88_501A(const char* filename, const char* search_word) {
     
     // Demo: extract range for NTWKNUM from a given line of text
     
-    search_word_in_file(filename, "NTWKNUM");
+    search_word_in_file(filename, "NTWKNUM"); // NIM's UCN that SM is connected to (Process Network Number)
+    search_word_in_file(filename, "NODENUM");
+    search_word_in_file(filename, "NMSGTXT");
+    
+    
     
     
 
