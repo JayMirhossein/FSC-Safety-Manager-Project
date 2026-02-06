@@ -207,10 +207,9 @@ NODETYP below. This same form can be used to configure each NIM on your system b
 NIM for NODETYP (some different targets will appear as shown). If your system has other UCN
 devices (PM, APM, HPM, LM), the NIMs can also be configured using the forms contained in the
 documentation for those devices.
-NTWKNUM NIM's UCN that SM is connected to (Process Network Number)
-NODENUM SMM's or NIM's Address on the UCN NODETYP Type of Node on the UCN |__.__| range = 1 to 20
+NTWKNUM NIM's UCN that SM is connected to (Process Network Number) |__.__| range = 1 to 20
 default = Not applicable
-|__.__| range = 1 to 64
+NODENUM SMM's or NIM's Address on the UCN NODETYP Type of Node on the UCN |__.__| range = 1 to 64
 default = Not applicable
 NotConfg This NIM or SM not configured on UCN
 Nim Network Interface Module
@@ -304,19 +303,13 @@ SM Safety Manager Module
 Applicable only if NODETYP = SM
 SMPLTFM FSC Safety Manager is using FSC Controller
 Type of Safety Control Platform TRICON Safety Manager is using TRICON Controller
-NAISLOT* # of Analog Input Slots NAOSLOT* # of Analog Output Slots NDISLOT* # of Digital Input Slots NDOSLOT* # of Digital Output Slots NLOGSLOT* # of Logic Slots NDCSLOT* # of Digital Composite Slots
+NAISLOT* # of Analog Input Slots NAOSLOT* # of Analog Output Slots NDISLOT* # of Digital Input Slots |__.__.__| range = 0 to 1000
+default = 0
+NDOSLOT* # of Digital Output Slots NLOGSLOT* # of Logic Slots NDCSLOT* # of Digital Composite Slots |__.__.__| range = 0 to 2000
+default = 0
 NONETXT Digital Composite None State |__.__.__.__| range = 0 to 1000
 default = 0
-|__.__.__| range = 0 to 1000
-default = 0
 |__.__.__.__| range = 0 to 2000
-default = 0
-|__.__.__.__| range = 0 to 2000
-default = 0
-|__.__| range = 0 to 30
-default = 0
-|__.__.__| range = 0 to 1000
-|__.__.__.__.__.__.__.__| range = Not applicable
 default = None
 NNUMERIC** # of Numerics |__.__.__.__| range = 0 to 1000
 default = 0

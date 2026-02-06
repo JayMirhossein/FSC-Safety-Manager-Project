@@ -18,6 +18,7 @@
 
 int search_word_in_file(const char* filename, const char* search_word);
 int extract_range_for_keyword_in_line(const char *keyword, const char *line, int *outMin, int *outMax);
+uint32_t combineInts(uint16_t high, uint16_t low);
 
 #endif /* config_load_h */
 

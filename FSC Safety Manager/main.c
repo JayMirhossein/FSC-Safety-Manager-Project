@@ -16,6 +16,8 @@
 #include "compare.h"
 #include "config_load.h"
 #include "FS88-501A.h"
+#include "FS88-502.h"
+#include "FS88-504.h"
 
 /// <#Description#>
 int main() {
@@ -46,10 +48,13 @@ int main() {
         pthread_join(thread1, NULL); //
         pthread_join(thread2, NULL); //
 
-        compareFiles("/Users/jayziabari/Desktop/1oo2/1oo2/outfile1.txt",
-                     "/Users/jayziabari/Desktop/1oo2/1oo2/outfile2.txt");
+       // compareFiles("/Users/jayziabari/Desktop/1oo2/1oo2/outfile1.txt",
+        //             "/Users/jayziabari/Desktop/1oo2/1oo2/outfile2.txt");
     
-    FS88_501A(filename,"FS88-501A");
+    FS88_501A(filename,"FS88-501A"); // NIM's UCN that SM is connected to (Process Network Number)
+    FS88_501A(filename,"FS88-501B"); // NIM's UCN that SM is connected to (Process Network Number)
+   // FS88_502(filename,"FS88-502"); // FSC-SM DAnalog INmput Data Point
+   // FS88_504(filename,"FS88-504"); // FSC-SM Digital Composite Data Point
     
 
 
