@@ -1,20 +1,22 @@
 FSC Safety Manager
-Service Manual
+Configuration Forms
 for use with the Honeywell FSC System
 Releases 42x and 500
-FS13-500
+FS88-500
+
+dfsfsdf
 .
 Implementation
 FSC Safety Manager
 FSC Safety Manager
-Service Manual
+Configuration Forms
 for use with the Honeywell FSC System
 Releases 42x and 500
-FS13-500
+FS88-500
 02/98
 Copyright, Notices, and Trademarks
 © Copyright 1998 by Honeywell Inc.
-Revision 04 – February 20, 1998
+Revision 07 – February 20, 1998
 While this information is presented in good faith and believed to be accurate,
 Honeywell disclaims the implied warranties of merchantability and fitness for a
 particular purpose and makes no express warranties except as may be stated in
@@ -32,1591 +34,1277 @@ Automation College
 2820 West Kelton Lane
 Phoenix, AZ 85023
 (602) 313-5669
-ii FSC Safety Manager Service Manual 02/98
+ii FSC Safety Manager Configuration Forms 02/98
 About This Publication
-This publication is designed to assist you in servicing the FSC Safety Manager Module
-(FSC-SMM) for use with the Honeywell FSC system Releases 42x and 500. Use this manual as a
-guide for diagnosing faults and troubleshooting your system.
-Please note that this document primarily focuses on the FSC Safety Manager Module. The entire
-FSC-SM also comprises an FSC component, which has its own set of documents. Please refer to
-these documents for more detailed information on the FSC part of the FSC-SM system.
+This publication provides the configuration forms for the FSC Safety Manager in the TotalPlant
+Solution (TPS) network. It supports TPS Releases 530 and 531 and the Honeywell FSC system
+Releases 42x and 500. These forms should be used to assist you in configuring the FSC-SMM data
+points at the Universal Station.
+The user should be familiar with the FSC Safety Manager system control functions described in
+FSC Safety Manager Control Functions and the Implementation/Startup & Reconfiguration - 2
+binder (LCN) bookset before using this publication.
 All references in this manual to "FSC Safety Manager" or "FSC Safety
 Manager Module" pertain only for use with the Honeywell FSC system.
-02/98 FSC Safety Manager Service Manual iii
-iv FSC Safety Manager Service Manual 02/98
+02/98 FSC Safety Manager Configuration Forms iii
+iv FSC Safety Manager Configuration Forms 02/98
 Table of Contents
-SECTION 1 FSC-SM HARDWARE AND SOFTWARE DEPENDENCIES...................................... 1
-1.1 Overview ...................................................................................................................... 1
-1.2 Hardware Dependencies.............................................................................................. 6
-1.3 Software Dependencies ............................................................................................... 7
-1.4 FSC-SM Installation and Configuration Checklist ........................................................ 8
-1.5 Specifications ............................................................................................................... 9
-SECTION 2 SPARE PARTS.......................................................................................................... 11
-2.1 Overview .................................................................................................................... 11
-SECTION 3 DIAGNOSTICS AND TROUBLESHOOTING............................................................ 13
-3.1 Overview .................................................................................................................... 13
-3.2 Soft Failures ............................................................................................................... 14
-3.3 Hard Failures.............................................................................................................. 16
-3.4 Point Configuration Errors.......................................................................................... 17
-3.5 Communication Errors ............................................................................................... 18
-3.6 FSC-SMM Status Indicators....................................................................................... 27
-3.7 FSC Diagnostic Information ....................................................................................... 29
-SECTION 4 REMOVAL AND REPLACEMENT ............................................................................ 31
-4.1 Overview .................................................................................................................... 31
-4.2 Replacing an FSC-SMM............................................................................................. 32
-4.3 Replacing the Firmware EPROMs ............................................................................. 34
-4.4 FSC-SMM Slot Keys .................................................................................................. 36
-02/98 FSC Safety Manager Service Manual v
-Figures
-Figure 1-1 Figure 1-2 Figure 1-3 Figure 3-1 Figure 3-2 Figure 3-3 Figure 3-4 Figure 3-5 FSC Safety Manager as a component of the TPS system ....................................... 2
-FSC Safety Manager Module frontplate features...................................................... 3
-FSC-SM architecture ................................................................................................ 5
-US Display - Soft Failures....................................................................................... 15
-US Display - NODE STS INFO Target.................................................................... 18
-US Display - UCN Statistics Screen, Page 1 .......................................................... 19
-US Display - UCN Statistics Screen, Page 2 .......................................................... 23
-FSC Diagnostic Display .......................................................................................... 29
-Tables
-Table 3-1 Table 3-3 Table 3-4 Table 3-5 Table 3-6 Table 3-7 Table 4-1 Table 4-2 Softfail Descriptions ................................................................................................ 14
-Table 3-2 Configuration Errors................................................................................................ 17
-Local UCN Statistics ............................................................................................... 20
-Event Sender UCN Statistics .................................................................................. 24
-Time Synch Statistics.............................................................................................. 25
-Time Synch Status.................................................................................................. 26
-Error codes with 'STATUS' LED flashing red/green................................................ 28
-Procedure for FSC-SMM replacement ................................................................... 32
-Procedure for FSC firmware upgrade..................................................................... 35
-vi FSC Safety Manager Service Manual 02/98
-Acronyms
-ACK............................................................................................................................Acknowledgment
-APM .........................................................................................................Advanced Process Manager
-APMM ......................................................................................... Advanced Process Manager Module
-CPU...................................................................................................................Central Processor Unit
-DCS............................................................................................................ Distributed Control System
-DBM ..................................................................................................... Diagnostic and Battery Module
-DMA .................................................................................................................. Direct Memory Access
-EMF.....................................................................................................................Electromagnetic Field
-EMI.......................................................................................................... Electromagnetic Interference
-EPNI...........................................................................................Enhanced Process Network Interface
-EPROM.......................................................................... Erasable Programmable Read-Only Memory
-FLD .............................................................................................................. Functional Logic Diagram
-FSC............................................................................................................................ Fail Safe Control
-FSC-DS.......................................................................................................FSC Development System
-FSC-SM ...............................................................................................................FSC Safety Manager
-FSC-SMM ...............................................................................................FSC Safety Manager Module
-HBD..................................................................................................................... Horizontal Bus Driver
-HM................................................................................................................................. History Module
-I/O ..................................................................................................................................... Input/Output
-LC................................................................................................................................. Logic Controller
-LCN....................................................................................................................Local Control Network
-LED ....................................................................................................................... Light Emitting Diode
-LLC........................................................................................................................... Logic Link Control
-LM ................................................................................................................................. Logic Manager
-LRAM .................................................................................................. Local Random Access Memory
-MAC ................................................................................................................ Medium Access Control
-N/A ................................................................................................................................. Not Applicable
-NAK.............................................................................................................Negative Acknowledgment
-NCM.................................................................................................. Network Communication Module
-NIM............................................................................................................... Network Interface Module
-PLC ..................................................................................................... Programmable Logic Controller
-PM............................................................................................................................... Process Module
-PMM............................................................................................................. Process Manager Module
-PNI ..............................................................................................................Process Network Interface
-PSU..........................................................................................................................Power Supply Unit
-PU ................................................................................................................................Processing Unit
-RAM ..............................................................................................................Random Access Memory
-RDR ...............................................................................................................Request Data Response
-RWR .............................................................................................................. Request With Response
-SM................................................................................................................................Safety Manager
-SMM................................................................................................................ Safety Manager Module
-TAC......................................................................................................... Technical Assistance Center
-TBC..................................................................................................................... Token Bus Controller
-TDC................................................................................................................ Total Distributed Control
-TPS ......................................................................................................................... TotalPlant Solution
-UART ...........................................................................Universal Asynchronous Receiver Transmitter
-UCN ............................................................................................................ Universal Control Network
-US .............................................................................................................................. Universal Station
-VBD......................................................................................................................... Vertical Bus Driver
-WD ........................................................................................................................................Watchdog
-02/98 FSC Safety Manager Service Manual vii
-Parameters
-CCSRC ...........................................................................................................Contact Cut Out Source
-LCIOCDFL .................................................................................... LC communication or I/O card fault
-LCLLNOSC ................................................................................................................. LC not scanning
-LCTSFLT ............................................................................................. LC time synchronization failure
-LODSTN......................................................................................Logic Output Connection Destination
-NOSYNCH ............................................................................................... Secondary not synchronized
-PLCADDR...................................................................................................... FSC-SRS Alias Address
-PPXOVRUN.................................................................................................. Point processing overrun
-PTEXECST .........................................................................................................Point Execution State
-SMTSFLT.................................................................................FSC-SMM time synchronization failure
-UCNOVRUN .................................................................................................................... UCN overrun
-UCNPRSFL...................................................................................... UCN primary to secondary failure
-UCNSCPFL...................................................................................... UCN secondary to primary failure
-viii FSC Safety Manager Service Manual 02/98
-References
-For FSC-SM documentation:
-Publication
-Title
-FSC Safety Manager Installation
-Guide
-FSC Safety Manager Implementation
-Guidelines
-FSC Safety Manager Control
-Functions
-FSC Safety Manager Parameter
-Reference Dictionary
-FSC Safety Manager Configuration
-Forms
-Publication
-Number
-Binder
-Title
-FS20-500 Implementation
-FSC Safety Manager
-FS11-500 Implementation
-FSC Safety Manager
-FS09-500 Implementation
-FSC Safety Manager
-FS09-550 Implementation
-FSC Safety Manager
-FS88-500 Implementation
-FSC Safety Manager
-FSC Safety Manager Service Manual FS13-500 Implementation
-FSC Safety Manager
-Binder
-Number
-TPS 3076
-TPS 3076
-TPS 3076
-TPS 3076
-TPS 3076
-TPS 3076
-For FSC documentation:
-Publication
-Title
-Publication
-Number
-FSC Safety Manual PM.MAN.8047
-FSC Hardware Manual PM.MAN.8048
-FSC Software Manual PM.MAN.8025
-02/98 FSC Safety Manager Service Manual ix
-x FSC Safety Manager Service Manual 02/98
-Section 1 – FSC-SM Hardware and Software Dependencies
-1.1 Overview
-About this section This section contains a brief description and functional summary of the
-FSC Safety Manager (FSC-SM), and provides hardware and software
-requirements and dependencies. The topics included in this section are:
-Subsection Topic See Page
-1.1 Overview...........................................................................................................1
-1.2 Hardware Dependencies ..................................................................................6
-1.3 Software Dependencies....................................................................................7
-1.4 FSC-SM Installation and Configuration Checklist.............................................8
-1.5 Specifications....................................................................................................9
-Description As illustrated in Figure 1-1, the FSC-SM is a process-connected device
-that resides on the Universal Control Network (UCN) of the TotalPlant
-Solution (TPS) System, which is the evolution of the TDC 3000X system.
-It consists of an FSC Controller, which includes an FSC Safety Manager
-Module (FSC-SMM).
-Continued on next page
-02/98 FSC Safety Manager Service Manual 1
-1.1 Overview, Continued
-Description, continued
-TPS Operator Stations*
-LCN
-NIM
-PM
-APM
-FSC Safety Manager
+FSC SAFETY MANAGER FORMS
+Form Name Form ID
+FSC-SM UCN Node Configuration.........................................................................................FS88-501A
+FSC-SM Node-Specific Configuration....................................................................................FS88-501B
+FSC-SM Analog Input Data Point ..........................................................................................FS88-502
+FSC-SM Analog Output Data Point........................................................................................FS88-503
+FSC-SM Digital Composite Data Point ..................................................................................FS88-504
+FSC-SM Digital Input Data Point............................................................................................FS88-505
+FSC-SM Digital Output Data Point.........................................................................................FS88-506
+FSC-SM Logic Point...............................................................................................................FS88-507
+FSC-SM Flag Point ................................................................................................................FS88-508
+FSC-SM Timer Point..............................................................................................................FS88-509
+FSC-SM Numeric Point..........................................................................................................FS88-510
+02/98 FSC Safety Manager Configuration Forms v
+vi FSC Safety Manager Configuration Forms 02/98
+FSC Safety Manager Form Instructions
+FILLING OUT PAPER FORMS
+Where To Find Parameter and Data Point Help Information
+Refer to the FSC Safety Manager Parameter Reference Dictionary and the FSC Safety Manager Control
+Functions publications in the FSC Implementation Safety Manager binder for further information on
+parameters and data points.
+Please note that the sample form below is an example only and does not represent any existing
+configuration form.
+FORMS
+FS88-502
+Page 1 of 4
+08/97
+FSC-SM Analog Input Data Point
+Universal Station's configuration
+display where values and
+parameter options which have been
+written on the form will be keyed in
+and/or selected.
+FSC-SM AnalgIn Data Point Engineer: Date:
+Point Assignment Display
+NAME
+range =
+Not applicable
+|________ _______ . . . . . . . . . . . . . . . _|
+Tag Name
+default =
+Blank
+PNTFORM
+Point Form
+Full
+Componnt
+Point is fully displayed and alarmed
+Point is partially displayed but not alarmed
+N/A if PNTFORM = Componnt.
+If parameters within a box do not
+apply when some other parameter
+option is selected, that box is
+indicated by N/A if or ONLY if.
+PTDESC
+Point Descriptor
+|
+_._._._._. _._. _._._._._._._. _._._._._._._._. _. _|
+range = Not applicable
+default =Blank
+EUDESC
+Engineering Units Descriptor
+|_._._._._. _. _. _|
+range =
+Not applicable
+default =
+Blank
+KEYWORD
+Point Keyword Descriptor
+|_._._._._. _. _. _|
+range =
+Not applicable
+default =
+Blank
+N/A if PNTFORM = Componnt.
+Text in bold indicates what
+parameter(s) or parameter option(s)
+apply when an option is selected for
+a previous parameter.
+PVSRCOPT
+PV Source Option
+PVSOURCE
+PV Source
+OnlyAuto
+All
+Auto
+Man
+Sub
+Parameter values in bold italics
+indicate the default value for that
+parameter.
+PV source selection is not available and
+field wiring or memory fetch supplies PV.
+Selection from PVSOURCE is available
+and Operator/CL program may supply PV.
+Applies when PVSRCOPT = All.
+Field wiring or memory fetch supplies PV.
+PV is supplied by Operator or program.
+A value is substituted by a CL program.
+Alarming display
+N/A if PNTFORM = Componnt.
+Some parameters will display only if
+a value has been specified for
+another parameter. For example,
+alarm priorities will not show until
+the corresponding alarm trip point
+has been specified. Thus, PVHIPR
+(PV High Alarm Priority) and
+PVLOPR (PV Low Alarm Priority)
+will not display until a value has
+been entered for the PVHITP (PV
+High Alarm Trip Point) and
+PVLOTP (PV Low Alarm Trip Point)
+parameters, respectively.
+PVHITP PV High Alarm Trip Point |_._._._._. _. _|
+range = PVLOTP to PVEUHI, & NaN
+default = NaN
+PVHIPR
+PV High Alarm Priority
+NoAction Journal Low High
+Emergncy Printer JNLPrint
+PVLOTP
+PV Low Alarm Trip Point | . . . . . . . |
+_______
+range = PVEULO to PVHITP, & NaN
+default = NaN
+PVLOPR
+PV Low Alarm Priority
+NoAction Journal Low High
+Emergncy Printer JNLPrint
+FSC Safety Manager Form Instructions, continued
+ENTERING DATA FROM THE FORMS INTO THE SYSTEM
+Select the NETWORK INTERFACE MODULE target from the Engineering Main Menu to get the NIM
+BUILD TYPE SELECT MENU.
+FSC-SM
+NODE
+CONFIGURATION
+Form FS88-501A
+FSC-SM
+NODE-SPECIFIC
+CONFIGURATION
+Form FS88-501B
+PROCESS
+POINT
+BUILDING
+Form FS88-502 to FS88-510
+Select a point type from this PROCESS POINT BUILDING menu.
+Analg In/Out Dig In/Out DigComp Logic Flag Timer Numeric
+FS88-501A
+Page 1 of 3
+02/98
+FSC-SM UCN Node Configuration
+FSC-SM UCN Node Configuration Engineer: Date:
+UCN Node Configuration Display
+NOTE
+This form is intended primarily for use in configuring each FSC-SM on your system by selecting SM for
+NODETYP below. This same form can be used to configure each NIM on your system by selecting
+NIM for NODETYP (some different targets will appear as shown). If your system has other UCN
+devices (PM, APM, HPM, LM), the NIMs can also be configured using the forms contained in the
+documentation for those devices.
+NTWKNUM NIM's UCN that SM is connected to (Process Network Number) |__.__| range = 1 to 20
+default = Not applicable
+NODENUM SMM's or NIM's Address on the UCN NODETYP Type of Node on the UCN |__.__| range = 1 to 64
+default = Not applicable
+NotConfg This NIM or SM not configured on UCN
+Nim Network Interface Module
+PM Process Manager Module
+APM Advanced Process Manager Module
+HPM High Performance Process Manager Module
+LM Logic Manager Module
+SM Safety Manager Module
+Applicable only if NODETYP = SM
+SMPLTFM FSC Safety Manager is using FSC Controller
+Type of Safety Control Platform TRICON Safety Manager is using TRICON Controller
+NODEASSN ThisNim NIM assigned to report alarms and perform
+checkpointing for network specified in
+NTWKNUM
+RemotNim Additional NIM on a network that already has
+"ThisNIM" defined
+Applicable only if NODETYP = Nim
+LOADSCOP NimOnly Configured data goes to the NIM only
+Load Scope NimAndPm Configured data goes to NIM and SM
+NMSGTXT Number of Message Text Items |__.__| range = 0 to 15
+default = 0
+DIGITAL COMPOSITE PV STATE TEXT
+MOVPVTXT Moving Individual point configuration specifies
+Moving Text which input state is associated with this
+moving text. If NODENUM is even, this
+parameter is hidden.
+FS88-501A
+Page 2 of 3
+02/98
+FSC-SM UCN Node Configuration
+UCN Node Configuration Display (Continued)
+BADPVTXT Bad Individual point configuration specifies
+Bad Text which input state is associated with the bad
+text. If NODENUM is even, this parameter is
+hidden.
+FS88-501A
+Page 3 of 3
+02/98
+FSC-SM UCN Node Configuration
+FSC-SM UCN Node Configuration Engineer: Date:
+Status Message Text Configuration Display
+N/A if NMSGTXT = 0
+MSGTXT(1) Status Message Text #1 MSGTXT(2) Status Message Text #2 MSGTXT(3) Status Message Text #3 MSGTXT(4) Status Message Text #4 MSGTXT(5) Status Message Text #5 MSGTXT(6) Status Message Text #6 MSGTXT(7) Status Message Text #7 MSGTXT(8) Status Message Text #8 MSGTXT(9) Status Message Text #9 MSGTXT(10) Status Message Text #10 MSGTXT(11) Status Message Text #11 MSGTXT(12) Status Message Text #12 MSGTXT(13) Status Message Text #13 MSGTXT(14) Status Message Text #14 MSGTXT(15) Status Message Text #15 |__.__.__.__.__.__.__.__| range = Eight-Character String
+default = Blank
+|__.__.__.__.__.__.__.__| range = Eight-Character String
+default = Blank
+|__.__.__.__.__.__.__.__| range = Eight-Character String
+default = Blank
+|__.__.__.__.__.__.__.__| range = Eight-Character String
+default = Blank
+|__.__.__.__.__.__.__.__| range = Eight-Character String
+default = Blank
+|__.__.__.__.__.__.__.__| range = Eight-Character String
+default = Blank
+|__.__.__.__.__.__.__.__| range = Eight-Character String
+default = Blank
+|__.__.__.__.__.__.__.__| range = Eight-Character String
+default = Blank
+|__.__.__.__.__.__.__.__| range = Eight-Character String
+default = Blank
+|__.__.__.__.__.__.__.__| range = Eight-Character String
+default = Blank
+|__.__.__.__.__.__.__.__| range = Eight-Character String
+default = Blank
+|__.__.__.__.__.__.__.__| range = Eight-Character String
+default = Blank
+|__.__.__.__.__.__.__.__| range = Eight-Character String
+default = Blank
+|__.__.__.__.__.__.__.__| range = Eight-Character String
+default = Blank
+|__.__.__.__.__.__.__.__| range = Eight-Character String
+default = Blank
+.
+FS88-501B
+Page 1 of 2
+02/98
+FSC-SM Node-Specific Configuration
+FSC-SM Configuration Engineer: Date:
+WARNING: If the point mix or the scan rate is changed, then the node's full database will be set to its
+default.
+SM Node Configuration Display
+NTWKNUM NIM's UCN that SMM is connected to |__.__| range = 1 to 20
+default = Not applicable
+NODENUM SMM's Address on the UCN |__.__| range = 1 to 64
+default = Not applicable
+NODETYP PM Process Manager Module
+Enumeration of the UCN Node Type APM Advanced Process Manager Module
+HPM High Performance Process Manager Module
+LM Logic Manager Module
+SM Safety Manager Module
+Applicable only if NODETYP = SM
+SMPLTFM FSC Safety Manager is using FSC Controller
+Type of Safety Control Platform TRICON Safety Manager is using TRICON Controller
+NAISLOT* # of Analog Input Slots NAOSLOT* # of Analog Output Slots NDISLOT* # of Digital Input Slots |__.__.__| range = 0 to 1000
+default = 0
+NDOSLOT* # of Digital Output Slots NLOGSLOT* # of Logic Slots NDCSLOT* # of Digital Composite Slots |__.__.__| range = 0 to 2500
+default = 0
+NONETXT Digital Composite None State |__.__.__.__| range = 0 to 1000
+default = 0
+|__.__.__.__| range = 0 to 2000
+default = None
+NNUMERIC** # of Numerics |__.__.__.__| range = 0 to 1000
+default = 0
+** * The actual Range check will be calculated on the PU count for each Point type and the mix of configured
+Points desired. The FSC-SMM will perform Range checking. The 0.5 second scan rates will tend to lower
+these maximum range values.
+The actual Range check for this Parameter will depend on the NNLSBA. The FSC-SMM will perform Range
+checking.
+FS88-501B
+Page 2 of 2
+02/98
+FSC-SM Node-Specific Configuration
+SM Node Configuration Display (continued)
+NNLSBA*** FSC-SM Start Address of the Numeric Array |__.__.__.__.__| range = 0 to 65535
+default = 0 (Not Configured)
+NFLAG # of Flags |__.__.__.__| range = 0 to 2000
+default = 0
+The Range check for this Parameter will be dependent on the FLLSBA. SMM will perform Range checking.
+FLLSBA FSC-SM Start Address of the Flag Array |__.__.__.__.__| range = 0 to 65535
+default = 0 (Not Configured)
+The Range check for this Parameter will be dependent on the NFLAG value. SMM will perform Range
+checking.
+NTIMER |__.__.__.__| range = 0 to 1500
+# of Timers default = 0
+The actual Range check will be calculated on the PU count for each Point type and the mix of configured
+Points desired. The 0.5 second scan rates will tend to lower the maximum range value. SMM will perform
+Range checking.
+SCANRATE SMM's Scan Rate in Times per Second |__| range: 0 = Null
+1 = AR1DT2
+2 = AR2DT2
+3 = AR1DT1
+default = AR2DT2
+*** The Range check for this Parameter will be dependent on NNUMERIC value. The FSC-SMM will perform
+Range checking.
+FS88-502
+Page 1 of 4
+02/98
+FSC-SM Analog Input Data Point
+FSC-SM AnalgIn Data Point Engineer: Date:
+Point Assignment Display
+NAME range = Not applicable
+Tag Name |__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__| default = Blank
+NODETYP PM range = Not applicable
+Node Type APM default = PM
 HPM
 LM
-UCN A
 SM
-UCN B
-UCN
-S
-M
-M
-Central
-Part
-I/O
-System
-FSC
-* The TPS operator stations are:
-• Universal Stations,
-• UXSs,
-• Universal Work Stations, and
-• Global User Stations.
-FSC user station
-(with FSC Development
-System software or
-FSC Navigator software)
-Figure 1-1 – FSC Safety Manager as a component of the TPS system
-Human interfaces As shown in Figure 1-1, two human interfaces are used in conjunction
-with the FSC Safety Manager:
-• the operator stations – i.e. Universal Stations (US), UXSs, Universal
-Work Stations and Global User Stations – are configurations of the TPS
-level user interface, and
-• the FSC user station (with the FSC Development System or
-FSC Navigator software), which interfaces with the FSC Controller.
-Continued on next page
-2 FSC Safety Manager Service Manual 02/98
-1.1 Overview, Continued
-Frontplate features As illustrated in Figure 1-2, the FSC-SMM frontplate includes the
-following major features:
-• Diagnostic and operation LED indicators, which indicate:
-- the result of self-test diagnostics ('STATUS' LED),
-- UCN transmit status ('Tx' LED),
-- the primary (On) or secondary (Off) ('P' LED), and
-- the UCN cable that is currently carrying message traffic
-('A' LED / 'B' LED).
-• F-style connectors, which provide a link to the redundant Universal
-Control Network (A and B) via drop cables.
-FSCTM
-STATUS
-TX
-P
-A
-A
-B
-B
-10008/2/U
-Figure 1-2 – FSC Safety Manager Module frontplate features
-Continued on next page
-02/98 FSC Safety Manager Service Manual 3
-1.1 Overview, Continued
-Functional summary The FSC Safety Manager provides a dual redundant fault-tolerant
-controller for safety and emergency shutdown applications on the UCN.
-The two redundant FSC Control Processors collect, process and output
-process information in parallel.
-Depending on the configuration of the FSC Controller, the processors may
-share an I/O module (non-redundant I/O configuration), or may have
-exclusive access to the module (redundant I/O configuration).
-The control process accesses the I/O part via an I/O bus structure
-consisting of a vertical bus, which interconnects the FSC Central Part rack
-with the I/O racks. The vertical bus is controlled by the Vertical Bus
-Driver (VBD) module. In redundant I/O configurations, each control
-process has its own vertical bus to the I/O part, and has exclusive access to
-that vertical bus. In non-redundant configurations, the control processors
-share access to the I/O parts, via a single vertical bus.
-The FSC Control Processors perform self-tests of the FSC hardware on a
-continuous basis. Diagnostic information on detected faults is provided to
-the user via the US and the FSC user station (with the FSC Development
-System or FSC Navigator software).
-• Each field input signal is:
-– collected, and
-– scanned by its Control Processor, via an input module.
-• The Control Processors:
-– synchronize the input signals with the redundant control processor
-over a high-speed inter Central Part communication link, including
-diagnostic information obtained from the system self-tests, and
-– process the input data by executing its control program.
-• The output module:
-– is updated with the output information as calculated by the control
-program, and
-– transmits the output signal to the connected field device.
-Continued on next page
-4 FSC Safety Manager Service Manual 02/98
-1.1 Overview, Continued
-FSC-SM architecture Figure 1-3 illustrates the dual-redundant architecture employed in the FSC
-Safety Manager.
-UCN
-Central
-Part 1
-FSC-
-SMM
-non-
-redundant
-input
-non-
-redundant
-output
-Inter Central Part
-Communication
-Central
-Part 2
-FSC-
-SMM
-redundant
-input
-redundant
-output
-A
-B
-Figure 1-3 – FSC-SM architecture
-REFERENCE — For detailed information regarding concepts and
-functions described in this section, refer to the FSC Safety Manager
-Control Functions, the FSC Safety Manager Implementation Guidelines
-and the FSC Safety Manager Installation Guide.
-02/98 FSC Safety Manager Service Manual 5
-1.2 Hardware Dependencies
-Minimum equipment
-required
-The following list gives the minimum pieces of equipment needed for a
-dual-redundant FSC Safety Manager system:
-• two FSC Central Part racks, each consisting of:
-− one power supply unit (PSU)
-− one central processor unit (CPU)
-− one watchdog module (WD)
-− one vertical bus driver module (VBD)
-− one diagnostic and battery module (DBM)
-− one communication processor (COM)
-− one FSC Safety Manager Module (FSC-SMM)
-• FSC I/O racks, each consisting of:
-− horizontal bus driver module(s) (HBD)
-− digital input module(s)
-− digital output module(s)
-− analog input module(s)
-− analog output module(s)
-− watchdog repeater module(s) (WDR)
-• one FSC user station, which is used to interface with the FSC
-Controller. The user station has the following specifications:
-− for FSC Development System software (DOS-based) (R42x):
-a 386/486 IBM-compatible personal computer with 640 KB
-RAM, 6 MB hard disk space, Hercules/EGA/VGA graphics,
-and an HSMS 07177/1/. hardware key.
-− for FSC Navigator software (Windows 95 based) (R500):
-a Pentium-based IBM-compatible personal computer with
-16 MB RAM (32 MB recommended), 15 MB hard disk space,
-VGA graphics, and an 07177/1/. serial interface module (only
-required if applications are to be programmed to EPROM).
-• one TPS system including a Universal Station (US), a History Module
-(HM) and a Network Interface Module (NIM), and
-• as required, a Local Control Network (LCN), Universal Control
-Network (UCN) and FSC communication cabling.
-Figure 1-1 on page 2 shows the FSC-SM relationship to the TPS system.
-ATTENTION Configuration Checklist).
-Refer to Subsection 1.4 (FSC-SM Installation and
-6 FSC Safety Manager Service Manual 02/98
-1.3 Software Dependencies
-Minimum software
-releases
-The software dependencies for the Safety Manager are:
-• the FSC system must be Release 420 or higher, and
-• the TPS control system must be Release 530 or higher.
-ATTENTION Configuration Checklist).
-Refer to Subsection 1.4 (FSC-SM Installation and
-02/98 FSC Safety Manager Service Manual 7
-1.4 FSC-SM Installation and Configuration Checklist
-Summary The following checklist is intended to highlight the most critical steps in
-the installation and configuration of an FSC Safety Manager.
-Installation Checklist
-Minimum Equipment
-Complement
-❑ two FSC Central Part racks.
-❑ one or more FSC I/O racks (as required).
-❑ one FSC user station, with FSC Development System software or FSC Navigator software.
-❑ one TPS system including a Universal Station (US), a History Module (HM) and a Network
-Interface Module (NIM)
-.
-❑ as required, Local Control Network (LCN), Universal Control Network (UCN) and FSC
-communication cabling
-.
-Minimum
-Requirements
-❑ Minimum hardware revision levels satisfied.
-❑ Minimum firmware revision levels satisfied.
-❑ Minimum software revision levels satisfied.
-FSC-SM Installation
-❑ All central part modules at the configured positions.
-❑ All I/O rack modules at the configured positions.
-FSC-SMM Installation
-❑ Module installed on the configured position and cover screws fastened.
-❑ UCN cables attached and torqued to specification.
-❑ No UNAPPROVED right angle F-connectors used.
-FSC User Station
-Installation
-❑ 07177/./. hardware key installed in PC.
-❑ FSC communication cabling installed and on proper ports.
-❑ FSC EPROM programmer installed.
-❑ Up-to-date FSC software installed and operational.
-Configuration Checklist
-FSC User Station
-Configuration
-❑ FSC-SM hardware configuration completed.
-❑ FSC-SM application configuration completed.
-❑ FSC-SM application translated.
-FSC-SMM
-Configuration
-at FSC User Station
-DCS Addresses
-❑ FSC-SMM configuration completed (UCN address: odd number, 1...63).
-❑ DCS addresses assigned to all FSC variables that will be used by the TPS application (DCS
-addresses correspond to PLC addresses).
-FSC-SMM
-Configuration
-Downloaded /
-Programmed
-❑ Main processor module EPROMs burned and correctly placed on the main processor module.
-❑ Main processor application downloaded (optional).
-❑ Communication processor module EPROMs burned and correctly placed on the communication
-processor module.
-❑ FSC-SMM EPROM burned and correctly placed on the FSC-SMM
-❑ FSC-SM started.
-At this point, the FSC-SM should be ready for Node and Point Configuration at the LCN level.
-8 FSC Safety Manager Service Manual 02/98
-1.5 Specifications
-Summary Refer to the FSC Safety Manager Specification and Technical Data
-(FS03-500) for information on:
-• operating and storage temperatures,
-• humidity,
-• shock and vibration tolerance,
-• protection from atmosphere,
-• EMI susceptibility, and
-• conformity to standards and codes.
-02/98 FSC Safety Manager Service Manual 9
-Left blank intentionally
-10 FSC Safety Manager Service Manual 02/98
-Section 2 – Spare Parts
-2.1 Overview
-Summary The only spare part for the FSC Safety Manager system is the FSC Safety
-Manager Module (FSC-SMM). Its HSMS part number is 3400144.
-For assistance in ordering this part, cabling or any other FSC parts,
-consult your Honeywell representative.
-02/98 FSC Safety Manager Service Manual 11
-Left blank intentionally
-12 FSC Safety Manager Service Manual 02/98
-Section 3 – Diagnostics and Troubleshooting
-3.1 Overview
-About this section This section contains the following topics:
-Subsection Topic See Page
-3.1 Overview................................................................................................... 13
-3.2 Soft Failures.............................................................................................. 14
-3.3 Hard Failures ............................................................................................ 16
-3.4 Point Configuration Errors ........................................................................ 17
-3.5 Communication Errors.............................................................................. 18
-3.6 FSC-SMM Status Indicators ..................................................................... 27
-3.7 FSC Diagnostic Information...................................................................... 29
-Introduction This section contains information on
-• different types of failures,
-• configuration and communication errors,
-• how to access error information, and
-• what actions, if any, to take.
-ATTENTION Refer to Subsection 1.4 (FSC-SM Installation and
-Configuration Checklist) to ensure that the FSC-SM has been installed and
-configured properly.
-02/98 FSC Safety Manager Service Manual 13
-3.2 Soft Failures
-Summary Soft failures are situations where control and process view are maintained,
-but a fault has jeopardized system integrity.
-An FSC Safety Manager softfail may have many different causes.
-Softfail descriptions Table 3-1 lists the types of softfails that may be encountered.
-Table 3-1 – Softfail Descriptions
-Code Journaled
-Text
-Text Displayed on
-FSC-SMM Diagnostic
-Displays
-FSC-SMM Interpretation and/or Comments
-19 UCNPRSFL Primary Cannot Talk
-to Secondary on UCN
-FSC-SMM has lost the ability to communicate
-over the UCN.
-20 UCNSCPFL Secondary Cannot Talk
-to Primary on UCN
-FSC-SMM has lost the ability to communicate
-over the UCN.
-21 NOSYNCH Secondary Not Synched Loss of FSC-SMM Redundancy.
-34 UCNOVRUN UCN Overrun FSC-SMM unable to prefetch data from remote
-nodes (peer-to-peer inputs).
-35 PPXOVRUN Point Processor
-Overrun
-FSC-SMM point scanning is lagging behind
-schedule.
-54 LCLLNOSC LC Not Scanning FSC-SMM Point Processing requires the Logic
-Controller to scan its inputs and its user
-program.
-63 LCIOCDFL LC Comm or I/O Card
-Fault
-FSC System Aliases are signaling an I/O fault.
-80 SMTSFLT FSC-SMM Time Synch
-Failure
-Set by an FSC-SMM upon detection of a UCN
-Time Sync failure.
-Causes include:
-• UCN Time Synch hardware/software failure.
-81 LCTSFLT LC Time Synch Failure Set by an FSC-SMM upon detection of a Logic
-Controller Time Synch error.
-Causes include:
-• FSC Time Synch hardware failure.
-• FSC Time Synch command processing
-failure.
-Continued on next page
-14 FSC Safety Manager Service Manual 02/98
-3.2 Soft Failures, Continued
-Soft failures US
-display
-Figure 3-1 shows a US display which provides the various FSC Safety
-Manager soft failures and their corresponding error codes.
-ATTENTION Active soft failures will be highlighted.
-Figure 3-1 – US Display - Soft Failures
-21 May 97 22:42:20 1
-SM DETAIL SOFT FAILURES
-FSC-SM
-STATUS
-VERS/
-REVIS
-FSC-SM
-CONFIG
-UCN
-STATS
-19 Primary Cannot Talk to Secondary on UCN
-20 Secondary Cannot Talk to Primary on UCN
-21 Secondary Not Synched
-34 UCN Overrun
-35 Point Processing Overrun
-54 LC Not Scanning
-63 LC Comm or I/O Card Fault
-80 SMM Time Synch Failure
-81 LC Time Synch Failure
-MAINT
-SUPPORT
-SOFT
-FAILURE
-UCN 1
-NODE 31
-TYPE SM
-PRI/SEC PRIMARY
-STATUS OK
-PLATFORM FSC
-UCN CHANNEL CHANNEL B
-AUTO SWAP ENABLE
-FILE POS NON_PREF
-SYNCHST SYNCHED
-02/98 FSC Safety Manager Service Manual 15
-3.3 Hard Failures
-Hard failures
-summary
-Hard failures will result in FSC-SMM shutdown (to the FAIL state). Hard
-failures include the following:
-• component failure,
-• program or database failure.
-Crash codes Fail (crash) situations involve a large number of possible error codes.
-Contact the Technical Assistance Center (TAC) for help in identifying the
-causes of such failures.
-16 FSC Safety Manager Service Manual 02/98
-3.4 Point Configuration Errors
-Errors in configuring
-points
-The FSC-SMM will only recognize LC aliases previously configured
-within the FSC. Table 3-2 lists configuration errors for the FSC Safety
-Manager.
-Table 3-2 – Configuration Errors
-Error Description
-ILLEGAL VALUE Attempt to write an FSC hardware addressing
-parameter (e.g. PLCADDR, LODSTN, CCSRC,
-ILCxxxxx, etc.) which specifies an Alias not
-available within the host FSC.
-READ ONLY Response to attempts to write to a read-only
-FSC-SM parameter.
-CONFIGURATION
-MISMATCH
-An invalid LC alias (PLCADDR). Attempts to change
-PTEXECST to ACTIVE will be denied.
-02/98 FSC Safety Manager Service Manual 17
-3.5 Communication Errors
-US display for
-communication
-errors target
-Figure 3-2 is the US display which allows you to access the
-Communication Error Block screen. To do this, you need to select the
-"NODE STS INFO" target.
-Figure 3-2 – US Display - NODE STS INFO Target
-10 Jun 97 14:27:31 1
-SM DETAIL MAINT SUPPORT NODE STS INFO
-ERROR
-BLOCK
-NODE STS
-INFO
-BOX
-FSC-SM
-STATUS
-VERS/
-VERS/
-REVIS
-FAILURE INFO
-CURRENT PROCESSOR FAILURE : NULL
-PREVIOUS STATUS : OFFNET
-BOX
-FSC-SM
-CONFIG
-REDUNDANCY INFO
-REDUN PARTNER UCN VISIBILITY : VISIBLE
-REDUN PARTNER PL VISILIBITY : NOT VISIBLE
-UCN
-UCN
-STATS
-STATS
-MAINT
-MAINT
-SUPPORT
-PERSONALITY LOAD INFO
-NODE LOAD FAILURE INFO : 0
-LOAD FLAGS : 40
-LOAD PACKET NUMBER : 914
-NODE PERFORMING LOAD : 1
-SOFT
-FAILURE
-FAILURE
-STARTUP/FAILOVER INFO : 00
-UCN 1
-NODE 31
-TYPE SM
-PRI/SEC PRIMARY UCN CHANNEL CHANNELB FILE POS NON_PREF
-STATUS OK AUTO SWAP ENABLE SYNCHST SYNCHED
-PLATFORM FSC
-Continued on next page
-18 FSC Safety Manager Service Manual 02/98
-3.5 Communication Errors, Continued
-US display showing
-UCN statistics
-Figure 3-3 shows the US UCN statistics display which lists the various
-UCN communication error statistics, along with other UCN statistics. The
-values given are samples of what might be expected in a system which
-operates correctly.
-Figure 3-3 – US Display - UCN Statistics Screen, Page 1
-10 Jun 97 14:27:31 1
-SM DETAIL UCN STATS PAGE 1
-HELP
-RESET
-RESET STATS
-STATS
-STATS
-PAGE 2
-BOX
-FSC-SM
-STATUS
-VERS/
-VERS/
-REVIS
-BOX
-FSC-SM
-CONFIG
-UCN
-UCN
-STATS
-STATS
-STATS
-MAINT
-MAINT
-SUPPORT
-SOFT
-FAILURE
-FAILURE
-NO COPY BUFFERS 0
-TOKEN ROTATION TIME 0
-NO SUCCESSOR FOUND 0
-ASKED WHO FOLLOWS 0
-TOKEN PASSED FAILED 0
-NOISE BITS 0
-CHECKSUM ERROR 0
-REPEATER ERROR 0
-PARTIAL FRAME 0
-RECEIVED FRAME TOO LONG 0
-NO RECEIVE BUFFERS 0
-RECEIVE OVERRUN 0
-DUPLICATE RWR 0
-NULL RWR (RESYNCH) 0
-TRANSMIT UNDERRUN 0
-TRANSMIT FRAME TOO LONG 0
-TOTAL CABLE SWAPS 1
-CABLE A SILENCE 0
-CABLE B SILENCE 0
-CABLE A NOISE 0
-CABLE B NOISE 0
-NO-RESPONSE ERRORS 0
-UNEXPECTED RESPONSES 0
-ERRORS IN RESPONSES 0
-AUTO-RECONNECTS 0
-LOCAL MESSAGES 0
-MESSAGES SENT 306
-MESSAGES RECEIVED 122
-MESSAGES DISCARDED 0
-REPLY TIMEOUTS 0
-UCN 1
-NODE 31
-TYPE SM
-PRI/SEC PRIMARY UCN CHANNEL CHANNELB FILE POS NON_PREF
-STATUS OK AUTO SWAP ENABLE SYNCHST SYNCHED
-PLATFORM FSC
-Continued on next page
-02/98 FSC Safety Manager Service Manual 19
-3.5 Communication Errors, Continued
-Local UCN statistics
-description
-Table 3-3 – Local UCN Statistics
-Table 3-3 describes each of the local UCN communication error statistics
-listed in the example US display in Figure 3-3. It also gives a probable
-cause or probable causes for why each error might occur.
-Statistic Description Nominal Range Over Specified
-Time Period;
-How the System Recovers
-Probable Cause
-No Copy
-Buffers
-Network Interface
-Module (NIM) only; no
-buffers in the
-processor to copy
-received messages.
-Ideally, should be zero (0).
-Events are throttled to reduce the
-probability of errors; the event
-recovery logic will ensure events
-are up-to-date.
-Increases when the NIM is
-congested.
-Token
-Rotation
-Time
-NIM only; the average
-network token rotation
-in 0.1 millisecond
-units.
-Depends on number of configured
-nodes that are on the network
-(e.g. for a six node UCN network,
-the nominal range is between 4-5
-ms). When running smoothly, the
-user should record the nominal
-range of his/her system for
-comparison.
-Increases when the node is
-offnet or the UCN node
-addresses have gaps. Also
-increases with more traffic.
-No
-Successor
-Found
-The token ring
-collapsed.
-Should be zero in systems with
-two or more nodes passing tokens
-and no communication problems.
-Fewer than two token
-passers, a network
-communication problem.
-Asked Who
-Follows
-A successor node
-change.
-N/A
-Communication system will
-automatically look for a new
-successor.
-The shutdown of a node, the
-powering off of a node, a
-communication fault.
-Token
-Passes
-Failed
-Token pass to the
-successor retried.
-Should be zero in a smooth
-network with no faults or nodes
-entering or leaving.
-Communication fault,
-shutdown or power-down
-node failover.
-Noise Bits Noise detected. 1 count per 10 seconds is typical;
-the lower, the better. Messages
-Retried count does not necessarily
-imply lost messages.
-Communication fault,
-grounding problem.
-Checksum
-Error
-Corrupt message,
-checksum detected.
-Should be zero in a smooth
-system.
-The message is retried.
-Communication fault,
-marginal modem.
-Repeater
-Error
-Corruption in the end
-delimiter.
-Should be zero.
-The message is retried.
-Communication fault,
-electromagnetic field (EMF)
-nearby.
-Continued on next page
-20 FSC Safety Manager Service Manual 02/98
-3.5 Communication Errors, Continued
-Local UCN statistics
-description, continued
-Table 3-3 – Local UCN Statistics (continued)
-Statistic Description Nominal Range Over Specified
-Time Period;
-How the System Recovers
-Probable Cause
-Partial Frame Full message not
-received.
-Should be zero in a smooth
-system.
-The message is retried.
-Communication fault.
-Received
-Frame Too
-Long
-Message received
-> 1 KB.
-Should be zero. Has not yet been observed.
-Software bug.
-No Receive
-Buffers
-No buffers for TBC to
-receive messages.
-Should be zero if not overloaded.
-See recovery procedure for No
-Copy Buffers.
-Overload.
-Receive
-Overrun
-Not enough DMA
-bandwidth for the TBC
-to copy the received
-message to memory.
-Should be zero. Hardware problem.
-Duplicate
-RWR
-Duplicate message
-received.
-In a smooth system, this may
-occur about twice a day.
-ACK lost.
-Null RWR
-(Resynch)
-Used to resynch
-communications.
-N/A Node startup, failover node
-failure, communication fault.
-Transmit
-Underrun
-Not enough DMA
-bandwidth for the TBC
-to transmit.
-Should be zero. Hardware problem.
-Transmit
-Frame Too
-Long
-Inconsistent
-information given to
-TBC.
-Should be zero. Software bug.
-Total Cable
-Swaps
-The sum of all swaps:
-operational, automatic
-and periodic.
-Once every 15 minutes when
-there are no faults, noise or
-silence present.
-Periodic cable swap
-enabled.
-Cable A
-Silence
-No energy on
-Cable A.
-Should be zero.
-The network swaps to Cable B.
-Cabling not connected
-correctly, bad cable.
-Cable B
-Silence
-No energy on
-Cable B.
-Should be zero.
-The network swaps to Cable A.
-Cabling not connected
-correctly, bad cable.
-Continued on next page
-02/98 FSC Safety Manager Service Manual 21
-3.5 Communication Errors, Continued
-Local UCN statistics
-description, continued
-Table 3-3 – Local UCN Statistics (continued)
-Statistic Description Nominal Range Over Specified
-Time Period;
-How the System Recovers
-Probable Cause
-Cable A
-Noise
-Excessive noise on
-Cable A.
-Should be zero.
-The network swaps to Cable B.
-Cabling not connected
-correctly, bad cable, missing
-terminator ground.
-Cable B
-Noise
-Excessive noise on
-Cable B.
-Should be zero.
-The network swaps to Cable A.
-Cabling not connected
-correctly, bad cable, missing
-terminator ground.
-No-
-Response
-Errors
-One or more node did
-not respond to an
-RDR.
-Should be zero in a smooth
-system with all nodes on net and
-properly configured.
-Node(s) offnet, node(s)
-overloaded.
-Unexpected
-Responses
-MAC control incorrect
-in RWR.
-Should be zero. LLC bug or contention (more
-than one node believes it
-has the token).
-Errors In
-Responses
-LLC part of RWR
-incorrect.
-Should be zero. LLC bug.
-Auto-
-Reconnect
-Network reconnect
-attempts.
-N/A Network problems.
-Local
-Messages
-Intranode local
-messages.
-An increasing number in NIM, zero
-in FSC-SM.
-N/A
-Messages
-Sent
-Messages sent from
-node.
-N/A N/A
-Messages
-Received
-Messages received by
-node.
-N/A Reply received after reply
-timeout, duplicate reply
-because of lost ACK, bad
-protocol version, messages
-from a nonconfigured node
-(NIM only).
-Messages
-Discarded
-Messages ignored. Should be zero. Response received after
-timeout, ACK lost, NIM
-received a message from a
-nonconfigured node,
-protocol version mismatch.
-Reply
-Timeouts
-Reply not received in
-applicable time.
-Should be zero. Overload, failover, power
-off, shutdown.
-Continued on next page
-22 FSC Safety Manager Service Manual 02/98
-3.5 Communication Errors, Continued
-UCN STATS display,
-page 2
-Figure 3-4 shows an example of page 2 of the UCN STATS display. You
-can access this screen, from page 1 of the UCN STATS display, by
-selecting the STATISTICS PAGE TWO target.
-Figure 3-4 – US Display - UCN Statistics Screen, Page 2
-10 Jun 97 14:27:31 1
-SM DETAIL UCN STATS PAGE 2
-HELP
-RESET
-RESET STATS
-STATS
-STATS
-PAGE 1
-BOX
-FSC-SM
-STATUS
-VERS/
-VERS/
-REVIS
-BOX
-FSC-SM
-CONFIG
-UCN
-UCN
-STATS
-STATS
-STATS
-MAINT
-MAINT
-SUPPORT
-EVENT SENDER STATISTICS
-MESSAGES SENT 3
-MESSAGES RETRIED 0
-RECEIVER DROPPED 0
-NAKS RECEIVED 0
-THROTTLING REQUESTED 0
-NUMBER OF EVENT RCVRS 1
-TIME SYNCH STATUS TIME SYNCH STATISTICS
-UCN DATE 10 Jun 97 SYNCH ERRORS 0
-UCN TIME 14:27:31 LOST MESSAGES 0
-SYNCHER NODE 1 CLOCK ERRORS 0
-CURRENT STATE OK DRIFT THRESHOLD 0
-DRIFT VALUE 0
-SOFT
-FAILURE
-FAILURE
-UCN 1
-NODE 7
-TYPE SM
-PRI/SEC PRIMARY UCN CHANNEL CHANNELA FILE POS NON_PREF
-STATUS OK AUTO SWAP ENABLE SYNCHST SYNCHED
-PLATFORM FSC
-Continued on next page
-02/98 FSC Safety Manager Service Manual 23
-3.5 Communication Errors, Continued
-Event sender UCN
-statistics description
-Table 3-4 describes each of the event sender UCN communication error
-statistics listed in the example US display in Figure 3-4. It also gives a
-probable cause or probable causes for why each error might occur.
-Table 3-4 – Event Sender UCN Statistics
-Statistic Description Nominal Range Over Specified
-Time Period;
-How the System Recovers
-Probable Cause
-Messages
-Sent
-Event messages sent,
-not including retry.
-N/A if no new event.
-Heartbeat message sent every 10
-seconds.
-N/A
-Messages
-Retried
-Retries caused by
-NORESP, NAK or lost
-ACK for the event.
-N/A Event overload,
-communication fault.
-Receiver
-Dropped
-The number of times
-an event receiver did
-not respond after
-retry.
-Zero in NIM, one in FSC-SM if
-there is a NIM failure.
-NIM shutdown, NIM failure,
-NIM congested.
-NAKs
-Received
-Message not
-accepted by receiver.
-Should be zero except under
-heavy event load.
-Heavy event load.
-Throttling
-Requested
-The number of times
-the node was
-requested to delay
-before sending the
-next message.
-Should be zero except under
-heavy event load.
-Heavy event load.
-Number Of
-Event Rcvrs
-The number of nodes
-ACKing events;
-FSC-SM, LM and PM
-only.
-The number of NIMs running on
-the UCN.
-N/A
-Continued on next page
-24 FSC Safety Manager Service Manual 02/98
-3.5 Communication Errors, Continued
-Time synch statistics
-description
-Table 3-5 describes each of the time synchronization error statistics listed
-in the example US display in Figure 3-4. It also gives a probable cause or
-probable causes for why each error might occur.
-Table 3-5 – Time Synch Statistics
-Statistic Description Nominal Range Over Specified
-Time Period;
-How the System Recovers
-Probable Cause
-Synch Errors Time synchronization
-not performed
-successfully.
-0 to 2 counts at start-up. Multiple TimeSync
-messages per time
-synchronization cycle.
-Syncher contention.
-Faulty timeset-timer
-hardware.
-Lost
-Messages
-Node and/or serial
-number of the
-SyncTime message
-do not match the node
-and/or serial number
-of the TimeSync
-message.
-Increments on Syncher change. Syncher change.
-Network problem.
-Clock Errors Discrepancy between
-LCN and EPNI, or
-between FSC-SMM
-and UCN time.
-N/A LCN clock problem.
-Drift
-Threshold
-N/A N/A N/A
-Continued on next page
-02/98 FSC Safety Manager Service Manual 25
-3.5 Communication Errors, Continued
-Time synch status
-description
-Table 3-6 describes the time synchronization status portion of the example
-US display in Figure 3-4.
-Table 3-6 – Time Synch Status
-Statistic Description
-LCN Date Reflects LCN date within the FSC-SMM.
-LCN Time Reflects LCN time within the FSC-SMM. The time is accurate to ± 1 second.
-Syncher Node The UCN node number of the syncher node.
-Current State The time synch state of this node. A PNI NIM or an NIM with time synch disabled will
-report "Failed."
-Drift Value N/A
-UCN addressing
-errors
-An FSC Safety Manager UCN address is configured at the FSC user
-station using the FSC Development System software or FSC Navigator
-software. Range checking within the FSC user software is assumed (1-63,
-odd addresses only). The top/bottom module placement within a given
-slot determines top/bottom shadow addressing. It is therefore impossible
-for an FSC-SMM to operate with an invalid UCN address. However,
-there is no protection against duplicate use of a UCN address.
-26 FSC Safety Manager Service Manual 02/98
-3.6 FSC-SMM Status Indicators
-Status indicators The front panel of the FSC-SMM includes components which provide
-status information (see Figure 1-2). The front panel includes:
-• a (red/green) 'STATUS' LED, and
-• four additional (red) LEDs.
-The 'STATUS' LED is:
-• off when the 5 Vdc power on the FSC Central Part system bus is down,
-• red when the module is offnet or alive,
-• green when the UCN program is running (idle or OK),
-• red/green flashing when the UCN program has failed.
-If the 'STATUS' LED is green, the four small LEDs provide additional
-information about the UCN communication:
-• The 'Tx' LED is on when data is being transmitted.
-• The 'P' LED is on when the node is primary (and off when the node is
-secondary).
-Note:
-off.
-If the node is not redundant, the 'P' LED will always be
-• The 'A' LED is on when the A channel is the active channel.
-• The 'B' LED is on when the B channel is the active channel.
-Continued on next page
-02/98 FSC Safety Manager Service Manual 27
-3.6 FSC-SMM Status Indicators, Continued
-Status indicators,
-continued
-If the 'STATUS' LED blinks green/red, counting the number of times
-that the LED turns green provides diagnostic information on the error that
-has occurred. (Stop counting when the LED stays red for about four
-seconds.)
-Table 3-7 lists the number of 'green flash' counts with their associated
-errors.
-Table 3-7 – Error codes with 'STATUS' LED flashing red/green
-Counts Error
-3 Hard failure, ROM checksum
-4 Hard failure, processor exceptions
-6 Hard failure, LRAM pattern test
-7 Hard failure, LRAM address decode test
-8 Hard failure, llc communication error
-11 Hard failure, system crashed
-12 Command timeout
-13 Modem failure/bad interface
-14 TBC interface test
-15 Loop internal TBC UART back full duplex
-16 Receive test with internal loopback
-17 Transmit test with internal loopback
-18 Receive test with external loopback
-19 Transmit test with external loopback
-20 TBC interrupt
-21 LS Static cable switch test
-22 LS Static non-silence detector test
-23 LS Dynamic cable switch test
-24 LS Override cable switch test
-25 LS Dynamic non-silence detector test
-26 Modem jabber test
-27 Hard failure, missing OS9 entry point
-29 Parity error detected
-28 FSC Safety Manager Service Manual 02/98
-3.7 FSC Diagnostic Information
-FSC diagnostic
-display
-The FSC system provides extensive diagnostic information about the
-operating status of its system components. Any faults are reported in the
-FSC Diagnostic Display at the US (see Figure 3-5). It will show a
-description of the component(s) affected, together with their module
-number and exact location (rack, position), as well as the date and time
-that the fault(s) occurred.
-The FSC Diagnostic Display can be called as follows:
-1) From the System Status (SYST STATS) screen, select a valid LCN
-node.
-2) 3) 4) 5) Select the NTWK/HWY STATUS (Network/Highway Status) target.
-Select the UCN node you want diagnostic information about.
-Select the DETAIL STATUS target.
-Select the FSC DIAG target.
-ATTENTION For more information about the various fault
-descriptions, error codes and the actions to be taken for each fault
-situation, refer to the FSC Software Manual under the 'View FSC system
-and process status' section.
-Figure 3-5 – FSC Diagnostic Display
-10 Jun 97 14:27:31 1
-BOX
-FSC-SM
-STATUS
-VERS/
-VERS/
-REVIS
-BOX
-FSC-SM
-CONFIG
-UCN
-UCN
-STATS
-STATS
-MAINT
-MAINT
-SUPPORT
-SOFT
-FAILURE
-FAILURE
-SM DETAIL MAIN
-BOX STATUS - FSC DIAGNOSTC DISPLAY - Page 1 of 5
-Module Description Rack Pos Err Date/Time
-10101/1/1 Digital input module 24 VDC FS 3 1 2 06-09-97
-Module faulty 10:36:02
-10101/1/1 Digital input module 24 VDC FS 3 1 3 06-09-97
-Module faulty 10:36:02
-10102/1/2 Central Processing Unit 1 6 27 06-09-97
-External communication failure 10:36:03
-10302/1/1 Watchdog repeater 3 12 0 06-09-97
-Module faulty 10:36:03
-10102/1/2 Analog input module FS 3 2 1 06-09-97
-Module faulty 10:36:03
-HARDWARE << PAGE >>
-FSC PROGRAM
-FSC DIAG
-UCN 1
-NODE 31
-TYPE SM
-PRI/SEC PRIMARY UCN CHANNEL CHANNELB FILE POS NON_PREF
-STATUS PARTFAIL AUTO SWAP ENABLE SYNCHST NOSYNCH
-PLATFORM FSC
-02/98 FSC Safety Manager Service Manual 29
-Left blank intentionally
-30 FSC Safety Manager Service Manual 02/98
-Section 4 – Removal and Replacement
-4.1 Overview
-About this section This section provides instructions and references for the removal and
-replacement of the FSC Safety Manager Module and its components. The
-topics included in this section are:
-Subsection Topic See Page
-4.1 Overview................................................................................................... 31
-4.2 4.3 4.4 Replacing an FSC-SMM ........................................................................... 32
-Replacing the Firmware EPROMs............................................................ 34
-FSC-SMM Slot Keys ................................................................................. 36
-02/98 FSC Safety Manager Service Manual 31
-4.2 Replacing an FSC-SMM
-Replacement of the
-FSC-SMM
-Table 4-1 describes the procedure for replacing the FSC Safety Manager
-Module (FSC-SMM).
-Table 4-1 – Procedure for FSC-SMM replacement
-Step Action Done
-(✓)
-1 Always check and verify the diagnostics before starting the
-procedure to replace the FSC-SMM.
-2 Shut down the Central Part that contains the FSC-SMM you
-want to replace, by disconnecting the flatcable of the
-10005/./. watchdog (WD) module of that Central Part. After
-shutting down the Central Part, make sure to reconnect the
-watchdog flatcable.
-3 Turn the keyswitch on the 10002/./. Central Processing Unit
-(CPU) module to the STOP position (horizontal).
-4 Shut off the power to the Central Part by switching the circuit
-breaker which controls the power to that Central Part.
-5 Using the UCN Connector Torque Wrench Kit
-(51109612-100), disconnect the UCN communication cables
-from the FSC-SMM.
-6 Remove the screws at the top and bottom of the FSC-SMM
-board which secure it to the Central Part rack.
-7 Carefully pull the FSC-SMM from the Central Part rack.
-8 Carefully insert the new FSC-SMM into the Central Part rack.
-9 Secure the FSC-SMM at the top and bottom using the two
-screws that were removed in step 6.
-10 Using the UCN Connector Torque Wrench Kit
-(51109612-100), reconnect the UCN communication cables
-to the FSC-SMM.
-11 Restore power to the Central Part with the new FSC-SMM by
-switching the circuit breaker which controls the power to that
-Central Part.
-12 Check and verify the diagnostics.
-Continued on next page
-32 FSC Safety Manager Service Manual 02/98
-4.2 Replacing an FSC-SMM, Continued
-Replacement of the
-FSC-SMM, continued
-Table 4-1 – Procedure for FSC-SMM replacement (continued)
-13 Wait until the 10006/./. Diagnostic and Battery Module (DBM)
-starts updating the time. Then turn the keyswitch on the
-10002/./. Central Processing Unit (CPU) module back to the
-RUN position (vertical).
-14 Perform a fault reset to bring the Central Part back into
-operation.
-02/98 FSC Safety Manager Service Manual 33
-4.3 Replacing the Firmware EPROMs
-Introduction EPROMs contain the firmware version currently being used in the FSC
-Safety Manager system. Each EPROM has a label which provides the
-following information:
-• EPROM type,
-• software revision number, and
-• module serial number.
-Refer to the FSC Hardware Manual for details on the location of the FSC
-firmware at the 10002/1/2 Central Processor Module and 10004/./.
-Communication Module.
-CAUTION It is extremely important that you wear a properly
-connected Electrostatic Discharge (ESD) wriststrap while removing,
-handling and installing any electronic components.
-Slip the strap on your wrist like a wristwatch and connect its clip to the
-ground bus, which is located inside the cabinet. There is no danger of
-receiving a shock from an approved wriststrap.
-Be sure to keep any electronic component in a static-safe carrying pouch
-whenever it is not in use.
-Continued on next page
-34 FSC Safety Manager Service Manual 02/98
-4.3 Replacing the Firmware EPROMs, Continued
-FSC firmware upgrade Table 4-2 describes the procedure for upgrading the FSC-SMM firmware
-EPROMs.
-Table 4-2 – Procedure for FSC firmware upgrade
-Step Action Done
-(✓)
-1 Shut down Central Part 1 as described in Table 4-1 (steps 1
-to 3).
-2 Remove the FSC-SMM from Central Part 1 as described in
-Table 4-1 (steps 4 to 6).
-3 Replace the firmware EPROM of the FSC-SMM with the new
-firmware EPROM.
-4 Reinstall the FSC-SMM in Central Part 1 as described in
-Table 4-1 (steps 7 to 9).
-5 Bring Central Part 1 back into operation as described in
-Table 4-1 (steps 10 to 12).
-6 Repeat steps 1 to 5 for Central Part 2.
-Refer to Appendix D ("On-Line Modification") of the FSC Software
-Manual for information on replacing other EPROMs in the FSC system.
-02/98 FSC Safety Manager Service Manual 35
-4.4 FSC-SMM Slot Keys
-Summary Each FSC slot is fitted with metal keys at the top and bottom so that only
-one particular type of module fits in that slot.
-• If you ordered the FSC Safety Manager Module at the same time you
-ordered a new FSC, the keys are correct and no action is required.
-• If you ordered the FSC-SMM separately, then you have to replace the
-keys.
-Refer to the FSC-SM Hardware Manual for more information on key
-coding.
-36 FSC Safety Manager Service Manual 02/98
-Index
-A
-A LED, 3, 27
-Asked Who Follows, 20
-Auto-Reconnect, 22
-B
-B LED, 3, 27
-C
-Cable A Noise, 22
-Cable A Silence, 21
-Cable B Noise, 22
-Cable B Silence, 21
-Checksum Error, 20
-Clock Errors, 25
-Communication Error Block screen, 18
-Configuration errors
-CONFIGURATION MISMATCH, 17
-ILLEGAL VALUE, 17
-READ ONLY, 17
-CONFIGURATION MISMATCH, 17
-Crash codes, 16
-Current State, 26
-F, G
-Failures
-Hard, 16
-Soft, 14
-Firmware EPROMs, 34
-Frontplate features, 3
-FSC Development System, 6
-FSC diagnostic display, 29
-FSC firmware upgrade, 35
-FSC Navigator, 6
-FSC-SM architecture, 5
-FSC-SM functional summary, 4
-FSC-SM Installation and Configuration Checklist, 8
-FSC-SMM replacement, 32, 33
-FSC-SMM status indicators, 27
-F-style connectors, 3
-H
-Hard failures, 16
-Hardware, 6
-Human interfaces, 2
-I, J, K
-ILLEGAL VALUE, 17
-D
-Duplicate RWR, 21
-E
-Electrostatic discharge (ESD), 34
-EPROMs, 34
-Error codes with 'STATUS' LED flashing, 28
-Errors in configuring points, 17
-Errors In Responses, 22
-Event sender UCN communication error statistics
-Messages Retried, 24
-Messages Sent, 24
-NAKs Received, 24
-Number Of Event Rcvrs, 24
-Receiver Dropped, 24
-Throttling Requested, 24
-L
-LCN Date, 26
-LCN Time, 26
-LED indicators, 3, 27
-LEDs
-A, 3, 27
-B, 3, 27
-P, 3, 27
-STATUS, 3, 27, 28
-Tx, 3, 27
-Local Messages, 22
-Local Token Rotation Time, 20
-02/98 FSC Safety Manager Service Manual 37
-Index
-Local UCN communication error statistics, 20, 21, 22
-Asked Who Follows, 20
-Auto-Reconnect, 22
-Cable A Noise, 22
-Cable A Silence, 21
-Cable B Noise, 22
-Cable B Silence, 21
-Checksum Error, 20
-Duplicate RWR, 21
-Errors In Responses, 22
-Local Messages, 22
-Messages Discarded, 22
-Messages Received, 22
-Messages Sent, 22
-No Copy Buffers, 20
-No Receive Buffers, 21
-No successor Found, 20
-Noise Bits, 20
-No-Response Errors, 22
-Null RWR (Resynch), 21
-Partial Frame, 21
-Receive Overrun, 21
-Received Frame Too Long, 21
-Repeater Error, 20
-Reply Timeouts, 22
-Token Passes Failed, 20
-Token Rotation Time, 20
-Total Cable Swaps, 21
-Transmit Frame Too Long, 21
-Transmit Underrun, 21
-Unexpected Responses, 22
-Lost Messages, 25
-N, O
-NAKs Received, 24
-No Copy Buffers, 20
-No Receive Buffers, 21
-No Successor Found, 20
-Noise Bits, 20
-No-Response Errors, 22
-Null RWR (Resynch), 21
-Number Of Event Rcvrs, 24
-P, Q
-P LED, 3, 27
-Partial Frame, 21
-Point configuration errors, 17
-R
-READ ONLY, 17
-Receive Overrun, 21
-Received Frame Too Long, 21
-Receiver Dropped, 24
-Repeater Error, 20
-Replacing the firmware EPROMs, 34
-Replacing the FSC-SMM, 32, 33
-Reply Timeouts, 22
-M
-Messages Discarded, 22
-Messages Received, 22
-Messages Retried, 24
-Messages Sent, 22, 24
-Minimum equipment required, 6
-Minimum software releases, 7
-S
-Slot keys, 36
-Soft failures US display, 15
-Softfail descriptions, 14
-Software, 7
-FSC Development System, 6
-FSC Navigator, 6
-Spare Parts, 11
-Specifications, 9
-Status indicators, 27, 28
-STATUS LED, 3, 27, 28
-Synch Errors, 25
-Syncher Node, 26
-38 FSC Safety Manager Service Manual 02/98
-Index
-T
-Throttling Requested, 24
-Time synch status
-Current State, 26
-LCN Date, 26
-LCN Time, 26
-Syncher Node, 26
-Time synchronization error statistics
-Clock Errors, 25
-Lost Messages, 25
-Synch Errors, 25
-Token Passes Failed, 20
-Total Cable Swaps, 21
-Transmit Frame Too Long, 21
-Transmit Underrun, 21
-Tx LED, 3, 27
-U, V, W, X, Y, Z
-UCN addressing errors, 26
-UCN communication error statistics, 19
-UCN statistics display, 19
-UCN STATS display, 23
-Unexpected Responses, 22
-Upgrading the firmware EPROMs, 34
-US Display – Soft Failures, 15
-US display for communication errors target, 18
-02/98 FSC Safety Manager Service Manual 39
-40 FSC Safety Manager Service Manual 02/98
+Applicable if NODETYP = SM
+SMPLTFM FSC Safety Manager is using FSC Controller
+Type of Safety Control Platform TRICON Safety Manager is using TRICON Controller
+PNTFORM Full Point is fully displayed and alarmed
+Point Form Componnt Point is partially displayed but not alarmed
+PTDESC range = Not applicable
+Point Descriptor default = Blank
+|__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__|
+EUDESC Engineering Unit Descriptor |__.__.__.__.__.__.__.__| range = Not applicable
+default = Blank
+KEYWORD Point Keyword Descriptor |__.__.__.__.__.__.__.__| range = Not applicable
+default = Blank
+ASSOCDSP |__.__.__.__.__.__.__.__| range = Alphanumeric
+Associated Display default = Blank
+UNIT |__.__| range = Alphanumeric
+Process Unit Point is Assigned to default = Not applicable
+NTWKNUM NIM's UCN that Contains This Point |__.__| range = 1 to 20
+default = Not applicable
+NODENUM SMM's Address on the UCN |__.__| range = 1 to 64
+default = Not applicable
+SLOTNUM Point Slot Number |__.__.__.__| range = 1 to 1000
+default = Not applicable
+FS88-502
+Page 2 of 4
+02/98
+FSC-SM Analog Input Data Point
+Point Assignment Display (continued)
+N/A if PNTFORM = Componnt
+PRIMMOD range = Not applicable
+Primary Module Point ID default = Null
+|__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__|
+PLCADDR FSC Source Address |__.__.__.__.__| range = 0 to 32765
+default = 0 (Not Configured)
+NIM/PV Configuration Display
+PVCHAR LINEAR
+PV Characterization SQROOT
+PVRAWHI PV Raw High Value |__.__.__.__.__.__.__.__| range = > PVRAWLO
+default = 4095
+PVRAWLO PV Raw Low Value |__.__.__.__.__.__.__.__| range = < PVRAWHI
+default = 0
+INPTDIR Direct Highest energy from sensor = 100% PV
+Analog Input Direction Reverse Highest energy from sensor = 0% PV
+PVEUHI PV High Range in EUs |__.__.__.__.__.__.__.__| range = PVEULO to PVEXEUHI
+default = 100.0
+PVEULO PV Low Range in EUs |__.__.__.__.__.__.__.__| range = PVEXEULO to PVEUHI
+default = 0.0
+PVFORMAT D0 D2 D0 = 9999o D2 = 99o99
+PV Decimal Point Format D1 D3 D1 = 999o9 D3 = 9o999
+PVEXEUHI PV Range Extension High in EUs |__.__.__.__.__.__.__.__| range = ≥ PVEUHI
+default = 102.9
+PVEXEULO |__.__.__.__.__.__.__.__| range = < PVEULO
+PV Range Extension Low in EUs default = -2.9
+PVCLAMP NoClamp No clamping of the PV value
+PV Clamping Option Clamp Clamp PV value at range extension limit
+LOCUTOFF |__.__.__.__.__.__.__.__| range = PVEULO to PVEUHI and NaN
+Low Signal Cutoff for Flow Inputs default = NaN
+FS88-502
+Page 3 of 4
+02/98
+FSC-SM Analog Input Data Point
+NIM/PV Configuration Display (continued)
+N/A if PNTFORM = Componnt
+PVSRCOPT PV Source Option OnlyAuto All PV source selection is not available and field wiring
+or memory fetch supplies PV.
+Selection from PVSOURCE is available and
+Operator/CL-program may supply PV.
+PVSOURCE PV Source Auto Man Sub Applies when PVSRCOPT = All.
+Field wiring or memory fetch supplies PV.
+PV is supplied by Operator or program.
+A value is substituted by a CL program.
+TF PV Filter Lag Time in Minutes |__.__.__.__| range = 0.0 to 60.0 (minutes)
+default = 0.0 (PV will not be delayed)
+N/A if PNTFORM = Componnt
+PVTV PV Target Value in EUs OVERVAL Overview Display Value |__.__.__.__.__.__.__.__| range = PVEXEULO to PVEXEUHI, and NaN
+default = NaN
+|__.__.__| range = 0 to 100
+default = 25
+Alarming Display
+N/A if PNTFORM = Componnt
+The following two example parameters represent the typical format of alarm trip points and priorities. Please refer to
+these as you are entering trip points and alarm priorities that follow this information. NOTE: If you do not enter a trip
+point value for a given pair of trip points and alarm priorities, do not circle an alarm priority option for that pair (i.e., no
+trip point, no alarm priority).
+PVLOTP PV Low Alarm Trip Point |__.__.__.__.__.__.__.__| range = PVEULO to PVHITP, and NaN
+default = NaN
+BADPVPR
+BAD PV Alarm Priority No Action Journal Low High Emergncy Alarm is not reported to the system
+Logged but not reported to Operator Stations
+Reported to Unit Alarm Summary display
+Reported to Area and Unit Alarm Summary
+Reported to all Alarm Summary displays
+N/A if PNTFORM = Componnt
+PVALDB Half (of 1%) One Two Three
+PV Alarm Deadband in % Four Five EU
+N/A if PNTFORM = Componnt, Only if PVALDB = EU
+PVALDBEU |__.__.__.__.__.__.__.__| range = 0
+PV Alarm Deadband in EU default = 1.0
+FS88-502
+Page 4 of 4
+02/98
+FSC-SM Analog Input Data Point
+NIM/PV Configuration Display (continued)
+N/A if PNTFORM = Componnt
+PVHITP PV High Alarm Trip Point |__.__.__.__.__.__.__.__| range = PVLOTP to PVEUHI, and NaN
+default = NaN
+PVHIPR Noaction Journal Low High
+PV High Alarm Priority Emergency Printer Jnlprint
+PVLOTP PV Low Alarm Trip Point |__.__.__.__.__.__.__.__| range = PVEULO to PVHITP, and NaN
+default = NaN
+PVLOPR Noaction Journal Low High
+PV Low Alarm Priority Emergency Printer Jnlprint
+BADPVPR Noaction Journal Low High
+Bad PV Alarm Priority Emergency Printer Jnlprint
+N/A if PNTFORM = Componnt
+ALENBST Displayed Logged Reported to EIP
+Point Alarm Enable Status Enable Yes Yes Yes
+Disable No Yes Yes
+Inhibit No No No
+PRIMMOD Primary Module ID |__.__.__.__.__.__.__.__| range = Not applicable
+default = Null
+CCSRC |__.__.__.__.__| range = 0 to 65535
+Target Address in FSC for the default = 0 (Not configured/UCN Access allowed for
+Contact Cutout Source CONTCUT)
+FS88-503
+Page 1 of 2
+02/98
+FSC-SM Analog Output Data Point
+FSC-SM AnalgOut Data Point Engineer: Date:
+Point Assignment Display
+NAME range = Not applicable
+Tag Name |__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__| default = Blank
+NODETYP PM range = Not applicable
+Node Type APM default = PM
+HPM
+LM
+SM
+Applicable if NODETYP = SM
+SMPLTFM FSC Safety Manager is using FSC Controller
+Type of Safety Control Platform TRICON Safety Manager is using TRICON Controller
+PNTFORM Full Point is fully displayed and alarmed
+Point Form Componnt Point is partially displayed but not alarmed
+PTDESC range = Not applicable
+Point Descriptor default = Blank
+|__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__|
+EUDESC Engineering Units Descriptor |__.__.__.__.__.__.__.__| range = Not applicable
+default = Blank
+KEYWORD |__.__.__.__.__.__.__.__| range = Not applicable
+Keyword Descriptor default = Blank
+ASSOCDSP |__.__.__.__.__.__.__.__| range = Alphanumeric
+Associated Display default = Blank
+UNIT |__.__| range = Alphanumeric
+Process Unit Point is Assigned to default = Not applicable
+NTWKNUM NIM's UCN that Contains This Point |__.__| range = 1 to 20
+default = Not applicable
+NODENUM SMM's Address on the UCN |__.__| range = 1 to 64
+default = Not applicable
+SLOTNUM |__.__.__.__| range = 1 to 1000
+Point Slot Number default = Not applicable
+The actual Range check will be calculated on the PU count for each Point type and the mix of configured Points
+desired.
+FS88-503
+Page 2 of 2
+02/98
+FSC-SM Analog Output Data Point
+Point Assignment Display (continued)
+N/A if PNTFORM = Componnt
+PRIMMOD range = Not applicable
+Primary Module Point ID default = Null
+|__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__|
+PLCADDR FSC Source Address |__.__.__.__.__| range = 0 to 32765
+default = 0 (Not Configured)
+OPFINHI OPFINLO |__.__.__.__.__.__.__.__| range = > OPFINLO
+default = 4095.0
+|__.__.__.__.__.__.__.__| range = < OPFINHI
+default = 0.0
+OPTDIR AO Direct/Reverse Action Operating Configuration Display
+Direct Reverse For final OP: 100% = Highest energy to actuator
+For final OP: 100% = Lowest energy to actuator
+Mode Configuration Display
+N/A if PNTFORM = Componnt
+RCASOPT Remote Cascade Option NMODE Analog Output Point's Normal Mode None Ddc No cascade mode of any type is allowed
+In Cas, AM point controls this point's OP
+None Man Cas None, Man applies when RCASOPT = None.
+None, Man, Cas applies when RCASOPT = Ddc.
+No configured "normal" operating mode.
+Manual is the configured "normal" mode.
+If RCASOPT equals Ddc, Cascade may be configured
+as the "normal" mode.
+N/A if NMODE = None, or if PNTFORM = Componnt
+NMODATTR None Parameter NMODE sets "normal" mode
+Normal Mode Attribute Operator Operator sets "normal" operating mode
+Program Program sets "normal" operating mode
+MODEPERM Permit Operator can change this point's mode
+Mode Permissive NotPerm Operator cannot change this point's mode
+FS88-504
+Page 1 of 8
+02/98
+FSC-SM Digital Composite Data Point
+FSC-SM DigComp Data Point Engineer: Date:
+Point Assignment Display
+NAME range = Not applicable
+Tag Name |__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__| default = Blank
+NODETYP PM range = Not applicable
+Node Type APM default = PM
+HPM
+LM
+SM
+Applicable if NODETYP = SM
+SMPLTFM FSC Safety Manager is using FSC Controller
+Type of Safety Control Platform TRICON Safety Manager is using TRICON Controller
+PNTFORM Full Point is fully displayed and alarmed
+Point Form Componnt Point is partially displayed but not alarmed
+PTDESC range = Not applicable
+Point Descriptor default = Blank
+|__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__|
+EUDESC Engineering Units Descriptor |__.__.__.__.__.__.__.__| range = Not applicable
+default = Blank
+KEYWORD |__.__.__.__.__.__.__.__| range = Not applicable
+Keyword Descriptor default = Blank
+ASSOCDSP |__.__.__.__.__.__.__.__| range = Alphanumeric
+Associated Display default = Blank
+UNIT |__.__| range = Alphanumeric
+Process Unit Point is Assigned to default = Not applicable
+NTWKNUM NIM's UCN that Contains This Point |__.__| range = 1 to 20
+default = Not applicable
+NODENUM SMM's Address on the UCN |__.__| range = 1 to 64
+default = Not applicable
+SLOTNUM |__.__.__.__| range = 1 to 1000
+Point Slot Number default = Not applicable
+The actual Range check will be calculated on the PU count for each Point type and the mix of configured Points
+desired.
+N/A if PNTFORM = Componnt
+PRIMMOD range = Not applicable
+Primary Module Point ID default = Null
+|__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__|
+FS88-504
+Page 2 of 8
+02/98
+FSC-SM Digital Composite Data Point
+Point Assignment Display (continued)
+NOSTATES 2 2 digital switch states can be configured
+Number of Digital States 3 3 digital switch states can be configured
+NODINPTS 0 0 digin connections can be configured
+Number of Digital Input Connections 1 1 digin connection can be configured
+2 2 digin connections can be configured
+NODOPTS 0 0 digout connections can be configured
+Number of Digital Output Connections 1 1 digout connection can be configured
+2 2 digout connections can be configured
+3 3 digout connections can be configured
+State Configuration Display
+N/A if PNTFORM = Componnt
+(1) = First active state
+(0) = Inactive state
+(2) = Second active state
+STATETXT (1)
+State 1 Descriptor (1) |__.__.__.__.__.__.__.__| range = Not applicable
+default = On
+STATETXT (0) range = Not applicable
+State 0 Descriptor (0) |__.__.__.__.__.__.__.__| default = Off
+STATETXT (2) range = Not applicable
+State 2 Descriptor (2) |__.__.__.__.__.__.__.__| default = "State2"
+BOXCLR (1) Red Green (Middle box default) White Black
+State 1 Box Color Cyan Yellow Blue Magenta
+BOXCLR (0) Red Green White Black
+State 0 Box Color Cyan Yellow (Middle box default) Blue Magenta
+BOXCLR (2) Red (Lower box default) Green White Black
+State 2 Box Color Cyan Yellow Blue Magenta
+FS88-504
+Page 3 of 8
+02/98
+FSC-SM Digital Composite Data Point
+State Configuration Display (continued)
+N/A if NODOPTS = 0
+MOMSTATE None No momentary output states
+Momentary Output States Mom_0 State 0 is valid if (NOSTATES = 2)
+Mom_1 State 1 is valid if (NOSTATES = 2 or 3)
+Mom_2 State 2 is valid if (NOSTATES = 3)
+Mom_1_2 State 1 or 2 is valid if (NOSTATES = 3)
+N/A if PNTFORM = Componnt
+LOGICSRC
+Logical Input Connection Source |__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__|
+DISRC(1-2)
+Source addresses in FSC for the DI Source
+Input Source Point.Parameter
+DISRC (1) |__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__•__.__.__.__.__.__.__.__|
+DISRC (2) |__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__•__.__.__.__.__.__.__.__|
+FS88-504
+Page 4 of 8
+02/98
+FSC-SM Digital Composite Data Point
+PV/Input Configuration Display
+Applies if NODINPTS = 1
+D1_1 D1_One PV State PVState1 Use and display contents of STATETXT1
+PVState0 Use and display contents of STATETXT0
+Applies if NODINPTS = 2
+D2D1_00 PVState1 Use and display contents of STATETXT1
+D2D1 Zero_Zero PV State PVState0 Use and display contents of STATETXT0
+PVState2 Use and display contents of STATETXT2
+BadPV Use and display contents of BADPVTXT
+MovPV Use and display contents of MOVPVTXT
+D2D1_01 PVState1 Use and display contents of STATETXT1
+D2D1 Zero_One PV State PVState0 Use and display contents of STATETXT0
+PVState2 Use and display contents of STATETXT2
+BadPV Use and display contents of BADPVTXT
+MovPV Use and display contents of MOVPVTXT
+D2D1_10 PVState1 Use and display contents of STATETXT1
+D2D1 One_Zero PV State PVState0 Use and display contents of STATETXT0
+PVState2 Use and display contents of STATETXT2
+BadPV Use and display contents of BADPVTXT
+MovPV Use and display contents of MOVPVTXT
+D2D1_11 PVState1 Use and display contents of STATETXT1
+D2D1 One_One PV State PVState0 Use and display contents of STATETXT0
+PVState2 Use and display contents of STATETXT2
+MovPV Use and display contents of MOVPVTXT
+BadPV Use and display contents of BADPVTXT
+N/A if PNTFORM = Componnt, or if NODINPTS = 0
+PVSRCOPT PV Source Option PVSOURCE PV Source OnlyAuto All PV source selection is not available and field wiring or
+memory fetch supplies PV.
+Selection from PVSOURCE is available and
+Operator/CL-program may supply PV.
+Applies when PVSRCOPT = All.
+Auto Man Sub Field wiring or memory fetch supplies PV.
+PV is supplied by Operator or program.
+A value is substituted by a CL-program.
+Track PV tracks the output.
+FS88-504
+Page 5 of 8
+02/98
+FSC-SM Digital Composite Data Point
+Output Configuration Display
+N/A if NODOPTS < 2
+NONECONF On
+None State Configuration Off
+N/A if NODOPTS = 0
+STATE 1 OUTPUT 1 OUTPUT 2 OUTPUT 3
+ST1_OP1 (NODOPTS = 1) Off Not applicable Not applicable
+State 1 – Output 1 ON
+ST1_OP2 (NODOPTS = 2) Off Off Not applicable
+State 1 – Output 2 On On
+ST1_OP3 (NODOPTS = 3) Off Off Off
+State 1 – Output 3 On On On
+STATE 0
+ST0_OP1 (NODOPTS = 1) Off Not applicable Not applicable
+State 0 – Output 1 On
+ST0_OP2 (NODOPTS = 2) Off Off Not applicable
+State 0 – Output 2 On On
+ST0_OP3 (NODOPTS = 3) Off Off Off
+State 0 – Output 3 On On On
+STATE 2
+ST2_OP1 (NODOPTS = 1) Off Not applicable Not applicable
+State 2 – Output 1 On
+ST2_OP2 (NODOPTS = 2) Off Off Not applicable
+State 2 – Output 2 On On
+ST2_OP3 (NODOPTS = 3) Off Off Off
+State 2 – Output 3 On On On
+N/A if NONECONF = OFF
+NONE STATE OUTPUT 1 OUTPUT 2 OUTPUT 3
+NONE_OP1 (NODOPTS = 1) Off Not applicable Not applicable
+None State – Output 1 On
+NONE_OP2 (NODOPTS = 2) Off Off Not applicable
+None State – Output 2 On On
+NONE_OP3 (NODOPTS = 3) Off Off Off
+None State – Output 3 On On On
+FS88-504
+Page 6 of 8
+02/98
+FSC-SM Digital Composite Data Point
+Output Configuration Display (continued)
+N/A if NODOPTS = 0
+DODSTN
+address in FSC.
+Specification if the Digital Composite Input point. The destination can be specified by TAG-PARAMETER, the destination
+Output Source Point.Parameter
+DODSTN (1) |__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__•__.__.__.__.__.__.__.__|
+DODSTN (2) |__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__•__.__.__.__.__.__.__.__|
+DODSTN (3) |__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__•__.__.__.__.__.__.__.__|
+PISRC
+PISRC (1) |__.__.__.__.__| range = 0 to 65535
+Target Addresses in FSC for Permissive Interlock Source 1 default = 0 (Not Configured)
+PISRC (2) |__.__.__.__.__| range = 0 to 65535
+Target Addresses in FSC for Permissive Interlock Source 2 default = 0 (Not Configured)
+PISRC (3) |__.__.__.__.__| range = 0 to 65535
+Target Addresses in FSC for Permissive Interlock Source 3 default = 0 (Not Configured)
+OISRC
+OISRC (1) Target Addresses in FSC for Override Interlock Source 1 |__.__.__.__.__| range = 0 to 65535
+default = 0 (Not Configured)
+OISRC (2) Target Addresses in FSC for Override Interlock Source 2 |__.__.__.__.__| range = 0 to 65535
+default = 0 (Not Configured)
+OISRC (3) Target Addresses in FSC for Override Interlock Source 3 |__.__.__.__.__| range = 0 to 65535
+default = 0 (Not Configured)
+LMSRC Target Addresses in FSC for Local/Manual Source |__.__.__.__.__| range = 0 to 65535
+default = 0 (Not Configured)
+FS88-504
+Page 7 of 8
+02/98
+FSC-SM Digital Composite Data Point
+Mode Configuration Display
+N/A if NODOPTS = 0
+NMODATTR None Parameter NMODE sets "normal" mode
+Normal Mode Attribute Operator Operator sets "normal" operating mode
+Program Program sets "normal" operating mode
+MODEPERM Permit Operator can change this point's mode attribute
+Mode Permissive NotPerm Operator cannot change this point's mode attribute
+OROPT Off
+Interlock Bypass Option On
+BYPASS Off Applies when OROPT = On.
+Interlock Bypass State On
+Alarming Display
+N/A if PNTFORM = Componnt, or if NODINPTS = 0
+ALMOPT None No alarms
+Alarming Option Cmddis Offnorml Alarm if field device did not respond within configured
+feedback time duration.
+Alarm if PV and PVNORMAL differs.
+FBTIME Feedback Time in Seconds Applies when ALMOPT = Cmddis.
+|__.__.__.__| range = 1 to 1000
+default = 1000
+CMDFALTM Applies when ALMOPT = Cmddis.
+Command Failure Timeout |__.__.__.__| range = < FBTIME
+default = 0
+PVNORMAL PV Value's Normal State Text Off Applies when ALMOPT = Offnorml.
+range = STATETXT(0) – STATETXT(2)
+ALENBST Point Alarm Enable Status
+Applies when ALMOT = Offnorml, Cmddis.
+Displayed Logged Reported to EIP
+Enable Yes Yes Yes
+Disable No Yes Yes
+Inhibit No No No
+FS88-504
+Page 8 of 8
+02/98
+FSC-SM Digital Composite Data Point
+Alarming Display (continued)
+N/A if NODOPTS = 0
+OVRDALOP None No alarms are generated.
+Override Alarm Option Auto_Rtn Alarms return when override clears.
+Cnfm_Rqd Alarms must be confirmed.
+BADPV PR BADCTL PR CMDDIS PR Applies when ALMOPT = Offnorml, Cmddis.
+NoAction Alarm is not reported to the system.
+Journal Logged but not reported to Op Stations.
+OFFNRM PR Low Reported to Unit Alarm Summary display
+High Reported to Area and Unit Alarm Summary
+Emergncy Reported to all Alarm Summary displays
+Printer Reported to US RTJ only
+Jnlprint Reported to US RTJ and logged
+EVTOPT Event Report Option None Eip Applies when ALMOPT = None, Offnorml, Cmddis.
+Neither Eip or Soe is allowed.
+Process special is triggered in AM/CG.
+EIPPCODE Event Init. Proc. Destination |__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__| default = Null
+Applies when EVTOPT = Eip.
+range = Not applicable
+CCSRC Target Address in FSC for the Contact Cutout Source
+Applies only if ALMOPT = Offnorml or CMDDIS and
+PNTFORM = Full
+|__.__.__.__.__| range = 0 to 65535
+default = 0 (Not Configured)
+FS88-505
+Page 1 of 4
+02/98
+FSC-SM Digital Input Data Point
+FSC-SM DigIn Data Point Engineer: Date:
+Point Assignment Display
+NAME range = Not applicable
+Tag Name |__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__| default = Blank
+NODETYP PM range = Not applicable
+Node Type APM default = PM
+HPM
+LM
+SM
+Applicable if NODETYP = SM
+SMPLTFM FSC Safety Manager is using FSC Controller
+Type of Safety Control Platform TRICON Safety Manager is using TRICON Controller
+PNTFORM Full Point is fully displayed and alarmed
+Point Form Componnt Point is partially displayed but not alarmed
+PTDESC range = Not applicable
+Point Descriptor default = Blank
+|__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__|
+EUDESC Engineering Units Descriptor |__.__.__.__.__.__.__.__| range = Not applicable
+default = Blank
+KEYWORD |__.__.__.__.__.__.__.__| range = Not applicable
+Keyword Descriptor default = Blank
+ASSOCDSP |__.__.__.__.__.__.__.__| range = Alphanumeric
+Associated Display default = Blank
+UNIT |__.__| range = Alphanumeric
+Process Unit Point is Assigned to default = Not applicable
+NTWKNUM NIM's UCN that This Point Is In |__.__| range = 1 to 20
+default = Not applicable
+|__.__| range = 1 to 64
+default = Not applicable
+NODENUM SMM's Address on the UCN SLOTNUM Point Slot Number |__.__.__.__| range = 1 to 2000
+default = Not applicable
+N/A if PNTFORM = Componnt
+PRIMMOD range = Not applicable
+Primary Module Point ID default = Null
+|__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__|
+FS88-505
+Page 2 of 4
+02/98
+FSC-SM Digital Input Data Point
+Point Assignment Display (continued)
+DITYPE Status Status input (open/closed contacts)
+Digital Input Type
+PLCADDR Source Address in FSC for the PVRAW input. |__.__.__.__.__| range = 0 to 32756
+default = 0 (Not Configured)
+Operating Configuration Display
+N/A if PNTFORM = Componnt
+STATETXT (1) |__.__.__.__.__.__.__.__| range = Not applicable
+State 1 Description Text default = "On"
+STATETXT (0) |__.__.__.__.__.__.__.__| range = Not applicable
+State 0 Description Text default = "Off"
+BOXCLR (1) Red Green (Upper box default) White Black
+State 1 Box Color Cyan Yellow Blue Magenta
+BOXCLR (0) Red Green White Black
+State 0 Box Color Cyan Yellow (Lower box default) Blue Magenta
+INPTDIR Digital Input Direction Direct Reverse Open = > pvraw = off; Closed = > pvraw = on
+Closed = > pvraw = off; Open = > pvraw = on
+PVSRCOPT PV Source Option OnlyAuto All PV source selection is not available and field wiring
+or memory fetch supplies PV.
+Selection from PVSOURCE is available and
+Operator/CL-program may supply PV.
+PVSOURCE PV Source Auto Man Sub Applies when PVSRCOPT = All.
+Field wiring or memory fetch supplies PV.
+PV is supplied by Operator or program.
+A value is substituted by a CL program.
+FS88-505
+Page 3 of 4
+02/98
+FSC-SM Digital Input Data Point
+Alarming Display
+N/A if PNTFORM = Componnt
+ALMOPT |__| 0 = None
+Alarming Option 1 = Offnorml
+3 = Chngofst
+PVNORMAL Applies when ALMOPT = Offnorml.
+PV Value's Normal State Text |__.__.__.__.__.__.__.__| range = STATETXT(0) – STATETXT(1)
+default = Text equal to "Off"
+DLYTIME Alarm Delay in Seconds Applies when ALMOPT = Offnorml.
+|__.__| range = 0 to 60
+default = 5 (seconds)
+OFFNRMPR Alarm Priority NoAction Journal Low High Emergncy Printer Jnlprint Applies when ALMOPT = Offnorml.
+Alarm is not reported to the system.
+Logged but not reported to Op Stations.
+Reported to Unit Alarm Summary display.
+Reported to Area and Unit Alarm Summary.
+Reported to all Alarm Summary displays.
+Reported to US RTJ only
+Reported to US RTJ and logged
+ALENBST Point Alarm Enable Status Applies when ALMOPT = Offnorml.
+Displayed Logged Reported to EIP
+Enable Yes Yes Yes
+Disable No Yes Yes
+Inhibit No No No
+EVTOPT Event Reporting Option Applies only if ALMOPT = Offnorml or Chngofst.
+|__| 0 = None
+1 = Eip - Event Initiated Processing
+2 = EipSoe - Event Initiated Proc. and Sequence of
+Events
+3 = Soe - Sequence of Events
+Applies when EVTOPT = Soe or EipSoe.
+PVCHGDLY |__.__| range = 0 to 60
+Preset in seconds for the PV Change Delay function which default = 0
+throttles timestamped event collection. Refer to PVCHTMR.
+EIPPCODE Event Init. Proc. Destination |__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__| default = Null
+Applies when EVTOPT = Eip or EipSoe.
+range = Not applicable
+N/A if ALMOPT = None.
+FS88-505
+Page 4 of 4
+02/98
+FSC-SM Digital Input Data Point
+Alarming Display (continued)
+N/A if PNTFORM = Componnt
+CCSRC Target Address in FSC for the Contact Cutout Source Applies only if ALMOPT = Offnorml or Chngofst.
+|__.__.__.__.__| range = 0 to 65535
+default = 0 (Not Configured/UCN Access allowed for
+CONTCUT)
+FS88-506
+Page 1 of 2
+02/98
+FSC-SM Digital Output Data Point
+FSC-SM DigOut Data Point Engineer: Date:
+Point Assignment Display
+NAME range = Not applicable
+Tag Name |__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__| default = Blank
+NODETYP PM range = Not applicable
+Node Type APM default = PM
+HPM
+LM
+SM
+Applicable if NODETYP = SM
+SMPLTFM FSC Safety Manager is using FSC Controller
+Type of Safety Control Platform TRICON Safety Manager is using TRICON Controller
+PNTFORM Full Point is fully displayed and alarmed
+Point Form Componnt Point is partially displayed but not alarmed
+PTDESC range = Not applicable
+Point Descriptor default = Blank
+|__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__|
+EUDESC Engineering Units Descriptor |__.__.__.__.__.__.__.__| range = Not applicable
+default = Blank
+KEYWORD Point Keyword Descriptor |__.__.__.__.__.__.__.__| range = Not applicable
+default = Blank
+ASSOCDSP |__.__.__.__.__.__.__.__| range = Alphanumeric
+Associated Display default = Blank
+UNIT |__.__| range = Alphanumeric
+Process Unit Point is Assigned to default = Not applicable
+NTWKNUM NIM's UCN that Contains This Point NODENUM SMM's Address on the UCN SLOTNUM Point Slot Number |__.__| range = 1 to 20
+default = Not applicable
+|__.__| range = 1 to 64
+default = Not applicable
+|__.__.__.__| range = 1 to 2000
+default = Not applicable
+N/A if PNTFORM = Componnt
+PRIMMOD range = Not applicable
+Primary Module Point ID default = Null
+|__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__|
+FS88-506
+Page 2 of 2
+02/98
+FSC-SM Digital Output Data Point
+PLCADDR FSC Destination Address Point Assignment Display (continued)
+|__.__.__.__.__| range = 0 to 32765
+default = 0 (Not Configured)
+DOTYPE Status Status input output
+Digital Output Type Pulse Width Modulated type output
+Operating Configuration Display
+N/A if PNTFORM = Componnt
+STATETXT (1) |__.__.__.__.__.__.__.__| range = Not applicable
+State 1 Description Text default = "On"
+STATETXT (0) |__.__.__.__.__.__.__.__| range = Not applicable
+State 0 Description Text default = "Off"
+BOXCLR (1) Red Green (Upper box default) White Black
+State 1 Box Color Cyan Yellow Blue Magenta
+BOXCLR (0) Red Green White Black
+State 0 Box Color Cyan Yellow (Lower box default) Blue Magenta
+NMODATTR None Parameter NMODE sets "normal" mode
+Normal Mode Attribute Operator Operator sets "normal" operating mode
+Program Program sets "normal" operating mode
+MODEPERM Permit Operator can change this point's mode attribute
+Mode Permissive NotPerm Operator cannot change this point's mode attribute
+FS88-507
+Page 1 of 4
+02/98
+FSC-SM Logic Point
+FSC-SM Logic Data Point Engineer: Date:
+Point Assignment Display
+NAME range = Not applicable
+Tag Name |__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__| default = Blank
+NODETYP PM range = Not applicable
+Node Type APM default = PM
+HPM
+LM
+SM
+Applicable if NODETYP = SM
+SMPLTFM FSC Safety Manager is using FSC Controller
+Type of Safety Control Platform TRICON Safety Manager is using TRICON Controller
+PNTFORM Full Point is fully displayed and alarmed
+Point Form Componnt Point is partially displayed but not alarmed
+PTDESC range = Not applicable
+Point Descriptor default = Blank
+|__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__|
+ASSOCDSP |__.__.__.__.__.__.__.__| range = Alphanumeric
+Associated Display default = Blank
+UNIT |__.__| range = Alphanumeric
+Process Unit Point is Assigned to default = Not applicable
+NTWKNUM NIM's UCN that This Point Is In |__.__| range = 1 to 20
+default = Not applicable
+NODENUM SMM's Address on the UCN |__.__| range = 1 to 64
+default = Not applicable
+SLOTNUM |__.__| range = 1 to 30
+Point Slot Number default = Not applicable
+Actual Range check will be calculated on the PU count for each Point type and the mix of configured Points
+desired.
+N/A if PNTFORM = Componnt
+PRIMMOD range = Not applicable
+Primary Module Point ID default = Null
+|__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__|
+LOGMIX 12_0_12 12 inputs 0 logic blocks 12 outputs
+Logic Mix
+FS88-507
+Page 2 of 4
+02/98
+FSC-SM Logic Point
+NIM Input Connections Display
+LISRC
+Source Addresses in FSC for the Logic Input
+Input Source Point.Parameter
+LISRC (1) |__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__•__.__.__.__.__.__.__.__|
+LISRC (2) |__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__•__.__.__.__.__.__.__.__|
+LISRC (3) |__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__•__.__.__.__.__.__.__.__|
+LISRC (4) |__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__•__.__.__.__.__.__.__.__|
+LISRC (5) |__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__•__.__.__.__.__.__.__.__|
+LISRC (6) |__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__•__.__.__.__.__.__.__.__|
+LISRC (7) |__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__•__.__.__.__.__.__.__.__|
+LISRC (8) |__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__•__.__.__.__.__.__.__.__|
+LISRC (8) |__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__•__.__.__.__.__.__.__.__|
+LISRC (10) |__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__•__.__.__.__.__.__.__.__|
+LISRC (11) |__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__•__.__.__.__.__.__.__.__|
+LISRC (12) |__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__•__.__.__.__.__.__.__.__|
+LIBADOPT Off "Off" state is substituted for bad input.
+Logic Input Failure Handling Option On Hold "On" state is substituted for bad input.
+Last good value is substituted for bad input.
+LODSTN
+Destination Addresses in FSC for the Logic output
+Output Destination Point.Parameter
+LODSTN (1) |__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__•__.__.__.__.__.__.__.__|
+LODSTN (2) |__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__•__.__.__.__.__.__.__.__|
+LODSTN (3) |__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__•__.__.__.__.__.__.__.__|
+LODSTN (4) |__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__•__.__.__.__.__.__.__.__|
+LODSTN (5) |__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__•__.__.__.__.__.__.__.__|
+LODSTN (6) |__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__•__.__.__.__.__.__.__.__|
+LODSTN (7) |__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__•__.__.__.__.__.__.__.__|
+LODSTN (8) |__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__•__.__.__.__.__.__.__.__|
+LODSTN (9) |__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__•__.__.__.__.__.__.__.__|
+LODSTN (10) |__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__•__.__.__.__.__.__.__.__|
+LODSTN (11) |__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__•__.__.__.__.__.__.__.__|
+LODSTN (12) |__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__•__.__.__.__.__.__.__.__|
+FS88-507
+Page 3 of 4
+02/98
+FSC-SM Logic Point
+NIM Input Connections Display (continued)
+LOENBL
+Source Address in FSC for enable
+Enable PLC Address
+LOENBL (1) LOENBL (2) LOENBL (3) LOENBL (4) LOENBL (5) LOENBL (6) LOENBL (7) LOENBL (8) LOENBL (9) LOENBL (10) LOENBL (11) LOENBL (12) |__.__.__.__.__| range = 0 to 65535
+default = 0
+|__.__.__.__.__| range = 0 to 65535
+default = 0
+|__.__.__.__.__| range = 0 to 65535
+default = 0
+|__.__.__.__.__| range = 0 to 65535
+default = 0
+|__.__.__.__.__| range = 0 to 65535
+default = 0
+|__.__.__.__.__| range = 0 to 65535
+default = 0
+|__.__.__.__.__| range = 0 to 65535
+default = 0
+|__.__.__.__.__| range = 0 to 65535
+default = 0
+|__.__.__.__.__| range = 0 to 65535
+default = 0
+|__.__.__.__.__| range = 0 to 65535
+default = 0
+|__.__.__.__.__| range = 0 to 65535
+default = 0
+|__.__.__.__.__| range = 0 to 65535
+default = 0
+FS88-507
+Page 4 of 4
+02/98
+FSC-SM Logic Point
+NIM Logic Descriptors Display
+N/A if PNTFORM = Componnt
+NODESC range = 0 to 12
+Number of Generic Descriptors |__.__| default = 0
+GENDESC
+Generic Descriptors (defaults = blanks)
+GENDESC(1) |__.__.__.__.__.__.__.__|
+GENDESC(2) |__.__.__.__.__.__.__.__|
+GENDESC(3) |__.__.__.__.__.__.__.__|
+GENDESC(4) |__.__.__.__.__.__.__.__|
+GENDESC(5) |__.__.__.__.__.__.__.__|
+GENDESC(6) |__.__.__.__.__.__.__.__|
+GENDESC(7) |__.__.__.__.__.__.__.__|
+GENDESC(8) |__.__.__.__.__.__.__.__|
+GENDESC(9) |__.__.__.__.__.__.__.__|
+GENDESC(10) |__.__.__.__.__.__.__.__|
+GENDESC(11) |__.__.__.__.__.__.__.__|
+GENDESC(12) |__.__.__.__.__.__.__.__|
+FS88-508
+Page 1 of 2
+02/98
+FSC-SM Flag Point
+FSC-SM Flag Data Point Engineer: Date:
+Point Assignment Display
+NAME range = Not applicable
+Tag Name |__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__| default = Blank
+NODETYP PM range = Not applicable
+Node Type APM default = PM
+HPM
+LM
+SM
+Applicable if NODETYP = SM
+SMPLTFM FSC Safety Manager is using FSC Controller
+Type of Safety Control Platform TRICON Safety Manager is using TRICON Controller
+PNTFORM Full Point is fully displayed and alarmed
+Point Form Componnt Point is partially displayed but not alarmed
+PTDESC range = Not applicable
+Point Descriptor default = Blank
+|__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__|
+EUDESC Engineering Units Descriptor |__.__.__.__.__.__.__.__| range = Not applicable
+default = Blank
+KEYWORD |__.__.__.__.__.__.__.__| range = Not applicable
+Point Keyword default = Blank
+ASSOCDSP |__.__.__.__.__.__.__.__| range = Alphanumeric
+Associated Display default = Blank
+UNIT |__.__| range = Alphanumeric
+Process Unit Point is Assigned to default = Not applicable
+NTWKNUM NIM's UCN that This Point Is In |__.__| range = 1 to 20
+default = Not applicable
+NODENUM SMM's Address on the UCN |__.__| range = 1 to 64
+default = Not applicable
+SLOTNUM |__.__.__.__| range = 1 to 2000
+Point Slot Number default = Not applicable
+The actual Range check will be calculated on the mix of configured Points desired.
+N/A if PNTFORM = Componnt
+PRIMMOD range = Not applicable
+Primary Module Point ID default = Null
+|__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__|
+FS88-508
+Page 2 of 2
+02/98
+FSC-SM Flag Point
+Operating Configuration Display
+N/A if PNTFORM = Componnt
+STATETXT (1) |__.__.__.__.__.__.__.__| range = Not applicable
+State 1 Descriptor default = ON
+STATETXT (0) |__.__.__.__.__.__.__.__| range = Not applicable
+State 0 Descriptor default = OFF
+BOXCLR (1) Red Green White Black
+State 1 Box Color Cyan Yellow Blue Magenta
+BOXCLR (0) Red Green White Black
+State 0 Box Color Cyan Yellow Blue Magenta
+Alarming Display
+N/A if PNTFORM = Componnt or SLOTNUM > 512
+OFFNRMPR NoAction Alarm is not reported to the system.
+Off Normal Alarm Priority Journal Logged but not reported to Operator Stations.
+Low Reported to Unit Alarm Summary display.
+High Reported to Area and Unit Alarm Summary.
+Emergncy Reported to all Alarm Summary displays.
+Printer Reported to US RTJ only.
+Jnlprint Reported to US RTJ and logged.
+ALENBST Enable default = Enable
+Alarm Enable State Disable
+Inhibit
+EIPPCODE range = Not applicable
+EIP Point ID default = Blank
+|__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__|
+CCSRC Target Address in FSC for the Contact Cutout Source
+|__.__.__.__.__| range = 0 to 65535
+default = 0
+FS88-509
+Page 1 of 2
+02/98
+FSC-SM Timer Point
+FSC-SM Timer Data Point Engineer: Date:
+Point Assignment Display
+NAME range = Not applicable
+Tag Name |__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__| default = Blank
+NODETYP PM range = Not applicable
+Node Type APM default = PM
+HPM
+LM
+SM
+Applicable if NODETYP = SM
+SMPLTFM FSC Safety Manager is using FSC Controller
+Type of Safety Control Platform TRICON Safety Manager is using TRICON Controller
+PNTFORM Full Point is fully displayed and alarmed
+Point Form Componnt Point is partially displayed but not alarmed
+PTDESC range = Not applicable
+Point Descriptor default = Blank
+|__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__|
+EUDESC Engineering Units Descriptor |__.__.__.__.__.__.__.__| range = Not applicable
+default = Blank
+KEYWORD |__.__.__.__.__.__.__.__| range = Not applicable
+Keyword Descriptor default = Blank
+ASSOCDSP |__.__.__.__.__.__.__.__| range = Alphanumeric
+Associated Display default = Blank
+UNIT |__.__| range = Alphanumeric
+Process Unit Point is Assigned to default = Not applicable
+NTWKNUM NIM's UCN that Contains This Point |__.__| range = 1 to 20
+default = Not applicable
+NODENUM SMM's Address on the UCN |__.__| range = 1 to 64
+default = Not applicable
+SLOTNUM |__.__.__.__| range = 1 to 1500
+Point Slot Number default = Not applicable
+The actual Range check will be calculated on the PU count for each Point type and the mix of configured Points
+desired.
+N/A if PNTFORM = Componnt
+PRIMMOD range = Not applicable
+Primary Module Point ID default = Null
+|__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__|
+FS88-509
+Page 2 of 2
+02/98
+FSC-SM Timer Point
+Point Assignment Display (Continued)
+PLCADDR |__.__.__.__.__| range = 0 to 32756
+Target Address in FSC for the Set/Reset Contact default = 0 (Not Configured)
+The PLCADDR for the reset contact in FSC must be equal to the PLCADDR for the set contact incremented
+by 1.
+PVSLTSRC Target Address in FSC for the Accumulator Value |__.__.__.__.__| range = 0 to 65535
+default = 0 (Not Configured)
+SPSLTSRC Target Address in FSC for the Preset Value |__.__.__.__.__| range = 0 to 65535
+default = 0 (Not Configured)
+NIM Operating Configuration Display
+PVFORMAT D0 D1 D2
+PV Decimal Format
+FS88-510
+Page 1 of 2
+02/98
+FSC-SM Numeric Point
+FSC-SM Numeric Data Point Engineer: Date:
+Point Assignment Display
+NAME range = Not applicable
+Tag Name |__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__| default = Blank
+NODETYP PM range = Not applicable
+Node Type APM default = PM
+HPM
+LM
+SM
+Applicable if NODETYP = SM
+SMPLTFM FSC Safety Manager is using FSC Controller
+Type of Safety Control Platform TRICON Safety Manager is using TRICON Controller
+PNTFORM Full Point is fully displayed and alarmed
+Point Form Componnt Point is partially displayed but not alarmed
+PTDESC range = Not applicable
+Point Descriptor default = Blank
+|__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__|
+EUDESC Engineering Units Descriptor |__.__.__.__.__.__.__.__| range = Not applicable
+default = Blank
+KEYWORD |__.__.__.__.__.__.__.__| range = Not applicable
+Keyword Descriptor default = Blank
+ASSOCDSP |__.__.__.__.__.__.__.__| range = Alphanumeric
+Associated Display default = Blank
+UNIT |__.__| range = Alphanumeric
+Process Unit Point is Assigned to default = Not applicable
+NTWKNUM NIM's UCN that Contains This Point |__.__| range = 1 to 20
+default = Not applicable
+NODENUM SMM's Address on the UCN |__.__| range = 1 to 64
+default = Not applicable
+SLOTNUM |__.__.__.__| range = 1 to 1000
+Point Slot Number default = Not applicable
+The actual Range check will be calculated on the mix of configured Points desired.
+FS88-510
+Page 2 of 2
+02/98
+FSC-SM Numeric Point
+Point Assignment Display (Continued)
+N/A if PNTFORM = Componnt
+PRIMMOD range = Not applicable
+Primary Module Point ID default = Null
+|__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__|
+PVFORMAT |__.__| range: D0 (XXXX.)
+D1 (XXX.X)
+D2 (XX.XX)
+D3 (X.XXX)
+default: D1
 READER COMMENTS
 Honeywell IAC's Automation College welcomes your comments and suggestions to improve future editions of this and
 other documents.
@@ -1632,8 +1320,8 @@ Automation College
 2820 West Kelton Lane
 Phoenix, AZ 85023-3028
 Title of Document: FSC Safety Manager Issue Date: 02/98
-Service Manual
-Document Number: FS13-500 Writer: HSMS Product Marketing
+Configuration Forms
+Document Number: FS88-500 Writer: HSMS Product Marketing
 COMMENTS:
 RECOMMENDATIONS:
 Name: Date:

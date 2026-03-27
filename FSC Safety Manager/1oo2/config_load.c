@@ -24,14 +24,14 @@ int search_word_in_file(const char* filename, const char* search_word) {
     while (fgets(buffer, BUFFER_SIZE, fp) != NULL) {
         line_num++;
         if (strstr(buffer, search_word) != NULL) {
-             printf("Found '%s' on line %d: %s", search_word, line_num, buffer);
+           //  printf("Found '%s' on line %d: %s", search_word, line_num, buffer);
             found++;
             int success = extract_range_for_keyword_in_line(search_word, buffer, &range_min, &range_max);
             if (success) {
-                printf("Parsed range: min = %d, max = %d\n", range_min, range_max);
+         //       printf("Parsed range: min = %d, max = %d\n", range_min, range_max);
                 return (combineInts((uint16_t)range_min,(uint16_t)range_max));
             } else {
-               printf("Failed to parse range in line.\n");
+        //       printf("Failed to parse range in line.\n");
             }
         }
     }

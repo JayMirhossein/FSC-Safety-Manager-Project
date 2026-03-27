@@ -305,7 +305,7 @@ SMPLTFM FSC Safety Manager is using FSC Controller
 Type of Safety Control Platform TRICON Safety Manager is using TRICON Controller
 NAISLOT* # of Analog Input Slots NAOSLOT* # of Analog Output Slots NDISLOT* # of Digital Input Slots |__.__.__| range = 0 to 1000
 default = 0
-NDOSLOT* # of Digital Output Slots NLOGSLOT* # of Logic Slots NDCSLOT* # of Digital Composite Slots |__.__.__| range = 0 to 2000
+NDOSLOT* # of Digital Output Slots NLOGSLOT* # of Logic Slots NDCSLOT* # of Digital Composite Slots |__.__.__| range = 0 to 2500
 default = 0
 NONETXT Digital Composite None State |__.__.__.__| range = 0 to 1000
 default = 0
@@ -388,7 +388,7 @@ N/A if PNTFORM = Componnt
 PRIMMOD range = Not applicable
 Primary Module Point ID default = Null
 |__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__|
-PLCADDR FSC Source Address |__.__.__.__.__| range = 0 to 65535
+PLCADDR FSC Source Address |__.__.__.__.__| range = 0 to 32765
 default = 0 (Not Configured)
 NIM/PV Configuration Display
 PVCHAR LINEAR
@@ -526,7 +526,7 @@ N/A if PNTFORM = Componnt
 PRIMMOD range = Not applicable
 Primary Module Point ID default = Null
 |__.__.__.__.__.__.__.__.__.__.__.__.__.__.__.__|
-PLCADDR FSC Source Address |__.__.__.__.__| range = 0 to 65535
+PLCADDR FSC Source Address |__.__.__.__.__| range = 0 to 32765
 default = 0 (Not Configured)
 OPFINHI OPFINLO |__.__.__.__.__.__.__.__| range = > OPFINLO
 default = 4095.0
@@ -858,7 +858,7 @@ FSC-SM Digital Input Data Point
 Point Assignment Display (continued)
 DITYPE Status Status input (open/closed contacts)
 Digital Input Type
-PLCADDR Source Address in FSC for the PVRAW input. |__.__.__.__.__| range = 0 to 65535
+PLCADDR Source Address in FSC for the PVRAW input. |__.__.__.__.__| range = 0 to 32756
 default = 0 (Not Configured)
 Operating Configuration Display
 N/A if PNTFORM = Componnt
@@ -976,7 +976,7 @@ Page 2 of 2
 02/98
 FSC-SM Digital Output Data Point
 PLCADDR FSC Destination Address Point Assignment Display (continued)
-|__.__.__.__.__| range = 0 to 65535
+|__.__.__.__.__| range = 0 to 32765
 default = 0 (Not Configured)
 DOTYPE Status Status input output
 Digital Output Type Pulse Width Modulated type output
@@ -1244,7 +1244,7 @@ Page 2 of 2
 02/98
 FSC-SM Timer Point
 Point Assignment Display (Continued)
-PLCADDR |__.__.__.__.__| range = 0 to 65535
+PLCADDR |__.__.__.__.__| range = 0 to 32756
 Target Address in FSC for the Set/Reset Contact default = 0 (Not Configured)
 The PLCADDR for the reset contact in FSC must be equal to the PLCADDR for the set contact incremented
 by 1.

@@ -10,6 +10,9 @@
 
 #include <stdio.h>
 #include "config_load.h"
+extern int minV, maxV;
+extern uint16_t parameter_range;
+extern int found;
 int FS88_504(const char* filename, const char* search_word);
 
 #endif /* FS88_504_h */
