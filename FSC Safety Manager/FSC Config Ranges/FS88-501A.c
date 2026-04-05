@@ -31,6 +31,7 @@ struct FSC_SM_UCN_Node_Config_Range{
 };
 
 void print_FSC_SM_UCN_Node_Config_Range(const struct FSC_SM_UCN_Node_Config_Range* s) {
+    printf("FSC_SM_UCN_Node_Config_Range\n\n");
     printf("NTWKNUM_min: %d\n", s->NTWKNUM_min);
     printf("NTWKNUM_max: %d\n", s->NTWKNUM_max);
     printf("NODENUM_min: %d\n", s->NODENUM_min);

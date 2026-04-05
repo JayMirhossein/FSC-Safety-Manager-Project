@@ -6,7 +6,10 @@
 // FSC-SM Analog Input Data Point
 
 #include "FS88-502.h"
-//  FSC-SM Analog Input Data Point
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+//  FSC-SM Analog Input Data Point ranges
 struct FS88_502_FSC_SM_AI_Ranges {
     int NTWKNUM_min,NTWKNUM_max;     // NIM's UCN that Contains This Point range
     int NODENUM_min,NODENUM_max;     // SMM's Address on the UCN range */
@@ -24,7 +27,27 @@ struct FS88_502_FSC_SM_AI_Ranges {
     int PVEULI;           // PV Low Range in EUs
 };
 
+// Dynamic struct to store modules FSC AI data Points
+struct FS88_502_FSC_SM_AI {
+    int NTWKNUM;          // NIM's UCN
+    int NODENUM;          // SMM's Address on the UCN
+    int SLOTNUM;          // Point Slot Number
+    int PLCADDR;          // FSC Source Address
+    char PRIMMOD[64];     // Primary Module Point ID
+    char NAME[16];        // Point name
+    char PTDESC[16];      // Point Descriptor
+    char EUDESC[16];      // Engineering Unit Descriptor
+    char KEYWORD[16];     // Point Keyword Descriptor
+    char UNIT[8];         // Engineering Unit Descriptor
+    int PVRAWHI;          // PV Raw High Value
+    int PVRAWLO;          // PV Raw Low Value
+    int PVEUHI;           // PV High Range in EUs
+    int PVEULI;           // PV Low Range in EUs
+};
+
+// function to print the ranges
 void print_FS88_502_FSC_SM_AI_Ranges(const struct FS88_502_FSC_SM_AI_Ranges* s) {
+    printf("FS88_502_FSC_SM_AI_Ranges\n\n");
     printf("NTWKNUM_min: %d\n", s->NTWKNUM_min);
     printf("NTWKNUM_max: %d\n", s->NTWKNUM_max);
     printf("NODENUM_min: %d\n", s->NODENUM_min);
@@ -45,6 +68,35 @@ void print_FS88_502_FSC_SM_AI_Ranges(const struct FS88_502_FSC_SM_AI_Ranges* s) 
     printf("PVEULI: %d\n", s->PVEULI);
 }
 
+// Function to read a string safely
+void input_string(const char* prompt, char* dest, int size) {
+    printf("%s", prompt);
+    if (fgets(dest, size, stdin)) {
+        size_t len = strlen(dest);
+        if (len > 0 && dest[len - 1] == '\n') {
+            dest[len - 1] = '\0';
+        }
+    }
+}
+
+void input_FS88_502_FSC_SM_AI(struct FS88_502_FSC_SM_AI* ai) {
+    printf("\nEnter values for a new FSC-SM Analog Input Data Point:\n");
+    printf("NTWKNUM: "); scanf("%d", &ai->NTWKNUM); getchar();
+    printf("NODENUM: "); scanf("%d", &ai->NODENUM); getchar();
+    printf("SLOTNUM: "); scanf("%d", &ai->SLOTNUM); getchar();
+    printf("PLCADDR: "); scanf("%d", &ai->PLCADDR); getchar();
+    input_string("PRIMMOD: ", ai->PRIMMOD, sizeof(ai->PRIMMOD));
+    input_string("NAME: ", ai->NAME, sizeof(ai->NAME));
+    input_string("PTDESC: ", ai->PTDESC, sizeof(ai->PTDESC));
+    input_string("EUDESC: ", ai->EUDESC, sizeof(ai->EUDESC));
+    input_string("KEYWORD: ", ai->KEYWORD, sizeof(ai->KEYWORD));
+    input_string("UNIT: ", ai->UNIT, sizeof(ai->UNIT));
+    printf("PVRAWHI: "); scanf("%d", &ai->PVRAWHI); getchar();
+    printf("PVRAWLO: "); scanf("%d", &ai->PVRAWLO); getchar();
+    printf("PVEUHI: "); scanf("%d", &ai->PVEUHI); getchar();
+    printf("PVEULI: "); scanf("%d", &ai->PVEULI); getchar();
+}
+
 int FS88_502(const char* filename, const char* search_word) {
     const char* config_sheet;// Replace with the word to search
     filename = "/Users/jayziabari/Desktop/FSC Safety Manager/FSC Safety Manager/cat1.txt";
@@ -62,7 +114,6 @@ int FS88_502(const char* filename, const char* search_word) {
     
     struct FS88_502_FSC_SM_AI_Ranges FSC_AI_Data_Point;
   
-    
     parameter_range = search_word_in_file(filename, "NTWKNUM"); // NIM's UCN that SM is connected to (Process Network Number)
     minV = parameter_range >> 16;
     maxV = parameter_range & 0xFFFF;
@@ -100,7 +151,8 @@ int FS88_502(const char* filename, const char* search_word) {
     
     print_FS88_502_FSC_SM_AI_Ranges(&FSC_AI_Data_Point);
 
-    
+
+
     return 0;
 }
 

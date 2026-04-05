@@ -21,17 +21,15 @@ struct FS88_504_FSC_SM_DI_Ranges {
     char UNIT[8];         // Engineering Unit Descriptor
 };
 
-
 void print_FS88_504_FSC_SM_DI_Ranges(const struct FS88_504_FSC_SM_DI_Ranges* s) {
+    printf("FS88_504_FSC_SM_DI_Composite\n \n");
     printf("NTWKNUM_min: %d\n", s->NTWKNUM_min);
     printf("NTWKNUM_max: %d\n", s->NTWKNUM_max);
     printf("NODENUM_min: %d\n", s->NODENUM_min);
     printf("NODENUM_max: %d\n", s->NODENUM_max);
     printf("SLOTNUM_min: %d\n", s->SLOTNUM_min);
     printf("SLOTNUM_max: %d\n", s->SLOTNUM_max);
-
 }
-
 
 int FS88_504(const char* filename, const char* search_word) {
     const char* config_sheet;// Replace with the word to search
