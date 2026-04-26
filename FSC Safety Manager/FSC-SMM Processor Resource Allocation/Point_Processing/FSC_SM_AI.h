@@ -9,5 +9,9 @@
 #define FSC_SM_AI_h
 
 #include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int FSC_SM_AI(void);
 
 #endif /* FSC_SM_AI_h */

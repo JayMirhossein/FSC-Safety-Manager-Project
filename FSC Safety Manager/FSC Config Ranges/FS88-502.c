@@ -150,9 +150,6 @@ int FS88_502(const char* filename, const char* search_word) {
     search_word_in_file(filename, "PVEULI");// PV Low Range in EUs
     
     print_FS88_502_FSC_SM_AI_Ranges(&FSC_AI_Data_Point);
-
-
-
     return 0;
 }
 

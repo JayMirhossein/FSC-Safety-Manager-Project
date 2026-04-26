@@ -1,11 +1,9 @@
 /*
- 
  Key Concepts
  pthread_t: Data type to store the unique thread identifier.
  pthread_create(): The function used to spawn a new thread. It takes arguments for the thread ID, attributes (NULL for default), the function the thread will execute, and arguments to pass to that function.
  pthread_join(): The function the main thread calls to wait for a specific created thread to terminate. This ensures the main program doesn't exit before the tasks are completed.
  pthread_exit(): Used to explicitly exit a thread. */
- 
  
 #include <stdio.h>
 #include <stdlib.h>
@@ -19,17 +17,16 @@
 #include "FS88-502.h"
 #include "FS88-504.h"
 #include "FS88-506.h"
+#include "FSC_SM_AI.h"
 
 /// <#Description#>
 int main() {
     
-    const char* word_to_find ; // Replace with the word to search
     const char* filename = "/Users/jayziabari/Desktop/1oo2/1oo2/outfile1.txt";
     
-    pthread_t thread1, thread2; // Declare thread ID variables
-    int ret1, ret2,ret3;
-    printf("Main thread started\n");
-    
+    pthread_t thread1, thread2; // Declare threadss for FSC CP1 and CP2
+    int ret1, ret2;
+    printf("CP1 thread started\n");
     
         // Create the first thread
         ret1 = pthread_create(&thread1, NULL, channel_one, NULL); //
@@ -58,7 +55,7 @@ int main() {
      FS88_504(filename,"FS88-504"); // FSC-SM Digital Composite Data Point
     //FS88_504(filename,"FS88-506"); // FSC-SM Digital Output Data Point
     
-
-
+    FSC_SM_AI();
+    
     return 0;
 }
