@@ -17,13 +17,13 @@ int FSC_SM_AI(void){
 
 
     FILE *fp;
-    char filename[50];
+    char filename[150];
 
     // Seed random generator (only once at startup)
     srand(time(NULL));
 
     for (int i = 0; i < NUM_FILES; i++) {
-        sprintf(filename, "module_%d.txt", i + 1);
+        sprintf(filename, "/Users/jayziabari/Desktop/FSC Safety Manager/FSC Safety Manager/FSC-SMM Processor Resource Allocation/module_%d.txt", i + 1);
 
         fp = fopen(filename, "w");
         if (fp == NULL) {
@@ -52,3 +52,4 @@ int FSC_SM_AI(void){
     printf("8 files with random data created successfully.\n");
     return 0;
 }
+
