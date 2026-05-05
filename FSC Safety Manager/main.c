@@ -18,7 +18,8 @@
 #include "FS88-504.h"
 #include "FS88-506.h"
 #include "FSC_SM_AI.h"
-
+#include "FSC_SM_DI.h"
+#include "FSC_SM_DO.h"
 /// <#Description#>
 int main() {
     
@@ -56,6 +57,8 @@ int main() {
     //FS88_504(filename,"FS88-506"); // FSC-SM Digital Output Data Point
     
     FSC_SM_AI();
+    FSC_SM_DI();
+    FSC_SM_DO();
     
     return 0;
 }

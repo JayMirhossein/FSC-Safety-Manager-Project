@@ -23,7 +23,7 @@ int FSC_SM_AI(void){
     srand(time(NULL));
 
     for (int i = 0; i < NUM_FILES; i++) {
-        sprintf(filename, "/Users/jayziabari/Desktop/FSC Safety Manager/FSC Safety Manager/FSC-SMM Processor Resource Allocation/module_%d.txt", i + 1);
+        sprintf(filename, "/Users/jayziabari/Desktop/FSC Safety Manager/FSC Safety Manager/FSC-SMM Processor Resource Allocation/Point_Processing/AI_module_%d.txt", i + 1);
 
         fp = fopen(filename, "w");
         if (fp == NULL) {
