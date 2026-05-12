@@ -1,12 +1,12 @@
 //
-//  channel_1.h
+//  file_2.h
 //  1oo2
 //
 //  Created by Jay on 27/12/2025.
 //
 
-#ifndef channel_1_h
-#define channel_1_h
+#ifndef file_2_h
+#define file_2_h
 
 #include <stdio.h>
 #include <pthread.h>
@@ -15,7 +15,8 @@
 #include <stdlib.h>
 #include <string.h>
 
-// Task function for the first thread
-void *channel_one(void *arg); 
+// Task function for the second thread
+void *file_two(void *arg) ;
 
-#endif /* channel_1_h */
+
+#endif /* file_2_h */

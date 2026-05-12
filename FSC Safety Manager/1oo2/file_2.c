@@ -1,13 +1,13 @@
 //
-//  channel_2.c
+//  file_2.c
 //  1oo2
 //
 //  Created by Jay on 27/12/2025.
 //
 
-#include "channel_2.h"
+#include "file_2.h"
 
-void *channel_two(void *arg) {
+void *file_two(void *arg) {
     
             const char* filename = "/Users/jayziabari/Desktop/1oo2/cat1.txt";
             FILE *outfile2;

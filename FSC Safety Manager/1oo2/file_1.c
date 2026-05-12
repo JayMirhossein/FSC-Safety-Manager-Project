@@ -1,12 +1,12 @@
 //
-//  channel_1.c
+//  file_1.c
 //  1oo2
 //
 //  Created by Jay on 27/12/2025.
 //
-#include "channel_1.h"
+#include "file_1.h"
 
-void *channel_one(void *arg){
+void *file_one(void *arg){
     
     /* declare a file pointer */
     FILE    *infile, *outfile1;
