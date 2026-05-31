@@ -111,7 +111,7 @@ const char* GetModuleStatus() {
                     return "Internal Compare Error";}
                 
             default:
-                return "Analog Module state NORMAL";
+                return "Analog Module state NORMAL\n";
             }
 
         }

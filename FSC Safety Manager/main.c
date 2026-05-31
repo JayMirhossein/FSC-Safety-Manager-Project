@@ -58,7 +58,7 @@ static void* data_table_compare_thread(void* arg) {
 
 static void* module_status_thread(void* arg) {
     while (1) {
-        printf("\n \n %s", GetModuleStatus(),"\n");
+        printf("\n%s", GetModuleStatus());
         sleep(5);
     }
     return NULL;
