@@ -44,7 +44,7 @@ int compareFiles(char *path1, char *path2) {
     } while (ch1 != EOF && ch2 != EOF);
 
     if (ch1 == EOF && ch2 == EOF) {
-        printf("Files are identical.\n");
+        printf("\n Files are identical.\n");
         return 0; // Files are identical
     } else {
         // This case handles a mismatch in length detected after the loop
@@ -54,7 +54,6 @@ int compareFiles(char *path1, char *path2) {
     // Close the files
     fclose(fp1);
     fclose(fp2);
-
     return EXIT_SUCCESS;
 }
 

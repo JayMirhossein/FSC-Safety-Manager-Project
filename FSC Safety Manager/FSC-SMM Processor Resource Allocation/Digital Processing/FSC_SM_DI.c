@@ -45,7 +45,7 @@ int FSC_SM_DI(void){
         fclose(fp);
     }
 
-    printf("8 files with random data created successfully.\n");
+    //printf("8 files with random data created successfully.\n");
     return 0;
 }
 
