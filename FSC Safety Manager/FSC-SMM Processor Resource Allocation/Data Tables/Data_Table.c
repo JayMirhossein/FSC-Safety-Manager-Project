@@ -22,7 +22,7 @@ int AI_Data_Table(uint8_t module_mask) {
     FILE *outFile,*inFile;
     char line[MAX_LINE];
     char active_module_bit[NUM_FILES];
-    int i=1;
+
     
     for (int bit = 0; bit < NUM_FILES; bit++)
     {
