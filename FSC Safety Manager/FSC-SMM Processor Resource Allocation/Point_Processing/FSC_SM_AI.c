@@ -33,13 +33,13 @@ int FSC_SM_AI(int module_no){
             module_no,
             i + 1
         );
-
         fp = fopen(filename, "w");
         if (fp == NULL) {
             printf("Error creating file %s\n", filename);
             return 1;
         }
         // Write header
+        fprintf(fp, "module_no: %d\n",i+1);
         fprintf(fp, "Module Type: Analog Input\n");
         fprintf(fp, "Module ID: 0xD28B\n");
         fprintf(fp, "Status: %d\n",module_status);

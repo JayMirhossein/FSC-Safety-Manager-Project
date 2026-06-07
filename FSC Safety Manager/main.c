@@ -20,6 +20,7 @@
 #include "FSC_SM_AI.h"
 #include "FSC_SM_DI.h"
 #include "FSC_SM_DO.h"
+#include "Data_Table.h"
 
 
 
@@ -48,6 +49,15 @@ static void* do_thread(void* arg) {
     return NULL;
 }
 
+static void* data_table_thread(void* rag){
+    while(1)
+    {
+        //0x81; // 100000001
+        AI_Data_Table(0x81);
+        sleep(1);}
+    return NULL;
+}
+
 static void* data_table_compare_thread(void* arg) {
     while (1) {
         compareFiles("/Users/jayziabari/Desktop/FSC Safety Manager/FSC Safety Manager/FSC-SMM Processor Resource Allocation/Point_Processing/AI_module_11.txt" , "/Users/jayziabari/Desktop/FSC Safety Manager/FSC Safety Manager/FSC-SMM Processor Resource Allocation/Point_Processing/AI_module_11.txt" );
@@ -63,7 +73,6 @@ static void* module_status_thread(void* arg) {
     }
     return NULL;
 }
-
 
 /// <#Description#>
 int main() {
@@ -86,7 +95,7 @@ int main() {
 //    FSC_SM_DO();
 
 // Declare thread identifiers for FSC_SM processing
-    pthread_t ai_tid, di_tid, do_tid,data_table_compare_tid, module_status_tid;
+    pthread_t ai_tid, di_tid, do_tid,data_table_compare_tid, data_table_tid, module_status_tid;
 
 // Start FSC_SM_AI, FSC_SM_DI, FSC_SM_DO in their own threads
     pthread_create(&ai_tid, NULL, ai_thread, NULL);
@@ -94,6 +103,7 @@ int main() {
     pthread_create(&do_tid, NULL, do_thread, NULL);
     pthread_create(&data_table_compare_tid, NULL, data_table_compare_thread, NULL);
     pthread_create(&module_status_tid, NULL, module_status_thread, NULL);
+    pthread_create(&data_table_tid, NULL, data_table_thread, NULL);
 
 // Wait for all FSC_SM processing threads to finish
     pthread_join(ai_tid, NULL);
@@ -101,6 +111,7 @@ int main() {
     pthread_join(do_tid, NULL);
     pthread_join(data_table_compare_tid, NULL);
     pthread_join(module_status_tid, NULL);
+    pthread_join(data_table_tid, NULL);
 
 
 // FSC Interfacing, Database,Synchronization Flushing, Diagnostics, UCN Communications (Overhead)*/
