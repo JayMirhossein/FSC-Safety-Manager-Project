@@ -7,7 +7,6 @@
 #include "Data_Table.h"
 #define NUM_FILES 8
 #define MAX_LINE 256
-    
 #define Point_Path "/Users/jayziabari/Desktop/FSC Safety Manager/FSC Safety Manager/FSC-SMM Processor Resource Allocation/Point_Processing/"
 #define AI_module1_Path Point_Path "AI_module_11.txt"
 #define AI_module2_Path Point_Path "AI_module_12.txt"
