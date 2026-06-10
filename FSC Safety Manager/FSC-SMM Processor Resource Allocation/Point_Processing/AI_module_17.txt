@@ -1,22 +1,22 @@
 module_no: 7
 Module Type: Analog Input
 Module ID: 0xD28B
-Status: 157
-channel[0]: 33.416706
-channel[1]: 34.579529
-channel[2]: 78.152130
-channel[3]: 2.894669
-channel[4]: 50.703125
-channel[5]: 67.465004
-channel[6]: 84.318825
-channel[7]: 46.494736
-channel[8]: 37.015965
-channel[9]: 27.328331
-channel[10]: 7.244072
-channel[11]: 51.123913
-channel[12]: 39.615665
-channel[13]: 20.510201
-channel[14]: 14.955688
-channel[15]: 60.241096
-Interrupt Pin: 0
-Interrupt Line: 0
+Status: 124
+channel[0]: 33.195572
+channel[1]: 17.925205
+channel[2]: 68.939949
+channel[3]: 73.724388
+channel[4]: 85.799171
+channel[5]: 26.687748
+channel[6]: 40.970421
+channel[7]: 89.858643
+channel[8]: 54.146500
+channel[9]: 40.245907
+channel[10]: 12.991497
+channel[11]: 48.097454
+channel[12]: 73.925598
+channel[13]: 67.549850
+channel[14]: 10.331045
+channel[15]: 33.874928
+Interrupt Pin: 1
+Interrupt Line: 2

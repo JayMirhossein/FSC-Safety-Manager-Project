@@ -22,8 +22,6 @@
 #include "FSC_SM_DO.h"
 #include "Data_Table.h"
 
-
-
 // Thread functions now run continuously in an infinite loop,
 // with a 1-second pause per iteration for CPU relief.
 static void* ai_thread(void* arg) {
@@ -65,7 +63,6 @@ static void* data_table_compare_thread(void* arg) {
     }
     return NULL;
 }
-
 static void* module_status_thread(void* arg) {
     while (1) {
         printf("\n%s", GetModuleStatus());
@@ -73,7 +70,6 @@ static void* module_status_thread(void* arg) {
     }
     return NULL;
 }
-
 /// <#Description#>
 int main() {
     
@@ -109,16 +105,12 @@ int main() {
     pthread_join(ai_tid, NULL);
     pthread_join(di_tid, NULL);
     pthread_join(do_tid, NULL);
-    pthread_join(data_table_compare_tid, NULL);
-    pthread_join(module_status_tid, NULL);
     pthread_join(data_table_tid, NULL);
-
 
 // FSC Interfacing, Database,Synchronization Flushing, Diagnostics, UCN Communications (Overhead)*/
     
-
-
-
+    pthread_join(data_table_compare_tid, NULL);
+    pthread_join(module_status_tid, NULL);
     
     return 0;
 }

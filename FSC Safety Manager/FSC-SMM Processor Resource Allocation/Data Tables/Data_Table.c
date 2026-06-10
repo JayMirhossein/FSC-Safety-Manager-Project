@@ -28,7 +28,7 @@ int AI_Data_Table(uint8_t module_mask) {
     {
         uint8_t bitValue = (module_mask >> bit) & 0x01;
         active_module_bit[bit] = bitValue;
-        printf("Bit %d = %u\n", bit, bitValue);
+        //printf("Bit %d = %u\n", bit, bitValue);
     }
     
     outFile = fopen("/Users/jayziabari/Desktop/FSC Safety Manager/FSC Safety Manager/FSC-SMM Processor Resource Allocation/Data Tables/Point_Data_Table.txt", "w");
@@ -45,7 +45,7 @@ int AI_Data_Table(uint8_t module_mask) {
             inFile = fopen(AI_module1_Path , "r");
             if (inFile == NULL)
             {
-                printf("Cannot open input file.\n");
+                printf("failed to open AI module file.\n");
                 return 1;
             }
             
@@ -65,7 +65,7 @@ int AI_Data_Table(uint8_t module_mask) {
                 inFile = fopen(AI_module2_Path , "r");
                 if (inFile == NULL)
                 {
-                    printf("Cannot open input file.\n");
+                    printf("failed to open AI module file.\n");
                     return 1;
                 }
                 
@@ -85,7 +85,7 @@ int AI_Data_Table(uint8_t module_mask) {
                  inFile = fopen(AI_module3_Path , "r");
                  if (inFile == NULL)
                  {
-                     printf("Cannot open input file.\n");
+                     printf("failed to open AI module file.\n");
                      return 1;
                  }
                  
@@ -104,7 +104,7 @@ int AI_Data_Table(uint8_t module_mask) {
                  inFile = fopen(AI_module4_Path , "r");
                  if (inFile == NULL)
                  {
-                     printf("Cannot open input file.\n");
+                     printf("failed to open AI module file.\n");
                      return 1;
                  }
                  
@@ -124,7 +124,7 @@ int AI_Data_Table(uint8_t module_mask) {
                  inFile = fopen(AI_module5_Path , "r");
                  if (inFile == NULL)
                  {
-                     printf("Cannot open input file.\n");
+                     printf("failed to open AI module file.\n");
                      return 1;
                  }
                  
@@ -143,7 +143,7 @@ int AI_Data_Table(uint8_t module_mask) {
                  inFile = fopen(AI_module6_Path , "r");
                  if (inFile == NULL)
                  {
-                     printf("Cannot open input file.\n");
+                     printf("failed to open AI module file.\n");
                      return 1;
                  }
                  
@@ -163,7 +163,7 @@ int AI_Data_Table(uint8_t module_mask) {
                  inFile = fopen(AI_module7_Path , "r");
                  if (inFile == NULL)
                  {
-                     printf("Cannot open input file.\n");
+                     printf("failed to open AI module file.\n");
                      return 1;
                  }
                  
@@ -183,7 +183,7 @@ int AI_Data_Table(uint8_t module_mask) {
                  inFile = fopen(AI_module8_Path , "r");
                  if (inFile == NULL)
                  {
-                     printf("Cannot open input file.\n");
+                     printf("failed to open AI module file.\n");
                      return 1;
                  }
                  
@@ -200,7 +200,7 @@ int AI_Data_Table(uint8_t module_mask) {
     
     fclose(outFile);
 
-    printf("Filtered data written to Filtered_Data.txt\n");
+    //printf("Filtered data written to Filtered_Data.txt\n");
     return 0;
 }
     
