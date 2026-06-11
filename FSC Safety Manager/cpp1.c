@@ -58,7 +58,7 @@ static void* data_table_thread(void* rag){
 
 static void* data_table_compare_thread(void* arg) {
     while (1) {
-        compareFiles("/Users/jayziabari/Desktop/FSC Safety Manager/FSC Safety Manager/FSC-SMM Processor Resource Allocation/Point_Processing/AI_module_11.txt" , "/Users/jayziabari/Desktop/FSC Safety Manager/FSC Safety Manager/FSC-SMM Processor Resource Allocation/Point_Processing/AI_module_11.txt" );
+        compareFiles("/Users/jayziabari/Desktop/FSC Safety Manager 1/FSC Safety Manager/FSC-SMM Processor Resource Allocation/Point_Processing/AI_module_11.txt" , "/Users/jayziabari/Desktop/FSC Safety Manager 1/FSC Safety Manager/FSC-SMM Processor Resource Allocation/Point_Processing/AI_module_11.txt" );
         sleep(1);
     }
     return NULL;

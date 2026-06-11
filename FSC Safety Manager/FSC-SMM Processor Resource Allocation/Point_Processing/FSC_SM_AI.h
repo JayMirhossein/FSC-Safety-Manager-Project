@@ -7,7 +7,7 @@
 // FSC_SM_AI.h
 #ifndef FSC_SM_AI_H
 #define FSC_SM_AI_H
-#define POINT_PROCESSING_DIR "/Users/jayziabari/Desktop/FSC Safety Manager/FSC Safety Manager/FSC-SMM Processor Resource Allocation/Point_Processing"
+#define POINT_PROCESSING_DIR "/Users/jayziabari/Desktop/FSC Safety Manager 1/FSC Safety Manager/FSC-SMM Processor Resource Allocation/Point_Processing"
 
 // FSC_SM_AI.h
 extern const char *kPointProcessingDir;
