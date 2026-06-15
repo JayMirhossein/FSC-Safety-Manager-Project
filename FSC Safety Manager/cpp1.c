@@ -100,7 +100,7 @@ static void* module_status_thread(void* arg) {
     }
     return NULL;
 }
-
+// monitoring CPP state , if any failure the
 static void* cpp1_status_thread(void* arg) {
     while (1) {
         //QPP fault
@@ -117,6 +117,7 @@ static void* cpp1_status_thread(void* arg) {
         
         FILE *file = fopen(cpp_Path, "w");
         if (file != NULL) {
+            fprintf(file, "FSC cpp1 status \n");
             fprintf(file, "executionTimeOutFailure: %d\n", cpp1_status.executionTimeOutFailure);
             fprintf(file, "qppMemoryFailure: %d\n", cpp1_status.qppMemoryFailure);
             fprintf(file, "watchdogFaulty: %d\n", cpp1_status.watchdogFaulty);
@@ -128,20 +129,17 @@ static void* cpp1_status_thread(void* arg) {
         } else {
             // Handle file open error if needed
         }}
-        
 }
 /// <#Description#>
 int main() {
     
     const char* filename = "/Users/jayziabari/Desktop/1oo2/1oo2/outfile1.txt";
-    
        compareFiles("/Users/jayziabari/Desktop/1oo2/1oo2/outfile1.txt", "/Users/jayziabari/Desktop/1oo2/1oo2/outfile2.txt");
-    
      FS88_501A(filename,"FS88-501A"); // NIM's UCN that SM is connected to (Process Network Number)
      FS88_501A(filename,"FS88-501B"); // NIM's UCN that SM is connected to (Process Network Number)
      FS88_502(filename,"FS88-502"); // FSC-SM Analog Input Data Point
      FS88_504(filename,"FS88-504"); // FSC-SM Digital Composite Data Point
-    //FS88_504(filename,"FS88-506"); // FSC-SM Digital Output Data Point
+     FS88_504(filename,"FS88-506"); // FSC-SM Digital Output Data Point
     
 // Point Processing,Event Detection and Generation
 // Commented out direct calls to FSC_SM_* functions to run them in separate threads
@@ -152,7 +150,6 @@ int main() {
 
 // Declare thread identifiers for FSC_SM processing
     pthread_t ai_tid, di_tid, do_tid,data_table_compare_tid, data_table_tid, module_status_tid,cpp1_status_tid;
-
 
 // Start FSC_SM_AI, FSC_SM_DI, FSC_SM_DO in their own threads
     pthread_create(&ai_tid, NULL, ai_thread, NULL);
