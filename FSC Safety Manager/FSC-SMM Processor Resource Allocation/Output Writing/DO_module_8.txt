@@ -1,21 +1,21 @@
 Module Type: Ditial Input
 Module ID: 0xD28B
 Status: 0xB5D
-channel[0]: 39
-channel[1]: 144
-channel[2]: 10
-channel[3]: 13
-channel[4]: 222
-channel[5]: 238
-channel[6]: 204
-channel[7]: 100
-channel[8]: 210
-channel[9]: 236
-channel[10]: 237
-channel[11]: 66
-channel[12]: 153
-channel[13]: 250
-channel[14]: 210
-channel[15]: 68
-Interrupt Pin: 0
-Interrupt Line: 2
+channel[0]: 84
+channel[1]: 19
+channel[2]: 157
+channel[3]: 188
+channel[4]: 152
+channel[5]: 51
+channel[6]: 72
+channel[7]: 160
+channel[8]: 218
+channel[9]: 72
+channel[10]: 96
+channel[11]: 233
+channel[12]: 195
+channel[13]: 36
+channel[14]: 242
+channel[15]: 157
+Interrupt Pin: 4
+Interrupt Line: 6

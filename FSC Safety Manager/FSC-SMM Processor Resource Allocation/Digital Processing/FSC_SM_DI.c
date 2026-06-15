@@ -19,7 +19,7 @@ int FSC_SM_DI(void){
     srand(time(NULL));
 
     for (int i = 0; i < NUM_FILES; i++) {
-        sprintf(filename, "/Users/jayziabari/Desktop/FSC Safety Manager/FSC Safety Manager/FSC-SMM Processor Resource Allocation/Digital Processing/DI_module_%d.txt", i + 1);
+        sprintf(filename, "/Users/jayziabari/Desktop/FSC Safety Manager 1/FSC Safety Manager/FSC-SMM Processor Resource Allocation/Digital Processing/DI_module_%d.txt", i + 1);
 
         fp = fopen(filename, "w");
         if (fp == NULL) {

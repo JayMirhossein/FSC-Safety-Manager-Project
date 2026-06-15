@@ -7,7 +7,7 @@
 #include "Data_Table.h"
 #define NUM_FILES 8
 #define MAX_LINE 256
-#define Point_Path "/Users/jayziabari/Desktop/FSC Safety Manager/FSC Safety Manager/FSC-SMM Processor Resource Allocation/Point_Processing/"
+#define Point_Path "/Users/jayziabari/Desktop/FSC Safety Manager 1/FSC Safety Manager/FSC-SMM Processor Resource Allocation/Point_Processing/"
 #define AI_module1_Path Point_Path "AI_module_11.txt"
 #define AI_module2_Path Point_Path "AI_module_12.txt"
 #define AI_module3_Path Point_Path "AI_module_13.txt"
@@ -31,7 +31,7 @@ int AI_Data_Table(uint8_t module_mask) {
         //printf("Bit %d = %u\n", bit, bitValue);
     }
     
-    outFile = fopen("/Users/jayziabari/Desktop/FSC Safety Manager/FSC Safety Manager/FSC-SMM Processor Resource Allocation/Data Tables/Point_Data_Table.txt", "w");
+    outFile = fopen("/Users/jayziabari/Desktop/FSC Safety Manager 1/FSC Safety Manager/FSC-SMM Processor Resource Allocation/Data Tables/Point_Data_Table-cpp1.txt", "w");
     if (outFile == NULL)
     {
         printf("Cannot create output file.\n");
