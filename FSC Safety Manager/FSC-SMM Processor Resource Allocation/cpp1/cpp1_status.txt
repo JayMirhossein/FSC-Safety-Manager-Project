@@ -1,8 +1,0 @@
-FSC cpp1 status 
-executionTimeOutFailure: 1
-qppMemoryFailure: 1
-watchdogFaulty: 0
-busDriverFaulty: 0
-internalLinkFaulty: 1
-nonRedundantOutputsLineFault: 0
-qppModeFaulty: 0
