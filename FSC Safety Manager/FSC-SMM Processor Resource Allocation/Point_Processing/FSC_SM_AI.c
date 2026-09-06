@@ -5,7 +5,11 @@
 //  Created by Jay on 25/4/2026.
 //
 
-#include "FSC_SM_AI.h"
+#include "FSC_SM_AI_1.h"
+#include <string.h>
+#include <time.h>
+#define POINT_PROCESSING_DIR1 "/Users/jayziabari/Desktop/FSC Safety Manager 2/FSC Safety Manager/FSC-SMM Processor Resource Allocation/Point_Processing"
+
 
 uint16_t module_status;
 
@@ -29,7 +33,7 @@ int FSC_SM_AI(int module_no){
             filename,
             sizeof(filename),
             "%s/AI_module_%d%d.txt",
-            POINT_PROCESSING_DIR,
+            POINT_PROCESSING_DIR1,
             module_no,
             i + 1
         );
@@ -44,10 +48,19 @@ int FSC_SM_AI(int module_no){
         fprintf(fp, "Module ID: 0xD28B\n");
         fprintf(fp, "Status: %d\n",module_status);
 
-        // Generate random channel values (0–100)
-        for (int ch = 0; ch < NUM_CHANNELS; ch++) {
+        // Generate random channel values (0–100) with timestamp
+        for (int ch = 0; ch < NUM_CHANNELS; ch++)
+        {
             float value = ((float)rand() / (float)RAND_MAX) * 100.0;
-            fprintf(fp, "channel[%d]: %.6f\n", ch, value);
+            time_t now;
+            struct tm *tm_info;
+            char timestamp[32];
+
+            now = time(NULL);
+            tm_info = localtime(&now);
+            strftime(timestamp, sizeof(timestamp), "%Y-%m-%d %H:%M:%S", tm_info);
+
+            fprintf(fp, "channel[%d]: %.6f  Timestamp: %s\n", ch, value, timestamp);
         }
         // Interrupt values (can also be randomized if needed)
         fprintf(fp, "Interrupt Pin: %d\n", rand() % 10);
@@ -59,7 +72,6 @@ int FSC_SM_AI(int module_no){
 
     return module_status;
 }
-
 //
 //  FSC_SM_AI_fault.c
 //  FSC Safety Manager
@@ -67,7 +79,7 @@ int FSC_SM_AI(int module_no){
 //  Created by Jay on 31/5/2026.
 //
 
-#include "FSC_SM_AI.h"
+
 const char* GetModuleStatus() {
     {
         AlarmState state;
@@ -113,7 +125,5 @@ const char* GetModuleStatus() {
             default:
                 return "Analog Module state NORMAL\n";
             }
-
         }
     }}
-

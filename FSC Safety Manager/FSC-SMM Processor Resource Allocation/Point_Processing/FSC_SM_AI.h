@@ -1,13 +1,17 @@
 //
-//  FSC_SM_AI.h
+//  FSC_SM_AI_1.h
 //  FSC Safety Manager
 //
 //  Created by Jay on 25/4/2026.
 //
-// FSC_SM_AI.h
+// FSC_SM_AI_1.h
 #ifndef FSC_SM_AI_H
 #define FSC_SM_AI_H
-#define POINT_PROCESSING_DIR "/Users/jayziabari/Desktop/FSC Safety Manager 1/FSC Safety Manager/FSC-SMM Processor Resource Allocation/Point_Processing"
+
+// address for the primary slot
+#define POINT_PROCESSING_DIR1 "/Users/jayziabari/Desktop/FSC Safety Manager 1/FSC Safety Manager/FSC-SMM Processor Resource Allocation/Point_Processing"
+// address for the seconady slot
+#define POINT_PROCESSING_DIR2 "/Users/jayziabari/Desktop/FSC Safety Manager 2/FSC Safety Manager/FSC-SMM Processor Resource Allocation/Point_Processing"
 
 // FSC_SM_AI.h
 extern const char *kPointProcessingDir;

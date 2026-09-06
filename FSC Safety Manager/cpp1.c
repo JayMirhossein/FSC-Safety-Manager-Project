@@ -24,6 +24,8 @@
 #include "FSC_SM_DO.h"
 #include "Data_Table.h"
 #include <stdbool.h>
+#include <unistd.h> // Required for getpid()
+#include <sys/types.h>
 
 typedef struct
 {
@@ -49,6 +51,9 @@ typedef struct
     bool qppModeFaulty;
 
     bool secondarySwitchOffFaulty;
+    
+    // 1. Get the current process ID
+    pid_t pid ;
 
 } cpp_Status_t;
 
@@ -114,6 +119,7 @@ static void* cpp1_status_thread(void* arg) {
         cpp1_status.internalLinkFaulty =1;
         cpp1_status.nonRedundantOutputsLineFault =0;
         cpp1_status.qppModeFaulty =0;
+        cpp1_status.pid = getpid();;
         
         FILE *file = fopen(cpp_Path, "w");
         if (file != NULL) {
@@ -125,6 +131,7 @@ static void* cpp1_status_thread(void* arg) {
             fprintf(file, "internalLinkFaulty: %d\n", cpp1_status.internalLinkFaulty);
             fprintf(file, "nonRedundantOutputsLineFault: %d\n", cpp1_status.nonRedundantOutputsLineFault);
             fprintf(file, "qppModeFaulty: %d\n", cpp1_status.qppModeFaulty);
+            fprintf(file, "cpp1processorpid: %d\n", cpp1_status.pid);
             fclose(file);
         } else {
             // Handle file open error if needed
