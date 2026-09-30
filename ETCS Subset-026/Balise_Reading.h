@@ -10,4 +10,6 @@
 
 #include <stdio.h>
 
+int balise_reading(const char *baslie_group);
+
 #endif /* Balise_Reading_h */

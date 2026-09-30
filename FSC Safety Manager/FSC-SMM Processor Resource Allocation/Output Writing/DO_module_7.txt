@@ -1,21 +1,21 @@
-Module Type: Ditial Input
+Module Type: Digital Output
 Module ID: 0xD28B
 Status: 0xB5D
-channel[0]: 80
-channel[1]: 247
-channel[2]: 26
-channel[3]: 58
-channel[4]: 71
-channel[5]: 234
-channel[6]: 254
-channel[7]: 97
-channel[8]: 55
-channel[9]: 60
-channel[10]: 51
-channel[11]: 149
-channel[12]: 246
-channel[13]: 78
-channel[14]: 253
-channel[15]: 165
-Interrupt Pin: 6
-Interrupt Line: 7
+channel[0]: 0    Timestamp: 2026-09-06 20:59:19
+channel[1]: 1    Timestamp: 2026-09-06 20:59:19
+channel[2]: 1    Timestamp: 2026-09-06 20:59:19
+channel[3]: 1    Timestamp: 2026-09-06 20:59:19
+channel[4]: 1    Timestamp: 2026-09-06 20:59:19
+channel[5]: 1    Timestamp: 2026-09-06 20:59:19
+channel[6]: 0    Timestamp: 2026-09-06 20:59:19
+channel[7]: 0    Timestamp: 2026-09-06 20:59:19
+channel[8]: 1    Timestamp: 2026-09-06 20:59:19
+channel[9]: 0    Timestamp: 2026-09-06 20:59:19
+channel[10]: 1    Timestamp: 2026-09-06 20:59:19
+channel[11]: 1    Timestamp: 2026-09-06 20:59:19
+channel[12]: 1    Timestamp: 2026-09-06 20:59:19
+channel[13]: 1    Timestamp: 2026-09-06 20:59:19
+channel[14]: 1    Timestamp: 2026-09-06 20:59:19
+channel[15]: 1    Timestamp: 2026-09-06 20:59:19
+Interrupt Pin: 8
+Interrupt Line: 1

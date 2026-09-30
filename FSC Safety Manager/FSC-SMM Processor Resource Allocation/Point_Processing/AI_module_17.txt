@@ -1,0 +1,22 @@
+module_no: 7
+Module Type: Analog Input Position Report 
+Module ID: 0xD28B
+Status: 160
+channel[0]: 0.000000  Timestamp: 2026-09-06 20:59:19
+channel[1]: 14.907804  Timestamp: 2026-09-06 20:59:19
+channel[2]: 0.000000  Timestamp: 2026-09-06 20:59:19
+channel[3]: 0.000000  Timestamp: 2026-09-06 20:59:19
+channel[4]: 20.109240  Timestamp: 2026-09-06 20:59:19
+channel[5]: 0.000000  Timestamp: 2026-09-06 20:59:19
+channel[6]: 0.000000  Timestamp: 2026-09-06 20:59:19
+channel[7]: 15.393555  Timestamp: 2026-09-06 20:59:19
+channel[8]: 87.269913  Timestamp: 2026-09-06 20:59:19
+channel[9]: 0.000000  Timestamp: 2026-09-06 20:59:19
+channel[10]: 0.000000  Timestamp: 2026-09-06 20:59:19
+channel[11]: 0.000000  Timestamp: 2026-09-06 20:59:19
+channel[12]: 0.000000  Timestamp: 2026-09-06 20:59:19
+channel[13]: 0.000000  Timestamp: 2026-09-06 20:59:19
+channel[14]: 66.810280  Timestamp: 2026-09-06 20:59:19
+channel[15]: 30.373991  Timestamp: 2026-09-06 20:59:19
+Interrupt Pin: 2
+Interrupt Line: 4

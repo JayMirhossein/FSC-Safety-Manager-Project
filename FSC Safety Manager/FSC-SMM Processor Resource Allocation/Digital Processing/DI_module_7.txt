@@ -1,21 +1,21 @@
 Module Type: Ditial Input
 Module ID: 0xD28B
 Status: 0xB5D
-channel[0]: 60022
-channel[1]: 63177
-channel[2]: 17551
-channel[3]: 6753
-channel[4]: 58518
-channel[5]: 17450
-channel[6]: 9384
-channel[7]: 39398
-channel[8]: 53339
-channel[9]: 2565
-channel[10]: 3891
-channel[11]: 6864
-channel[12]: 20799
-channel[13]: 8053
-channel[14]: 17536
-channel[15]: 14303
-Interrupt Pin: 6
-Interrupt Line: 0
+channel[0]: 1    Timestamp: 2026-09-06 20:59:19
+channel[1]: 0    Timestamp: 2026-09-06 20:59:19
+channel[2]: 2    Timestamp: 2026-09-06 20:59:19
+channel[3]: 2    Timestamp: 2026-09-06 20:59:19
+channel[4]: 1    Timestamp: 2026-09-06 20:59:19
+channel[5]: 2    Timestamp: 2026-09-06 20:59:19
+channel[6]: 0    Timestamp: 2026-09-06 20:59:19
+channel[7]: 1    Timestamp: 2026-09-06 20:59:19
+channel[8]: 0    Timestamp: 2026-09-06 20:59:19
+channel[9]: 0    Timestamp: 2026-09-06 20:59:19
+channel[10]: 1    Timestamp: 2026-09-06 20:59:19
+channel[11]: 1    Timestamp: 2026-09-06 20:59:19
+channel[12]: 1    Timestamp: 2026-09-06 20:59:19
+channel[13]: 0    Timestamp: 2026-09-06 20:59:19
+channel[14]: 1    Timestamp: 2026-09-06 20:59:19
+channel[15]: 1    Timestamp: 2026-09-06 20:59:19
+Interrupt Pin: 9
+Interrupt Line: 1

@@ -6,9 +6,10 @@
 //
 
 #include "FSC_SM_DO.h"
+#include <time.h>
 
-int FSC_SM_DO(void){
-
+int FSC_SM_DO(void)
+{
 #define NUM_FILES 8
 #define NUM_CHANNELS 16
 
@@ -16,37 +17,49 @@ int FSC_SM_DO(void){
     char filename[150];
 
     // Seed random generator (only once at startup)
-    srand(time(NULL));
+    srand((unsigned int)time(NULL));
 
-    for (int i = 0; i < NUM_FILES; i++) {
-        sprintf(filename, "/Users/jayziabari/Desktop/FSC Safety Manager 1/FSC Safety Manager/FSC-SMM Processor Resource Allocation/Output Writing/DO_module_%d.txt", i + 1);
+    for (int i = 0; i < NUM_FILES; i++)
+    {
+        sprintf(filename,
+                "/Users/jayziabari/Desktop/FSC Safety Manager 1/FSC Safety Manager/FSC-SMM Processor Resource Allocation/Output Writing/DO_module_%d.txt",
+                i + 1);
 
         fp = fopen(filename, "w");
-        if (fp == NULL) {
+        if (fp == NULL)
+        {
             printf("Error creating file %s\n", filename);
             return 1;
         }
 
         // Write header
-        fprintf(fp, "Module Type: Ditial Input\n");
+        fprintf(fp, "Module Type: Digital Output\n");
         fprintf(fp, "Module ID: 0xD28B\n");
         fprintf(fp, "Status: 0xB5D\n");
 
-        // Generate random channel values (0–255)
-        for (int ch = 0; ch < NUM_CHANNELS; ch++) {
-            unsigned int value = rand() % 256;
-            fprintf(fp, "channel[%d]: %u\n", ch, value);
+        // Generate random channel values with timestamp
+        for (int ch = 0; ch < NUM_CHANNELS; ch++)
+        {
+            unsigned int value = rand() % 2;
+
+            time_t now = time(NULL);
+            struct tm *tm_info = localtime(&now);
+
+            char timestamp[32];
+            strftime(timestamp, sizeof(timestamp),
+                     "%Y-%m-%d %H:%M:%S", tm_info);
+
+            fprintf(fp,
+                    "channel[%d]: %u    Timestamp: %s\n",
+                    ch, value, timestamp);
         }
 
-        // Interrupt values (can also be randomized if needed)
+        // Interrupt values
         fprintf(fp, "Interrupt Pin: %d\n", rand() % 10);
         fprintf(fp, "Interrupt Line: %d\n", rand() % 10);
 
         fclose(fp);
     }
 
-    //printf("8 files with random data created successfully.\n");
     return 0;
 }
-
-

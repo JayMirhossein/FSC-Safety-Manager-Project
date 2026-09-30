@@ -6,8 +6,7 @@
 //
 
 #include "Redundnacy_Status.h"
-#include <stdio.h>
-#include <string.h>
+
 
 #define STATUS_FILE "/Users/jayziabari/Desktop/cpp_Watchdog/cpp_Watchdog/cpp_status.txt"
 #define MAX_LINE 512
@@ -57,16 +56,3 @@ int Getredundancystatus(const char *process, char *status)
     return 0;
 }
 
-int main(void)
-{
-    char cpp1Status[20];
-    char cpp2Status[20];
-
-    Getredundancystatus("cpp1", cpp1Status);
-    Getredundancystatus("cpp2", cpp2Status);
-
-    printf("cpp1 Status: %s\n", cpp1Status);
-    printf("cpp2 Status: %s\n", cpp2Status);
-
-    return 0;
-}

@@ -28,6 +28,11 @@
 			path = "FSC Safety Manager";
 			sourceTree = "<group>";
 		};
+		3591CC77301B560F0042F0C6 /* ETCS Subset-026 */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "ETCS Subset-026";
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +49,7 @@
 		3588F5462F0F4930004E631E = {
 			isa = PBXGroup;
 			children = (
+				3591CC77301B560F0042F0C6 /* ETCS Subset-026 */,
 				3588F5512F0F4930004E631E /* FSC Safety Manager */,
 				3588F5502F0F4930004E631E /* Products */,
 			);
@@ -74,6 +80,7 @@
 			);
 			fileSystemSynchronizedGroups = (
 				3588F5512F0F4930004E631E /* FSC Safety Manager */,
+				3591CC77301B560F0042F0C6 /* ETCS Subset-026 */,
 			);
 			name = "FSC Safety Manager";
 			packageProductDependencies = (
@@ -93,6 +100,7 @@
 				TargetAttributes = {
 					3588F54E2F0F4930004E631E = {
 						CreatedOnToolsVersion = 26.2;
+						LastSwiftMigration = 2650;
 					};
 				};
 			};
@@ -246,20 +254,25 @@
 		3588F5572F0F4930004E631E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = H65S8PY37T;
 				ENABLE_HARDENED_RUNTIME = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 6.0;
 			};
 			name = Debug;
 		};
 		3588F5582F0F4930004E631E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = H65S8PY37T;
 				ENABLE_HARDENED_RUNTIME = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 6.0;
 			};
 			name = Release;
 		};

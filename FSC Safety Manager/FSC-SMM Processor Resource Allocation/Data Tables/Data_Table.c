@@ -23,7 +23,6 @@ int AI_Data_Table(uint8_t module_mask) {
     char line[MAX_LINE];
     char active_module_bit[NUM_FILES];
 
-    
     for (int bit = 0; bit < NUM_FILES; bit++)
     {
         uint8_t bitValue = (module_mask >> bit) & 0x01;
@@ -31,7 +30,7 @@ int AI_Data_Table(uint8_t module_mask) {
         //printf("Bit %d = %u\n", bit, bitValue);
     }
     
-    outFile = fopen("/Users/jayziabari/Desktop/FSC Safety Manager 1/FSC Safety Manager/FSC-SMM Processor Resource Allocation/Data Tables/Point_Data_Table-cpp1.txt", "w");
+    outFile = fopen("/Users/jayziabari/Desktop/FSC Safety Manager 1/FSC Safety Manager/FSC-SMM Processor Resource Allocation/Data Tables/Point_Data_Table_cpp1.txt", "w");
     if (outFile == NULL)
     {
         printf("Cannot create output file.\n");
@@ -39,7 +38,6 @@ int AI_Data_Table(uint8_t module_mask) {
         return 1;
     }
     
-
     // module 1 active
         if(active_module_bit[0]) {
             inFile = fopen(AI_module1_Path , "r");

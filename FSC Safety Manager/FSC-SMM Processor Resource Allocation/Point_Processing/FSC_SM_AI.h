@@ -8,6 +8,21 @@
 #ifndef FSC_SM_AI_H
 #define FSC_SM_AI_H
 
+
+/* Alarm/Error States */
+
+#define MAX_LINE     256
+#define NUM_CHANNELS 16
+
+/* Structure to hold one channel */
+typedef struct
+{
+    int channelNo;
+    float value;
+} ChannelData;
+
+
+
 // address for the primary slot
 #define POINT_PROCESSING_DIR1 "/Users/jayziabari/Desktop/FSC Safety Manager 1/FSC Safety Manager/FSC-SMM Processor Resource Allocation/Point_Processing"
 // address for the seconady slot
@@ -22,7 +37,9 @@ extern const char *kPointProcessingDir;
 
 int FSC_SM_AI(int module_no);
 
-/* Alarm/Error States */
+
+
+
 
 typedef enum
 {

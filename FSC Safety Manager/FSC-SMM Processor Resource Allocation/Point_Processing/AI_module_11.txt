@@ -1,0 +1,22 @@
+module_no: 1
+Module Type: Analog Input Speed Sensor 
+Module ID: 0xD28B
+Status: 160
+channel[0]: 0.000000  Timestamp: 2026-09-06 20:59:19
+channel[1]: 0.000000  Timestamp: 2026-09-06 20:59:19
+channel[2]: 30.345905  Timestamp: 2026-09-06 20:59:19
+channel[3]: 73.627365  Timestamp: 2026-09-06 20:59:19
+channel[4]: 0.000000  Timestamp: 2026-09-06 20:59:19
+channel[5]: 0.000000  Timestamp: 2026-09-06 20:59:19
+channel[6]: 5.720982  Timestamp: 2026-09-06 20:59:19
+channel[7]: 0.000000  Timestamp: 2026-09-06 20:59:19
+channel[8]: 0.000000  Timestamp: 2026-09-06 20:59:19
+channel[9]: 0.000000  Timestamp: 2026-09-06 20:59:19
+channel[10]: 0.000000  Timestamp: 2026-09-06 20:59:19
+channel[11]: 65.616272  Timestamp: 2026-09-06 20:59:19
+channel[12]: 62.688614  Timestamp: 2026-09-06 20:59:19
+channel[13]: 0.000000  Timestamp: 2026-09-06 20:59:19
+channel[14]: 0.000000  Timestamp: 2026-09-06 20:59:19
+channel[15]: 1.193552  Timestamp: 2026-09-06 20:59:19
+Interrupt Pin: 9
+Interrupt Line: 9

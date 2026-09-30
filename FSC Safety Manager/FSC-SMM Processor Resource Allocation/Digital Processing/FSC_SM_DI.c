@@ -20,23 +20,33 @@ int FSC_SM_DI(void){
 
     for (int i = 0; i < NUM_FILES; i++) {
         sprintf(filename, "/Users/jayziabari/Desktop/FSC Safety Manager 1/FSC Safety Manager/FSC-SMM Processor Resource Allocation/Digital Processing/DI_module_%d.txt", i + 1);
-
+        
         fp = fopen(filename, "w");
         if (fp == NULL) {
             printf("Error creating file %s\n", filename);
             return 1;
         }
-
+        
         // Write header
         fprintf(fp, "Module Type: Ditial Input\n");
         fprintf(fp, "Module ID: 0xD28B\n");
         fprintf(fp, "Status: 0xB5D\n");
-
+        
         // Generate random channel values (0–65535)
-        for (int ch = 0; ch < NUM_CHANNELS; ch++) {
-            unsigned int value = rand() % 65536;
-            fprintf(fp, "channel[%d]: %u\n", ch, value);
-        }
+        for (int ch = 0; ch < NUM_CHANNELS; ch++)
+        {
+        unsigned int value = rand() % 3;
+        
+        time_t now = time(NULL);
+        struct tm *tm_info = localtime(&now);
+        
+        char timestamp[32];
+        strftime(timestamp, sizeof(timestamp),
+                 "%Y-%m-%d %H:%M:%S", tm_info);
+        
+        fprintf(fp,
+                "channel[%d]: %u    Timestamp: %s\n",
+                ch, value, timestamp);}
 
         // Interrupt values (can also be randomized if needed)
         fprintf(fp, "Interrupt Pin: %d\n", rand() % 10);

@@ -1,0 +1,13 @@
+FSC cpp1 status 
+executionTimeOutFailure: 0
+qppMemoryFailure: 0
+watchdogFaulty: 0
+busDriverFaulty: 0
+internalLinkFaulty: 0
+nonRedundantOutputsLineFault: 0
+qppModeFaulty: 0
+IO Compare err: 0
+base timer IO err: 0
+spurious watchdog: 0
+synch_err: 0
+cpp1processorpid: 57257
