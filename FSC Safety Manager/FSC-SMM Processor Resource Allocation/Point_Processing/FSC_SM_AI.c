@@ -10,21 +10,21 @@
 #include <time.h>
 #include <math.h>
 
+
 #define NUM_FILES 8
 #define NUM_CHANNELS 16
 #define RAND_MAX 0x7fffffff
 #define AI_THRESHOLD 20
 
-#define POINT_PROCESSING_DIR2 "/Users/jayziabari/Desktop/FSC Safety Manager 2/FSC Safety Manager/FSC-SMM Processor Resource Allocation/Point_Processing"
-
-#define OUTPUT_DIR "/Users/jayziabari/Desktop/FSC Safety Manager 1/FSC Safety Manager/FSC-SMM Processor Resource Allocation/Point_Processing"
-
-
 uint16_t module_status;
 
 // this code can be used to right to the analogue module, or the file that is written by the analogue input module
 
+
 int FSC_SM_AI(int module_no){
+    
+    /* Register cleanup function to delete AI files on exit */
+
     
     FILE *fp_module1,*fp_module2;
     char filename[150];
@@ -37,7 +37,6 @@ int FSC_SM_AI(int module_no){
     // Seed random generator (only once at startup)
     srand(time(NULL));
     module_status = rand() % 256;
-    
 
     for (int i = 0; i < NUM_FILES; i++) {
         snprintf(
@@ -117,7 +116,7 @@ int FSC_SM_AI(int module_no){
     }
 
     //printf("8 files with random data created successfully.\n");
-
+    
     return module_status;
 }
 

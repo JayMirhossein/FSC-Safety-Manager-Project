@@ -72,7 +72,7 @@ struct FSC_SM_UCN_Node_Config_Range FSC_SM_UCN;
 
 int FS88_501A(const char* filename, const char* search_word) {
     const char* config_sheet;// Replace with the word to search
-    filename = "/Users/jayziabari/Desktop/FSC Safety Manager/FSC Safety Manager/cat1.txt";
+    filename = "/Users/jayziabari/Desktop/FSC Safety Manager 1/FSC Safety Manager";
     config_sheet = "FS88-501A";
     printf("configuration form '%s' in file '%s'...\n", config_sheet, filename);
     int result = search_word_in_file(filename, config_sheet);

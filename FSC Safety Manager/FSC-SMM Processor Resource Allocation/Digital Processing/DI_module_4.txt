@@ -1,21 +1,21 @@
 Module Type: Ditial Input
 Module ID: 0xD28B
 Status: 0xB5D
-channel[0]: 0    Timestamp: 2026-09-06 20:59:19
-channel[1]: 0    Timestamp: 2026-09-06 20:59:19
-channel[2]: 1    Timestamp: 2026-09-06 20:59:19
-channel[3]: 0    Timestamp: 2026-09-06 20:59:19
-channel[4]: 2    Timestamp: 2026-09-06 20:59:19
-channel[5]: 2    Timestamp: 2026-09-06 20:59:19
-channel[6]: 1    Timestamp: 2026-09-06 20:59:19
-channel[7]: 0    Timestamp: 2026-09-06 20:59:19
-channel[8]: 2    Timestamp: 2026-09-06 20:59:19
-channel[9]: 1    Timestamp: 2026-09-06 20:59:19
-channel[10]: 0    Timestamp: 2026-09-06 20:59:19
-channel[11]: 1    Timestamp: 2026-09-06 20:59:19
-channel[12]: 0    Timestamp: 2026-09-06 20:59:19
-channel[13]: 2    Timestamp: 2026-09-06 20:59:19
-channel[14]: 2    Timestamp: 2026-09-06 20:59:19
-channel[15]: 1    Timestamp: 2026-09-06 20:59:19
-Interrupt Pin: 5
-Interrupt Line: 8
+channel[0]: 2    Timestamp: 2026-09-30 23:14:44
+channel[1]: 0    Timestamp: 2026-09-30 23:14:44
+channel[2]: 1    Timestamp: 2026-09-30 23:14:44
+channel[3]: 1    Timestamp: 2026-09-30 23:14:44
+channel[4]: 2    Timestamp: 2026-09-30 23:14:44
+channel[5]: 2    Timestamp: 2026-09-30 23:14:44
+channel[6]: 2    Timestamp: 2026-09-30 23:14:44
+channel[7]: 0    Timestamp: 2026-09-30 23:14:44
+channel[8]: 1    Timestamp: 2026-09-30 23:14:44
+channel[9]: 2    Timestamp: 2026-09-30 23:14:44
+channel[10]: 0    Timestamp: 2026-09-30 23:14:44
+channel[11]: 1    Timestamp: 2026-09-30 23:14:44
+channel[12]: 2    Timestamp: 2026-09-30 23:14:44
+channel[13]: 0    Timestamp: 2026-09-30 23:14:44
+channel[14]: 0    Timestamp: 2026-09-30 23:14:44
+channel[15]: 2    Timestamp: 2026-09-30 23:14:44
+Interrupt Pin: 4
+Interrupt Line: 1

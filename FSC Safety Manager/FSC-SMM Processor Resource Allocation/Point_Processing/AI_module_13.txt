@@ -1,22 +1,22 @@
 module_no: 3
 Module Type: Analog Input Speed Sensor 
 Module ID: 0xD28B
-Status: 160
-channel[0]: 94.453949  Timestamp: 2026-09-06 20:59:19
-channel[1]: 25.105709  Timestamp: 2026-09-06 20:59:19
-channel[2]: 0.000000  Timestamp: 2026-09-06 20:59:19
-channel[3]: 0.000000  Timestamp: 2026-09-06 20:59:19
-channel[4]: 80.737808  Timestamp: 2026-09-06 20:59:19
-channel[5]: 0.000000  Timestamp: 2026-09-06 20:59:19
-channel[6]: 10.632067  Timestamp: 2026-09-06 20:59:19
-channel[7]: 5.317585  Timestamp: 2026-09-06 20:59:19
-channel[8]: 72.642654  Timestamp: 2026-09-06 20:59:19
-channel[9]: 45.672897  Timestamp: 2026-09-06 20:59:19
-channel[10]: 74.624481  Timestamp: 2026-09-06 20:59:19
-channel[11]: 0.000000  Timestamp: 2026-09-06 20:59:19
-channel[12]: 9.620333  Timestamp: 2026-09-06 20:59:19
-channel[13]: 0.000000  Timestamp: 2026-09-06 20:59:19
-channel[14]: 39.637985  Timestamp: 2026-09-06 20:59:19
-channel[15]: 0.000000  Timestamp: 2026-09-06 20:59:19
-Interrupt Pin: 1
-Interrupt Line: 8
+Status: 251
+channel[0]: 34.458897  Timestamp: 2026-09-30 23:14:44
+channel[1]: 0.000000  Timestamp: 2026-09-30 23:14:44
+channel[2]: 81.265442  Timestamp: 2026-09-30 23:14:44
+channel[3]: 78.311783  Timestamp: 2026-09-30 23:14:44
+channel[4]: 0.000000  Timestamp: 2026-09-30 23:14:44
+channel[5]: 0.000000  Timestamp: 2026-09-30 23:14:44
+channel[6]: 58.458054  Timestamp: 2026-09-30 23:14:44
+channel[7]: 0.000000  Timestamp: 2026-09-30 23:14:44
+channel[8]: 88.257042  Timestamp: 2026-09-30 23:14:44
+channel[9]: 0.000000  Timestamp: 2026-09-30 23:14:44
+channel[10]: 57.049461  Timestamp: 2026-09-30 23:14:44
+channel[11]: 0.000000  Timestamp: 2026-09-30 23:14:44
+channel[12]: 0.000000  Timestamp: 2026-09-30 23:14:44
+channel[13]: 58.384388  Timestamp: 2026-09-30 23:14:44
+channel[14]: 0.000000  Timestamp: 2026-09-30 23:14:44
+channel[15]: 66.671478  Timestamp: 2026-09-30 23:14:44
+Interrupt Pin: 8
+Interrupt Line: 2

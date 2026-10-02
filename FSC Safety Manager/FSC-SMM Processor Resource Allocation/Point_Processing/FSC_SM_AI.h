@@ -22,11 +22,12 @@ typedef struct
 } ChannelData;
 
 
-
 // address for the primary slot
 #define POINT_PROCESSING_DIR1 "/Users/jayziabari/Desktop/FSC Safety Manager 1/FSC Safety Manager/FSC-SMM Processor Resource Allocation/Point_Processing"
 // address for the seconady slot
 #define POINT_PROCESSING_DIR2 "/Users/jayziabari/Desktop/FSC Safety Manager 2/FSC Safety Manager/FSC-SMM Processor Resource Allocation/Point_Processing"
+
+#define OUTPUT_DIR "/Users/jayziabari/Desktop/FSC Safety Manager 1/FSC Safety Manager/FSC-SMM Processor Resource Allocation/Point_Processing"
 
 // FSC_SM_AI.h
 extern const char *kPointProcessingDir;
@@ -36,10 +37,6 @@ extern const char *kPointProcessingDir;
 #include <stdint.h>
 
 int FSC_SM_AI(int module_no);
-
-
-
-
 
 typedef enum
 {
@@ -54,7 +51,10 @@ typedef enum
     STATE_INTERNAL_COMPARE_ERROR
 } AlarmState;
 
+
+
 /* Return alarm/error message */
 const char* GetModuleStatus();
+void cleanup_file(void);
 
 #endif // !FSC_SM_AI_H

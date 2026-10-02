@@ -99,7 +99,7 @@ void input_FS88_502_FSC_SM_AI(struct FS88_502_FSC_SM_AI* ai) {
 
 int FS88_502(const char* filename, const char* search_word) {
     const char* config_sheet;// Replace with the word to search
-    filename = "/Users/jayziabari/Desktop/FSC Safety Manager/FSC Safety Manager/cat1.txt";
+    filename = "/Users/jayziabari/Desktop/FSC Safety Manager 1/FSC Safety Manager";
     config_sheet = "FS88-502";
     printf("configuration form '%s' in file '%s'...\n", config_sheet, filename);
     int result = search_word_in_file(filename, config_sheet);
